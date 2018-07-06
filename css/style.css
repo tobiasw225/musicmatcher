@@ -1,0 +1,45 @@
+
+    <style>
+      body {
+      }
+      @media (min-width: 992px) {
+        body {
+        }
+      }
+
+			.crop-select-js {
+				width : 65%;
+			}
+
+			#pic_section {
+				height: 100%;
+				border-right: .3em dotted black;
+			}
+			h1 {
+    			text-align: center;
+			}
+			#mybuttons {
+				margin: 1em;
+			}
+			
+			#myresponse {
+				text-align: center;
+				background-color: LightSmoke;
+  				line-height: 200px;
+  			   	border: dotted black 1px;
+
+			}
+			.changed_img {
+				width : 70%;
+			}
+			
+			.helper {
+				 display: inline-block;
+  				vertical-align: middle;
+  				line-height: normal;
+			}
+			.tooltip_templates { display: none; }
+			
+.contactus {
+	height: 30em;
+}
