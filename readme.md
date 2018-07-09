@@ -1,4 +1,5 @@
 # Music Matcher
+$ indicates bash-comma
 
 ## what we are
 
@@ -11,6 +12,46 @@ If you want to move the files to [/var/www/html/]() make sure you have writing p
 	
 	$ git clone git@github.com:tobiasw225/musicmatcher.git
 	$ sudo chown -R yourusername:www-data /folder/used/by/EE
+
+### How to install audiveris
+The following steps describe how to install everything in order to run the OMR. It's not necessary  to install gradle, you can simply run
+
+	$ /audiveris/gradlew
+
+with the corresponding command.
+
+	$ sudo apt-get update
+	$ sudo apt-get install openjdk-8-jdk	
+	$ sudo apt-get install libfreetype6-dev
+For Audiveris to work you need at least the four language-packages
+
+	$ sudo apt-get install tesseract-ocr tesseract-ocr-deu tesseract-ocr-eng tesseract-ocr-fra tesseract-ita
+
+The installation location might be different like /usr/share/tesseract-ocr depending on operating system. To use the tesseract files, you have to add the following system variable:
+
+	$ export TESSDATA_PREFIX=/usr/share/tesseract-ocr/
+	
+if you want to add it permanently, add the same command at the end of ~/.profile
+
+Now clone the repository, change to the development-branch and install everything with gradle clean build. Gradle will download and install all necessary  dependencies.
+
+	$ git clone https://github.com/Audiveris/audiveris.git
+	$ git checkout .
+	$ git checkout developement
+	$ cd audiveris
+	$ ./gradlew clean build 
+
+	$ cd build/distributions
+Unzip the directory inside and start the (gui-) programm with:  
+
+	$ ./bin/Audiveris
+
+Alternatively you can start Audiveris with
+
+	$audiveris/gradlew run 
+	
+We will use the bash interface.
+
 
 
 ## docker-container

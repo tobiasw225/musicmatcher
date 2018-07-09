@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Crop-Notes</title>
+		<title>music matcher</title>
 		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   		<link rel="stylesheet" href="css/bootstrap.min.css" type = "text/css"/>
@@ -65,7 +65,7 @@
 
 
 <div class="navbar navbar-fixed-bottom">
-						&copy; Copyright  by Tobias, Pavel & Conal (2018)
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
 </div>
 	</body>
 </html>

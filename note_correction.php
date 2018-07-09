@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Crop-Notes</title>
+		<title>music matcher</title>
 		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 		
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -39,7 +39,6 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
               <a class="nav-link" href="index.php">home
-                <span class="sr-only">(current)</span>
               </a>
             </li>
 
@@ -49,6 +48,8 @@
             
             <li class="nav-item">
               <a class="nav-link" href="#">note correction</a>
+                              <span class="sr-only">(current)</span>
+
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contact.html">contact</a>
