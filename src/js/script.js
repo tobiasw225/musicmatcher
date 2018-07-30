@@ -3,6 +3,8 @@
  */
 
 $(function() {
+	var current_img_path = "";
+	
 	// init tooltips
 	$('.tooltip').tooltipster({
 		    theme: 'tooltipster-punk'
@@ -13,6 +15,9 @@ $(function() {
 	 * 
 	 */
 	function load_filenames (path){
+		/**
+		 * better: load database with pictures
+		 */
 					var filenames = [];
 							$.post("receive.php", {
 							path: path
@@ -63,7 +68,24 @@ $(function() {
         }
       });*/
 
-				$('#submitmydata').click(function() {
+				// get auch ok und vllt sogar besser (?)
+				$('#sendtoomr').click(function(){
+					if (current_img_path.length){
+						$.post("php/omr_processing.php", {
+						proc_image : current_img_path
+					}).done(function(data, textStatus, jqXHR) {
+						$("#myresponse").html(data);
+						// reset current_img_path
+						current_img_path = "";
+						//alert("success");
+						//location.href = 'note_correction.php';
+					}).fail(function(jqXHR, textStatus, errorThrown) {
+						alert(errorThrown);
+					});
+					}
+				});
+
+				$('#cropmypicture').click(function() {
 					// get data from picture
 					var x = $('#crop-select').CropSelectJs('getSelectionBoxX');
 					var y = $('#crop-select').CropSelectJs('getSelectionBoxY');
@@ -83,9 +105,9 @@ $(function() {
 					x = x*scale_factor;
 					y = y*scale_factor;
 
-					console.log(scale_factor);
-					console.log(width, height);				
-					console.log(x, y);
+					//console.log(scale_factor);
+					//console.log(width, height);				
+					//console.log(x, y);
 					console.log(src);
 					// send it to receive.php for cropping
 					$.post("receive.php", {
@@ -96,9 +118,9 @@ $(function() {
 						src : src
 					}).done(function(data, textStatus, jqXHR) {
 						$("#myresponse").html(data);
+						// set src for further processing
+						current_img_path = src;
 						$("#resdivwrapper").prop('title','you deserve a cookie. but just one!');
-
-
 						console.log("done cropping");
 					}).fail(function(jqXHR, textStatus, errorThrown) {
 						alert(errorThrown);
