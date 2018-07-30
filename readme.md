@@ -48,7 +48,7 @@ Unzip the directory inside and start the (gui-) programm with:
 
 Alternatively you can start Audiveris with
 
-	$audiveris/gradlew run 
+	$ audiveris/gradlew run 
 	
 We will use the bash interface.
 
@@ -56,6 +56,18 @@ We will use the bash interface.
 
 ## docker-container
 we best set up a simple php-server as a docker-container.
+
+probably we don't need that much
+
+	$ sudo chmod 0777 .
+	$ sudo /etc/init.d/apache2 stop 
+	$ docker build -t mockup .
+
+change filepath
+
+	$ docker run -p 80:80 -v ~/musicmatcher/src/:/var/www/html/ musicmatcher
+access page at 
+http://localhost:8080/
 
 
 ## crop music notes
