@@ -84,13 +84,18 @@
 				</div>
 				
 				<div class="row">
-					<div id="mybuttons">
+					<div class="col mybuttons" >
 						<button class="btn btn-default" id="select-all-btn" class="tooltip" title="reset selection - try again, no worries.">
 							reset
 						</button>
-						<button class="btn btn-default" id="submitmydata" class="tooltip" title="this will submit your data and show the selection on the right side!">
+						<button class="btn btn-default" id="cropmypicture" class="tooltip" title="this will crop the picture and show the selection on the right side!">
 							crop img
 						</button>
+					</div>
+					<div class="col mybuttons">
+						<button class="btn btn-default" id="sendtoomr" class="tooltip" title="this will submit your data and navigate to the next page!">
+							send img
+						</button>	
 					</div>
 					
 				</div>
