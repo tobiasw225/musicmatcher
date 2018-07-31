@@ -35,13 +35,14 @@ function crop_my_png_image($x,$y,$width,$heigth,$src){
 	/**
 	* crops picture and saves it
 	**/
+	$src = '../'.$src;
 	$img_r = imagecreatefrompng($src);
 	list($src_w, $src_h) = getimagesize($src);
 	$dst_r = ImageCreateTrueColor( $width, $heigth );
 	imagecopyresampled($dst_r,$img_r,0,0, $x,$y,
 		$src_w,$src_h,$src_w,$src_h);
 	header('Content-type: image/png');
-	$output_file = "out/".basename($src);
+	$output_file = "../out/".basename($src);
 	imagepng($dst_r, $output_file);
 //	echo "<p>you deserve a cookie. but just one!</p>";
 //	echo $output_file;

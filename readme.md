@@ -61,13 +61,13 @@ probably we don't need that much
 
 	$ sudo chmod 0777 .
 	$ sudo /etc/init.d/apache2 stop 
-	$ docker build -t mockup .
+	$ docker build -t musicmatcher .
 
 change filepath
 
 	$ docker run -p 80:80 -v ~/musicmatcher/src/:/var/www/html/ musicmatcher
 access page at 
-http://localhost:8080/
+	http://localhost:8080/ 
 
 
 ## crop music notes

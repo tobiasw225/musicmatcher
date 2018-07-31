@@ -47,6 +47,9 @@
             <li class="nav-item">
               <a class="nav-link" href="crop_notes.php">cropper</a>
             </li>
+                        <li class="nav-item">
+              <a class="nav-link" href="note_correction.php">note correction</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="contact.html">contact</a>
             </li>
