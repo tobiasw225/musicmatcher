@@ -20,16 +20,14 @@ Visit [docker.com](https://www.docker.com/docker-windows) to download the window
 After having installed docker, move into the musicmatcher directory. If a webserver is running in the background, you can stop it e.g. with 
 
 	$ sudo /etc/init.d/apache2 stop 
-	
-You also might need to increase the accessability of the musicmatcher directory
-	
-	$ sudo chmod 0777 .
 
-Finally you build the container with the following command. Make sure to be in the musicmatcher directory, docker will find the Dockerfile automatically.
+
+Finally you build the container with the following command. Make sure to be in the musicmatcher directory, docker will find the Dockerfile automatically. 
 
 	$ docker build -t musicmatcher .
 
-This will install all needed dependecies in our project and set some environment variables. You thus can skip the sections on how to install audiveris and how to install without docker. To run the program, enter the following command. **You will have to change the path to the musicmatcher directory!**
+This will install all needed dependecies in our project and set some environment variables. You thus can skip the sections on how to install audiveris and how to install without docker. To run the program, enter the following command. The Docker-container is based on an ubuntu-image for simplicity reasons. This can be changed if need be. Make sure your computer has enough space (~1GB).
+**You will have to change the path to the musicmatcher directory!**
 
 	$ docker run -p 80:80 -v /path/to/musicmatcher/src/:/var/www/html/ musicmatcher
 
