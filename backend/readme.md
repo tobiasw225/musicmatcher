@@ -1,11 +1,18 @@
 # Backend Functionalities
+
+## preprocessing
 written in python3 and bash
 
-## tesseract
+### Tesseract
 uses pytesseract and wand to use imagick
 
 
-## ocropy (ocr-d)
+### Ocropy (ocr-d)
 
 (not yet added)
-## textcleaner
+### Textcleaner
+
+
+## Audiveris
+
+This is not included in the git and will be installed during docker build. Used to run OMR.

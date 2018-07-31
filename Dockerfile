@@ -26,7 +26,7 @@ RUN apt-get install tesseract-ocr tesseract-ocr-deu tesseract-ocr-eng tesseract-
 
 RUN export TESSDATA_PREFIX=/usr/share/tesseract-ocr/
 
-## not test yet
+## not test yet. 
 RUN apt-get install git -y
 # RUN cd backend/ && git clone https://github.com/Audiveris/audiveris.git
 # RUN git checkout .
