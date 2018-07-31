@@ -3,9 +3,8 @@
 	<head>
 		<title>music matcher</title>
 		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-		
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		  		<link rel="stylesheet" href="css/bootstrap.min.css" type = "text/css"/>
+  		<link rel="stylesheet" href="css/bootstrap.min.css" type = "text/css"/>
 
 		<!-- CropSelectJs files -->
 		<link href="node_modules/crop-select-js/crop-select-js.min.css" rel="stylesheet" type="text/css" />
@@ -25,11 +24,13 @@
 		<!-- Custom styles -->
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 	</head>
+	
+
 	<body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.php">music matcher: select</a>
+        <a class="navbar-brand" href="#">music matcher</a>
         <!-- responsive menu -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -38,7 +39,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.php">home
+              <a class="nav-link" href="#">home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -46,8 +47,7 @@
             <li class="nav-item">
               <a class="nav-link" href="crop_notes.php">cropper</a>
             </li>
-            
-            <li class="nav-item">
+                        <li class="nav-item">
               <a class="nav-link" href="note_correction.php">note correction</a>
             </li>
             <li class="nav-item">
@@ -65,39 +65,10 @@
       </div>
  
     </nav>
-    
-		<div class="container" style="margin-top: 10px">
-			  <div class="row">
 
 
-					
-				<div class="col-xs-12 col-md-6" class="tooltip" id="pic_section" title="drag the corners to select the notes!">
-					<!-- this is where the pic goes !-->
-					<div id="crop-select"></div>
-				</div>
-
-				<div class="col-xs-12 col-md-6" class="tooltip" title="nothing to see here. move to the left." id="resdivwrapper" >
-						<div id="myresponse" ><span class="helper">your selection will appear here.	</span></div>
-				</div>
-				
-
-				</div>
-				
-				<div class="row">
-					<div id="mybuttons">
-						<button class="btn btn-default" id="select-all-btn" class="tooltip" title="reset selection - try again, no worries.">
-							reset
-						</button>
-						<button class="btn btn-default" id="submitmydata" class="tooltip" title="this will submit your data and show the selection on the right side!">
-							crop img
-						</button>
-					</div>
-					
-				</div>
-				
-		</div>
-
-
-
+<div class="navbar navbar-fixed-bottom">
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+</div>
 	</body>
 </html>
