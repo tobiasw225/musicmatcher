@@ -53,7 +53,7 @@ RUN apt-get install libfreetype6-dev -y && \
  apt-get install tesseract-ocr tesseract-ocr-deu tesseract-ocr-eng tesseract-ocr-fra  -y 
 ## pipe into  /etc/environment
 # echo "TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/" >> /etc/environment 
-
+ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/
 
 
 # -------------------------------------------------------------
@@ -69,6 +69,11 @@ RUN cd audiveris && \
  git checkout development && \
  export TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/ && \
   ./gradlew clean build 
+
+## move compiled program 
+RUN tar -xf /audiveris/build/distributions/Audiveris.tar -C /home/
+
+
 
 ##... set projet variable to executable
 
