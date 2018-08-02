@@ -141,7 +141,11 @@ class MWBCrawler:
             for i, link in enumerate(lines,0):
                 if link:
                     print("{0}/{1} Links:\t {2}".format(i+1,num_lines,link))
-                    link_ar.append(self.get_links(link))
+                    try:
+                        link = self.get_links(link)
+                        link_ar.append(link)
+                    except TypeError:
+                        pass
         save_as_json(output=link_ar,filename=link_file+".json")
 
     def crawl_txt(self, url):
@@ -191,8 +195,8 @@ class MWBCrawler:
             name = link_obj['book_url'].strip().split("/")[-1]
             if link_obj['txt_url']:
                 print("{0}/{1} Links:\t {2}".format(i + 1, len(link_objs), name))
-                self.crawl_pdf(link_obj['pdf_url'])
-                #self.crawl_txt(link_obj['txt_url'])
+                #self.crawl_pdf(link_obj['pdf_url'])
+                self.crawl_txt(link_obj['txt_url'])
                 print(name)
 
             else:
@@ -203,8 +207,7 @@ class MWBCrawler:
 
 mbwb = MWBCrawler()
 
-link_file = "/home/tobias/Dokumente/Citizen Science/project/crawling/musikalisches_wochenblatt_links.txt"
+link_file = "/home/tobias/Dokumente/Citizen Science/project/crawling/neuezeitschriftfuermusik_links.txt"
 #mbwb.get_all_links_of_file(link_file)
 mbwb.scrape_srcs(link_file)
 
-#mbwb.get_links(url="http://www.archive.org/details/musikalischeswo02unkngoog")
