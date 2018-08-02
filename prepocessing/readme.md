@@ -1,18 +1,27 @@
-# Backend Functionalities
+# Offline Functionalities
 
-## preprocessing
-written in python3 and bash
+Written in Python3 and Bash.
+
+
+## Crawler
+
+### mwb_crawler.py
+This script collects links to versions of the MWB and saves them on a local disk.
+
+
+## Preprocessing
+
+@also needed: cmd for splitting pdfs
 
 ### Tesseract
 uses pytesseract and wand to use imagick
+
+### Textcleaner
 
 
 ### Ocropy (ocr-d)
 
 (not yet added)
-### Textcleaner
 
 
-## Audiveris
 
-This is not included in the git and will be installed during docker build. Used to run OMR.
