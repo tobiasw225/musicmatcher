@@ -158,7 +158,6 @@ class MWBCrawler:
         try:
             with urllib.request.urlopen(req) as response:
                 html  = response.read().decode('utf-8')
-
                 soup2 = BeautifulSoup(html, "html.parser")
                 text_el= str(soup2.find("pre"))
                 if text_el:
@@ -184,6 +183,24 @@ class MWBCrawler:
         with open(output_file, "wb") as code:
             code.write(r.content)
 
+    def get_download_page_link(self, name):
+        return self.base_url +"/download/"+ name
+
+    def crawl_meta_data(self, name):
+        """
+        actually better than txt + pdf
+        :param name:
+        :return:
+        """
+
+        url = self.get_download_page_link(name) + "/{}_meta.xml".format(name)
+        r = requests.get(url)
+        # open method to open a file on your system and write the contents
+        output_file = output_folder + 'xml_info/' + url.split("/")[-1]
+        with open(output_file, "wb") as code:
+            code.write(r.content)
+
+
     def scrape_srcs(self, link_file):
         """
         actually scrape txt+pdf
@@ -196,8 +213,10 @@ class MWBCrawler:
             if link_obj['txt_url']:
                 print("{0}/{1} Links:\t {2}".format(i + 1, len(link_objs), name))
                 #self.crawl_pdf(link_obj['pdf_url'])
-                self.crawl_txt(link_obj['txt_url'])
+                #self.crawl_txt(link_obj['txt_url'])
+                self.crawl_meta_data(name)
                 print(name)
+
 
             else:
                 print('mistake while downloading')
@@ -207,7 +226,7 @@ class MWBCrawler:
 
 mbwb = MWBCrawler()
 
-link_file = "/home/tobias/Dokumente/Citizen Science/project/crawling/neuezeitschriftfuermusik_links.txt"
+link_file = "../res/musikalisches_wochenblatt_links.txt"
 #mbwb.get_all_links_of_file(link_file)
 mbwb.scrape_srcs(link_file)
 
