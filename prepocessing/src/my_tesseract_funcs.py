@@ -12,21 +12,25 @@ logger = get_my_logger(fout_name="logger.log")
 
 class Pdf2Text:
 
-    def __init__(self):
-        self.output_folder = "/home/tobias/pyenvs/tesseractvenv/out/"
+    def __init__(self, output_folder):
+        self.output_folder = output_folder
         self.output_img_folder= self.output_folder + "img/"
         self.output_folder_text = self.output_folder + "txt/"
 
-    def convert_pdf2png(self, filename):
+    def convert_pdf2png(self, filename, output_folder=""):
         """
         use magick to convert pdf
         :param filename:
         :return:
         """
+
         base_filename = basename(filename)
-        output_filename = self.output_img_folder+ base_filename.split(".")[:-1][0] \
-                          + ".conv.png"
-        logger.info(output_filename)
+        if not output_folder:
+            output_filename = self.output_img_folder+ base_filename.split(".")[:-1][0] \
+                              + ".conv.png"
+        else:
+            output_filename = output_folder + base_filename +".png"
+        #logger.info(output_filename)
         with Image(filename=filename,resolution=400) as img:
             img.compression_quality = 100
             img.format = 'png'
@@ -100,7 +104,7 @@ class Pdf2Text:
         conv_filename = self.call_textcleaner(conv_filename)
         self.run_tesseract_on_file(conv_filename)
 
-    def run_on_folder(self, folder_name):
+    def run_complete_on_folder(self, folder_name):
         """
 
         :param folder_name:
@@ -116,8 +120,7 @@ class Pdf2Text:
             num_files = len(files)
             for i, file in enumerate(files, 0):
                 if i % 10 == 0:
-                    print_progress(i, num_files, prefix='', suffix='',
-                                   decimals=2, bar_length=100)
+                    print("{0}/{1}:\t {2}".format(i + 1, num_files, file))
 
                 if os.path.isfile(os.path.join(folder_name, file)):
                     if file.endswith(".pdf"):
@@ -128,12 +131,65 @@ class Pdf2Text:
         pass
 
 
+    def run_pdf_to_png_on_folder(self, folder_name):
+        """
+
+        :param folder_name:
+        :return:
+        """
+
+        if os.path.isdir(folder_name):
+            logger.info("convert dir {}".format(folder_name))
+            img_output = folder_name + "/img/"
+
+            if not os.path.exists(img_output):
+                os.makedirs(img_output)
+
+            files = os.listdir(folder_name)
+            num_files = len(files)
+            for i, file in enumerate(files, 0):
+                proc_file = os.path.join(folder_name, file)
+                if os.path.isfile(proc_file):
+                    if i % 50 == 0:
+                        print("{0}/{1}:\t {2}".format(i + 1, num_files, file))
+                    self.convert_pdf2png(filename=proc_file, output_folder=img_output)
+
+        else:
+            raise ValueError("no valid file or dir.")
+
+
+    def run_func_complete(self, base_input_folder=""):
+        """
+        could also be called with tesseract function
+        :param base_input_folder:
+        :return:
+        """
+        if os.path.isdir(base_input_folder):
+            logger.info("convert everything directly below dir {}".format(base_input_folder))
+
+        sub_folders = os.listdir(base_input_folder)
+        d = base_input_folder
+        sub_folders = [os.path.join(d, o) for o in os.listdir(d)
+         if os.path.isdir(os.path.join(d, o))]
+
+        num_files = len(sub_folders)
+        for i, folder in enumerate(sub_folders, 0):
+
+            if os.path.isdir(folder):
+                print("{0}/{1}:\t of everything {2}".format(i + 1, num_files, folder))
+                self.run_pdf_to_png_on_folder(folder_name=folder)
+
+
+
 if __name__ == '__main__':
     filename = "/home/tobias/pyenvs/tesseractvenv/input/Page_001.pdf"
-    p2t = Pdf2Text()
-    p2t.run_on_folder("/home/tobias/pyenvs/tesseractvenv/input")
+    output_folder = "/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/"
+    p2t = Pdf2Text(output_folder)
+    #p2t.run_on_folder("/home/tobias/pyenvs/tesseractvenv/input")
 
-    # p2t.run_on_file(filename)
-    #conv_filename = p2t.convert_pdf2png(filename)
+    #p2t.run_on_file(filename)
+
+    #p2t.run_pdf_to_png_on_folder("/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/splitted/bub_gb_1UMvAAAAMAAJ")
+    p2t.run_func_complete("/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/splitted/")
     #conv_filename = p2t.convert_image_to_greyscale("/home/tobias/pyenvs/tesseractvenv/mw.png", args={"preprocess":"blur"})
     #p2t.run_tesseract_on_file(conv_filename)
