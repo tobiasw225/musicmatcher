@@ -1,0 +1,308 @@
+[
+  {
+    "correct":314083,
+    "false":517576,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo07fritgoog_djvu.txt",
+    "total":831659
+  },
+  {
+    "correct":450528,
+    "false":461161,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo09fritgoog_djvu.txt",
+    "total":911689
+  },
+  {
+    "correct":494395,
+    "false":466594,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/bub_gb_R5UPAAAAYAAJ_djvu.txt",
+    "total":960989
+  },
+  {
+    "correct":486040,
+    "false":1934667,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/MusikalischesWochenblatt35jg1904_djvu.txt",
+    "total":2420707
+  },
+  {
+    "correct":605034,
+    "false":432335,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/bub_gb_5owPAAAAYAAJ_djvu.txt",
+    "total":1037369
+  },
+  {
+    "correct":443753,
+    "false":433397,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo01fritgoog_djvu.txt",
+    "total":877150
+  },
+  {
+    "correct":253586,
+    "false":237261,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo15fritgoog_djvu.txt",
+    "total":490847
+  },
+  {
+    "correct":326849,
+    "false":179671,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/NeueZeitschriftFuerMusik1910Jg77ZuglMwJg41_djvu.txt",
+    "total":506520
+  },
+  {
+    "correct":235750,
+    "false":219979,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo06fritgoog_djvu.txt",
+    "total":455729
+  },
+  {
+    "correct":396478,
+    "false":406997,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo22fritgoog_djvu.txt",
+    "total":803475
+  },
+  {
+    "correct":247392,
+    "false":157843,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/NeueZeitschriftFuerMusik1908Jg75ZuglMwJg39_djvu.txt",
+    "total":405235
+  },
+  {
+    "correct":489508,
+    "false":498129,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/MusikalischesWochenblatt32jg1901_djvu.txt",
+    "total":987637
+  },
+  {
+    "correct":441605,
+    "false":435867,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo19fritgoog_djvu.txt",
+    "total":877472
+  },
+  {
+    "correct":174525,
+    "false":343490,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/bub_gb_oEUvAAAAMAAJ_djvu.txt",
+    "total":518015
+  },
+  {
+    "correct":469292,
+    "false":479051,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo00fritgoog_djvu.txt",
+    "total":948343
+  },
+  {
+    "correct":431600,
+    "false":405217,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/bub_gb_SZEPAAAAYAAJ_djvu.txt",
+    "total":836817
+  },
+  {
+    "correct":33843,
+    "false":69732,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/bub_gb_ppAPAAAAYAAJ_djvu.txt",
+    "total":103575
+  },
+  {
+    "correct":452772,
+    "false":386740,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo02fritgoog_djvu.txt",
+    "total":839512
+  },
+  {
+    "correct":306871,
+    "false":204659,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo03fritgoog_djvu.txt",
+    "total":511530
+  },
+  {
+    "correct":476160,
+    "false":483350,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo21fritgoog_djvu.txt",
+    "total":959510
+  },
+  {
+    "correct":380707,
+    "false":512156,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo12fritgoog_djvu.txt",
+    "total":892863
+  },
+  {
+    "correct":438368,
+    "false":434312,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo10fritgoog_djvu.txt",
+    "total":872680
+  },
+  {
+    "correct":498366,
+    "false":294686,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/NeueZeitschriftFuerMusik1909-1910Jg76ZuglMwJg40_djvu.txt",
+    "total":793052
+  },
+  {
+    "correct":420871,
+    "false":414037,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo17fritgoog_djvu.txt",
+    "total":834908
+  },
+  {
+    "correct":697109,
+    "false":557651,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo11fritgoog_djvu.txt",
+    "total":1254760
+  },
+  {
+    "correct":452112,
+    "false":440203,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo04fritgoog_djvu.txt",
+    "total":892315
+  },
+  {
+    "correct":257487,
+    "false":146852,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/NeueZeitschriftFuerMusik1908Jg75_djvu.txt",
+    "total":404339
+  },
+  {
+    "correct":302712,
+    "false":206324,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo05fritgoog_djvu.txt",
+    "total":509036
+  },
+  {
+    "correct":482419,
+    "false":490007,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo20fritgoog_djvu.txt",
+    "total":972426
+  },
+  {
+    "correct":303817,
+    "false":215293,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo08fritgoog_djvu.txt",
+    "total":519110
+  },
+  {
+    "correct":445788,
+    "false":423810,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/bub_gb_50IvAAAAMAAJ_djvu.txt",
+    "total":869598
+  },
+  {
+    "correct":327373,
+    "false":702813,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/bub_gb_gpIPAAAAYAAJ_djvu.txt",
+    "total":1030186
+  },
+  {
+    "correct":475076,
+    "false":558100,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/MusikalischesWochenblatt33jg1902_djvu.txt",
+    "total":1033176
+  },
+  {
+    "correct":400072,
+    "false":390902,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo13fritgoog_djvu.txt",
+    "total":790974
+  },
+  {
+    "correct":399172,
+    "false":400348,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo00unkngoog_djvu.txt",
+    "total":799520
+  },
+  {
+    "correct":210010,
+    "false":184286,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/bub_gb_1UMvAAAAMAAJ_djvu.txt",
+    "total":394296
+  },
+  {
+    "correct":429595,
+    "false":435797,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo18fritgoog_djvu.txt",
+    "total":865392
+  },
+  {
+    "correct":230249,
+    "false":192408,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo03unkngoog_djvu.txt",
+    "total":422657
+  },
+  {
+    "correct":326489,
+    "false":748193,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/bub_gb_d48PAAAAYAAJ_djvu.txt",
+    "total":1074682
+  },
+  {
+    "correct":129813,
+    "false":125445,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo04unkngoog_djvu.txt",
+    "total":255258
+  },
+  {
+    "correct":887791,
+    "false":633860,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/NeueZeitschriftFuerMusik1907Jg74ZuglMwJg38_djvu.txt",
+    "total":1521651
+  },
+  {
+    "correct":465823,
+    "false":619218,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/MusikalischesWochenblatt34jg1903_djvu.txt",
+    "total":1085041
+  },
+  {
+    "correct":421665,
+    "false":400460,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/bub_gb_O5APAAAAYAAJ_djvu.txt",
+    "total":822125
+  },
+  {
+    "correct":706905,
+    "false":525454,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/NeueZeitschriftFuerMusik1906Jg73Nr4052ZuglMwJg37_djvu.txt",
+    "total":1232359
+  },
+  {
+    "correct":702879,
+    "false":714249,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/MusikalischesWochenblatt36jg1905_djvu.txt",
+    "total":1417128
+  },
+  {
+    "correct":445152,
+    "false":406849,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo05unkngoog_djvu.txt",
+    "total":852001
+  },
+  {
+    "correct":436989,
+    "false":401851,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo14fritgoog_djvu.txt",
+    "total":838840
+  },
+  {
+    "correct":582645,
+    "false":485218,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo02unkngoog_djvu.txt",
+    "total":1067863
+  },
+  {
+    "correct":435130,
+    "false":380862,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/musikalischeswo01unkngoog_djvu.txt",
+    "total":815992
+  },
+  {
+    "correct":439065,
+    "false":410462,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/bub_gb__JAPAAAAYAAJ_djvu.txt",
+    "total":849527
+  },
+  {
+    "correct":342785,
+    "false":669652,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/txt/bub_gb_bpMPAAAAYAAJ_djvu.txt",
+    "total":1012437
+  }
+]

@@ -1,0 +1,884 @@
+[
+  {
+    "correct":201447,
+    "false":602718,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1875Jg42Bd71_djvu.txt",
+    "total":804165
+  },
+  {
+    "correct":80131,
+    "false":262982,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1854Jg21Bd40_djvu.txt",
+    "total":343113
+  },
+  {
+    "correct":58728,
+    "false":210392,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1837Jg4Bd6_djvu.txt",
+    "total":269120
+  },
+  {
+    "correct":4990,
+    "false":7389,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/SchumannHg-SammlungVonMusik-stckenAlterUndNeuerZeit1838-41_djvu.txt",
+    "total":12379
+  },
+  {
+    "correct":206554,
+    "false":606544,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1895Jg62Bd91_djvu.txt",
+    "total":813098
+  },
+  {
+    "correct":156937,
+    "false":649761,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/zeitschriftfrmu00unkngoog_djvu.txt",
+    "total":806698
+  },
+  {
+    "correct":361804,
+    "false":287773,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1929Jg96_djvu.txt",
+    "total":649577
+  },
+  {
+    "correct":81179,
+    "false":284378,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1848Jg15Bd28_djvu.txt",
+    "total":365557
+  },
+  {
+    "correct":75189,
+    "false":72704,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1943Jg110_djvu.txt",
+    "total":147893
+  },
+  {
+    "correct":341893,
+    "false":222169,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1928Jg95_djvu.txt",
+    "total":564062
+  },
+  {
+    "correct":287799,
+    "false":162568,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1925Jg92_djvu.txt",
+    "total":450367
+  },
+  {
+    "correct":66896,
+    "false":226224,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1842Jg9Bd17_djvu.txt",
+    "total":293120
+  },
+  {
+    "correct":62142,
+    "false":211572,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1835Jg2Bd3_djvu.txt",
+    "total":273714
+  },
+  {
+    "correct":653392,
+    "false":286368,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1911Jg078_djvu.txt",
+    "total":939760
+  },
+  {
+    "correct":363516,
+    "false":148170,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1916Jg083_djvu.txt",
+    "total":511686
+  },
+  {
+    "correct":87287,
+    "false":335677,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1862Jg29Bd57_djvu.txt",
+    "total":422964
+  },
+  {
+    "correct":85909,
+    "false":279345,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1855Jg22Bd42_djvu.txt",
+    "total":365254
+  },
+  {
+    "correct":63386,
+    "false":212741,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1845Jg12Bd22_djvu.txt",
+    "total":276127
+  },
+  {
+    "correct":189427,
+    "false":656116,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1870Jg37Bd66_djvu.txt",
+    "total":845543
+  },
+  {
+    "correct":336530,
+    "false":217572,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1920Jg87_djvu.txt",
+    "total":554102
+  },
+  {
+    "correct":326849,
+    "false":179671,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1910Jg77ZuglMwJg41_djvu.txt",
+    "total":506520
+  },
+  {
+    "correct":75186,
+    "false":94035,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1920-1950Inhalt_djvu.txt",
+    "total":169221
+  },
+  {
+    "correct":283052,
+    "false":122074,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1918Jg085_djvu.txt",
+    "total":405126
+  },
+  {
+    "correct":81489,
+    "false":263091,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1852Jg19Bd37_djvu.txt",
+    "total":344580
+  },
+  {
+    "correct":238655,
+    "false":684545,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1891Jg58Bd87_djvu.txt",
+    "total":923200
+  },
+  {
+    "correct":484233,
+    "false":444037,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1932Jg99_djvu.txt",
+    "total":928270
+  },
+  {
+    "correct":232119,
+    "false":758161,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1900Jg67Bd96_djvu.txt",
+    "total":990280
+  },
+  {
+    "correct":186210,
+    "false":644845,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1865Jg32Bd61_djvu.txt",
+    "total":831055
+  },
+  {
+    "correct":286300,
+    "false":155980,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1926Jg93_djvu.txt",
+    "total":442280
+  },
+  {
+    "correct":201155,
+    "false":575898,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1879Jg46Bd75_djvu.txt",
+    "total":777053
+  },
+  {
+    "correct":340777,
+    "false":136647,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1917Jg084_djvu.txt",
+    "total":477424
+  },
+  {
+    "correct":227258,
+    "false":652508,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1892Jg59Bd88_djvu.txt",
+    "total":879766
+  },
+  {
+    "correct":201339,
+    "false":631188,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1898Jg65Bd94_djvu.txt",
+    "total":832527
+  },
+  {
+    "correct":63359,
+    "false":220208,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1841Jg8Bd15_djvu.txt",
+    "total":283567
+  },
+  {
+    "correct":222194,
+    "false":686649,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1886Jg53Bd82_djvu.txt",
+    "total":908843
+  },
+  {
+    "correct":211741,
+    "false":598538,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1882Jg49Bd78_djvu.txt",
+    "total":810279
+  },
+  {
+    "correct":247392,
+    "false":157843,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1908Jg75ZuglMwJg39_djvu.txt",
+    "total":405235
+  },
+  {
+    "correct":221050,
+    "false":624356,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1883Jg50Bd79_djvu.txt",
+    "total":845406
+  },
+  {
+    "correct":83285,
+    "false":275356,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1853Jg20Bd38_djvu.txt",
+    "total":358641
+  },
+  {
+    "correct":552075,
+    "false":343841,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1906Jg073Nr1-39_djvu.txt",
+    "total":895916
+  },
+  {
+    "correct":92305,
+    "false":300326,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1859Jg26Bd50_djvu.txt",
+    "total":392631
+  },
+  {
+    "correct":276983,
+    "false":119420,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1919Jg086_djvu.txt",
+    "total":396403
+  },
+  {
+    "correct":60782,
+    "false":204294,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1844Jg11Bd21_djvu.txt",
+    "total":265076
+  },
+  {
+    "correct":217687,
+    "false":616719,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1894Jg61Bd90_djvu.txt",
+    "total":834406
+  },
+  {
+    "correct":219216,
+    "false":651110,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1877Jg44Bd73_djvu.txt",
+    "total":870326
+  },
+  {
+    "correct":331295,
+    "false":214633,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1927Jg94_djvu.txt",
+    "total":545928
+  },
+  {
+    "correct":87268,
+    "false":289291,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1861Jg28Bd54_djvu.txt",
+    "total":376559
+  },
+  {
+    "correct":64736,
+    "false":216497,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1839Jg6Bd10_djvu.txt",
+    "total":281233
+  },
+  {
+    "correct":610320,
+    "false":553577,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1937Jg104_djvu.txt",
+    "total":1163897
+  },
+  {
+    "correct":62986,
+    "false":208510,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1847Jg14Bd26_djvu.txt",
+    "total":271496
+  },
+  {
+    "correct":683044,
+    "false":616848,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1936Jg103_djvu.txt",
+    "total":1299892
+  },
+  {
+    "correct":90442,
+    "false":286928,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1860Jg27Bd53_djvu.txt",
+    "total":377370
+  },
+  {
+    "correct":186410,
+    "false":674034,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1867Jg34Bd63_djvu.txt",
+    "total":860444
+  },
+  {
+    "correct":216909,
+    "false":635598,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1874Jg41Bd70_djvu.txt",
+    "total":852507
+  },
+  {
+    "correct":57147,
+    "false":215299,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1844Jg11Bd20_djvu.txt",
+    "total":272446
+  },
+  {
+    "correct":94453,
+    "false":363278,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1863Jg30Bd58_djvu.txt",
+    "total":457731
+  },
+  {
+    "correct":66615,
+    "false":230051,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1840Jg7Bd13_djvu.txt",
+    "total":296666
+  },
+  {
+    "correct":584,
+    "false":1754,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/stats.json",
+    "total":2338
+  },
+  {
+    "correct":83555,
+    "false":271589,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1853Jg20Bd39_djvu.txt",
+    "total":355144
+  },
+  {
+    "correct":83662,
+    "false":277896,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1852Jg19Bd36_djvu.txt",
+    "total":361558
+  },
+  {
+    "correct":625345,
+    "false":335860,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1912Jg079_djvu.txt",
+    "total":961205
+  },
+  {
+    "correct":75012,
+    "false":259501,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1849Jg16Bd31_djvu.txt",
+    "total":334513
+  },
+  {
+    "correct":92898,
+    "false":349206,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1862Jg29Bd56_djvu.txt",
+    "total":442104
+  },
+  {
+    "correct":391760,
+    "false":587615,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1903Jg070Bd099_djvu.txt",
+    "total":979375
+  },
+  {
+    "correct":64159,
+    "false":217969,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1842Jg9Bd16_djvu.txt",
+    "total":282128
+  },
+  {
+    "correct":442107,
+    "false":416962,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1930Jg97_djvu.txt",
+    "total":859069
+  },
+  {
+    "correct":498366,
+    "false":294686,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1909-1910Jg76ZuglMwJg40_djvu.txt",
+    "total":793052
+  },
+  {
+    "correct":69241,
+    "false":215018,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1846Jg13Bd25_djvu.txt",
+    "total":284259
+  },
+  {
+    "correct":63701,
+    "false":222490,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1836Jg3Bd4_djvu.txt",
+    "total":286191
+  },
+  {
+    "correct":430464,
+    "false":313005,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nz1922_djvu.txt",
+    "total":743469
+  },
+  {
+    "correct":76389,
+    "false":260522,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1851Jg18Bd34_djvu.txt",
+    "total":336911
+  },
+  {
+    "correct":208808,
+    "false":649351,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1873Jg40Bd69_djvu.txt",
+    "total":858159
+  },
+  {
+    "correct":65483,
+    "false":211614,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1838Jg5Bd8_djvu.txt",
+    "total":277097
+  },
+  {
+    "correct":257487,
+    "false":146852,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1908Jg75_djvu.txt",
+    "total":404339
+  },
+  {
+    "correct":85864,
+    "false":304441,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1857Jg24Bd47_djvu.txt",
+    "total":390305
+  },
+  {
+    "correct":205950,
+    "false":576083,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1871Jg38Bd67_djvu.txt",
+    "total":782033
+  },
+  {
+    "correct":637324,
+    "false":560791,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1938Jg105_djvu.txt",
+    "total":1198115
+  },
+  {
+    "correct":90097,
+    "false":289933,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1860Jg27Bd52_djvu.txt",
+    "total":380030
+  },
+  {
+    "correct":60366,
+    "false":320701,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1848-1Jg015Bd028_djvu.txt",
+    "total":381067
+  },
+  {
+    "correct":355278,
+    "false":152020,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1915Jg082_djvu.txt",
+    "total":507298
+  },
+  {
+    "correct":207093,
+    "false":624873,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1876Jg43Bd72_djvu.txt",
+    "total":831966
+  },
+  {
+    "correct":85016,
+    "false":273879,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1858Jg24Bd48_djvu.txt",
+    "total":358895
+  },
+  {
+    "correct":491088,
+    "false":210961,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1914Jg081_djvu.txt",
+    "total":702049
+  },
+  {
+    "correct":387365,
+    "false":289106,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1941Jg108_djvu.txt",
+    "total":676471
+  },
+  {
+    "correct":62078,
+    "false":214401,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1843Jg10Bd18_djvu.txt",
+    "total":276479
+  },
+  {
+    "correct":83551,
+    "false":273590,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1856Jg23Bd44_djvu.txt",
+    "total":357141
+  },
+  {
+    "correct":212050,
+    "false":605475,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1878Jg45Bd74_djvu.txt",
+    "total":817525
+  },
+  {
+    "correct":67870,
+    "false":230359,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1840Jg7Bd12_djvu.txt",
+    "total":298229
+  },
+  {
+    "correct":264403,
+    "false":778500,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1902Jg69Bd98_djvu.txt",
+    "total":1042903
+  },
+  {
+    "correct":498373,
+    "false":382652,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1931Jg98_djvu.txt",
+    "total":881025
+  },
+  {
+    "correct":235271,
+    "false":656030,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1890Jg57Bd86_djvu.txt",
+    "total":891301
+  },
+  {
+    "correct":66395,
+    "false":227403,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1839Jg6Bd11_djvu.txt",
+    "total":293798
+  },
+  {
+    "correct":93695,
+    "false":294334,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1859Jg26Bd51_djvu.txt",
+    "total":388029
+  },
+  {
+    "correct":230855,
+    "false":678744,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1884Jg51Bd80_djvu.txt",
+    "total":909599
+  },
+  {
+    "correct":198681,
+    "false":551366,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1881Jg48Bd77_djvu.txt",
+    "total":750047
+  },
+  {
+    "correct":82005,
+    "false":270358,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1856Jg23Bd45_djvu.txt",
+    "total":352363
+  },
+  {
+    "correct":84371,
+    "false":269757,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1854Jg21Bd41_djvu.txt",
+    "total":354128
+  },
+  {
+    "correct":63078,
+    "false":214406,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1837Jg4Bd7_djvu.txt",
+    "total":277484
+  },
+  {
+    "correct":206744,
+    "false":620703,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1872Jg39Bd68_djvu.txt",
+    "total":827447
+  },
+  {
+    "correct":275972,
+    "false":166110,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1923Jg90_djvu.txt",
+    "total":442082
+  },
+  {
+    "correct":169783,
+    "false":619542,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1868Jg35Bd64_djvu.txt",
+    "total":789325
+  },
+  {
+    "correct":60473,
+    "false":201731,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1845Jg12Bd23_djvu.txt",
+    "total":262204
+  },
+  {
+    "correct":565062,
+    "false":515055,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1934Jg101_djvu.txt",
+    "total":1080117
+  },
+  {
+    "correct":219153,
+    "false":703214,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1887Jg054Bd083_djvu.txt",
+    "total":922367
+  },
+  {
+    "correct":176174,
+    "false":651156,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1866Jg33Bd62_djvu.txt",
+    "total":827330
+  },
+  {
+    "correct":60931,
+    "false":229139,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1836Jg3Bd5_djvu.txt",
+    "total":290070
+  },
+  {
+    "correct":390270,
+    "false":243277,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nz1921_djvu.txt",
+    "total":633547
+  },
+  {
+    "correct":887791,
+    "false":633860,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1907Jg74ZuglMwJg38_djvu.txt",
+    "total":1521651
+  },
+  {
+    "correct":239555,
+    "false":673805,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1889Jg56Bd85_djvu.txt",
+    "total":913360
+  },
+  {
+    "correct":77678,
+    "false":274280,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1848Jg15Bd29_djvu.txt",
+    "total":351958
+  },
+  {
+    "correct":206445,
+    "false":580113,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1893Jg60Bd89_djvu.txt",
+    "total":786558
+  },
+  {
+    "correct":605248,
+    "false":289272,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1913Jg080_djvu.txt",
+    "total":894520
+  },
+  {
+    "correct":60801,
+    "false":213447,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1835Jg2Bd2_djvu.txt",
+    "total":274248
+  },
+  {
+    "correct":211516,
+    "false":691272,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1899Jg66Bd95_djvu.txt",
+    "total":902788
+  },
+  {
+    "correct":95736,
+    "false":337987,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1861Jg28Bd55_djvu.txt",
+    "total":433723
+  },
+  {
+    "correct":775800,
+    "false":475785,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1905Jg072Bd101_djvu.txt",
+    "total":1251585
+  },
+  {
+    "correct":71126,
+    "false":245578,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1850Jg17Bd32_djvu.txt",
+    "total":316704
+  },
+  {
+    "correct":84216,
+    "false":270057,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1858Jg25Bd49_djvu.txt",
+    "total":354273
+  },
+  {
+    "correct":180410,
+    "false":660317,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1864Jg31Bd60_djvu.txt",
+    "total":840727
+  },
+  {
+    "correct":72301,
+    "false":263405,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1849Jg16Bd30_djvu.txt",
+    "total":335706
+  },
+  {
+    "correct":68189,
+    "false":210058,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1838Jg5Bd9_djvu.txt",
+    "total":278247
+  },
+  {
+    "correct":208074,
+    "false":581880,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1880Jg47Bd76_djvu.txt",
+    "total":789954
+  },
+  {
+    "correct":221625,
+    "false":726998,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1897Jg064Bd093_djvu.txt",
+    "total":948623
+  },
+  {
+    "correct":57389,
+    "false":310518,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1848-2Jg015Bd029_djvu.txt",
+    "total":367907
+  },
+  {
+    "correct":306602,
+    "false":173667,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1924Jg91_djvu.txt",
+    "total":480269
+  },
+  {
+    "correct":76057,
+    "false":256637,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1850Jg17Bd33_djvu.txt",
+    "total":332694
+  },
+  {
+    "correct":361754,
+    "false":350477,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1940Jg107_djvu.txt",
+    "total":712231
+  },
+  {
+    "correct":706905,
+    "false":525454,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1906Jg73Nr4052ZuglMwJg37_djvu.txt",
+    "total":1232359
+  },
+  {
+    "correct":167283,
+    "false":603176,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1869Jg36Bd65_djvu.txt",
+    "total":770459
+  },
+  {
+    "correct":82913,
+    "false":274463,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1857Jg24Bd46_djvu.txt",
+    "total":357376
+  },
+  {
+    "correct":226385,
+    "false":261374,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFrMusik1950-2013Inhalt_djvu.txt",
+    "total":487759
+  },
+  {
+    "correct":60320,
+    "false":202349,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1846Jg13Bd24_djvu.txt",
+    "total":262669
+  },
+  {
+    "correct":82601,
+    "false":281234,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1847Jg14Bd27_djvu.txt",
+    "total":363835
+  },
+  {
+    "correct":65264,
+    "false":221246,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1841Jg7Bd14_djvu.txt",
+    "total":286510
+  },
+  {
+    "correct":61164,
+    "false":211722,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1843Jg10Bd19_djvu.txt",
+    "total":272886
+  },
+  {
+    "correct":614840,
+    "false":560392,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1935Jg102_djvu.txt",
+    "total":1175232
+  },
+  {
+    "correct":79835,
+    "false":267051,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1851Jg18Bd35_djvu.txt",
+    "total":346886
+  },
+  {
+    "correct":90924,
+    "false":311030,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1834Jg1Bd1_djvu.txt",
+    "total":401954
+  },
+  {
+    "correct":276347,
+    "false":272177,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1942Jg109_djvu.txt",
+    "total":548524
+  },
+  {
+    "correct":211556,
+    "false":663137,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1885Jg52Bd81_djvu.txt",
+    "total":874693
+  },
+  {
+    "correct":249416,
+    "false":849479,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1901Jg068Bd097_djvu.txt",
+    "total":1098895
+  },
+  {
+    "correct":218871,
+    "false":652859,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1888Jg55Bd84_djvu.txt",
+    "total":871730
+  },
+  {
+    "correct":696118,
+    "false":413797,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1904Jg071Bd100_djvu.txt",
+    "total":1109915
+  },
+  {
+    "correct":214776,
+    "false":695011,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/Nzfm1896Jg063Bd092_djvu.txt",
+    "total":909787
+  },
+  {
+    "correct":528676,
+    "false":479977,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1939Jg106_djvu.txt",
+    "total":1008653
+  },
+  {
+    "correct":87138,
+    "false":340276,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1863Jg30Bd59_djvu.txt",
+    "total":427414
+  },
+  {
+    "correct":573477,
+    "false":527555,
+    "file":"/home/tobias/Dokumente/Citizen Science/project/crawling/out/nzfm_raw/txt/NeueZeitschriftFuerMusik1933Jg100_djvu.txt",
+    "total":1101032
+  }
+]

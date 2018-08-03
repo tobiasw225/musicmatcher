@@ -9,6 +9,8 @@ import os
 from my_logging import *
 logger = get_my_logger(fout_name="logger.log")
 
+TEXT_CLEANER_PATH = "/home/tobias/mygits/musicmatcher/prepocessing/src/textcleaner"
+
 
 class Pdf2Text:
 
@@ -31,6 +33,9 @@ class Pdf2Text:
         else:
             output_filename = output_folder + base_filename +".png"
         #logger.info(output_filename)
+        if os.path.isfile(output_filename):
+            return
+
         with Image(filename=filename,resolution=400) as img:
             img.compression_quality = 100
             img.format = 'png'
@@ -66,14 +71,27 @@ class Pdf2Text:
         cv2.imwrite(output_filename, gray)
         return output_filename
 
-    def call_textcleaner(self, filename):
+    def call_textcleaner(self, filename, output_folder="" ):
         """
 
         :param filename:
         :return:
         """
         output_filename = self.output_img_folder + "clean."+basename(filename)
-        proc = subprocess.Popen(["/home/tobias/pyenvs/tesseractvenv/textcleaner -g -e stretch -f 50 -o 10  -s 1  {} {}".format(filename, output_filename)],shell=True)
+
+        base_filename = basename(filename)
+        if not output_folder:
+            output_filename = self.output_img_folder+ "clean."+basename(filename)
+        else:
+            output_filename = output_folder + "clean."+ base_filename
+
+        logger.info(output_filename)
+        if os.path.isfile(output_filename):
+            return
+
+
+        cmd = TEXT_CLEANER_PATH + " -g -e stretch -f 50 -o 10  -s 1  {} {}".format(filename, output_filename)
+        proc = subprocess.Popen([cmd],shell=True)
         proc.wait()
         logger.info("save as {}".format(output_filename))
         return output_filename
@@ -149,7 +167,7 @@ class Pdf2Text:
             num_files = len(files)
             for i, file in enumerate(files, 0):
                 proc_file = os.path.join(folder_name, file)
-                if os.path.isfile(proc_file):
+                if os.path.isfile(proc_file) and not proc_file.endswith('txt'):
                     if i % 50 == 0:
                         print("{0}/{1}:\t {2}".format(i + 1, num_files, file))
                     self.convert_pdf2png(filename=proc_file, output_folder=img_output)
@@ -186,10 +204,12 @@ if __name__ == '__main__':
     output_folder = "/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/"
     p2t = Pdf2Text(output_folder)
     #p2t.run_on_folder("/home/tobias/pyenvs/tesseractvenv/input")
+    p2t.call_textcleaner("/home/tobias/Dokumente/Citizen\ Science/project/crawling/out/mwb_raw/splitted/bub_gb_1UMvAAAAMAAJ/img/bub_gb_1UMvAAAAMAAJ_Page_0x1bdf.png",
+                         output_folder="/home/tobias/Dokumente/Citizen\ Science/project/crawling/out/mwb_raw/splitted/bub_gb_1UMvAAAAMAAJ/")
 
     #p2t.run_on_file(filename)
 
     #p2t.run_pdf_to_png_on_folder("/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/splitted/bub_gb_1UMvAAAAMAAJ")
-    p2t.run_func_complete("/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/splitted/")
+    #p2t.run_func_complete("/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/splitted/")
     #conv_filename = p2t.convert_image_to_greyscale("/home/tobias/pyenvs/tesseractvenv/mw.png", args={"preprocess":"blur"})
     #p2t.run_tesseract_on_file(conv_filename)
