@@ -4,14 +4,14 @@ nzfm\_txt\_stats.json and mwb\_txt\_stats.json are the result of a simple qualit
 
 Median number of words by file (**NZFM**)
 
-221865.81 correct -> 24 % correct 
-289272 false -> 76 % false
+221865.81 correct -> 24 % correct <br>
+289272 false -> 76 % false <br>
 487759 total
 
 ------------------------
 Median number of words by file (**MWB**)
 
-435130 correct -> 51 % correct
-423810 false -> 41 % false
+435130 correct -> 51 % correct <br>
+423810 false -> 41 % false<br>
 852001 total
 
