@@ -87,7 +87,8 @@ RUN apt-get install -y libpng-dev
 # -------------------------------------------------------------
 
 RUN chown www-data:www-data /var/www/html/
-RUN chown www-data:www-data /var/www/html/out/
+RUN chown www-data:www-data /var/www/html/out
+RUN chown www-data:www-data /var/www/html/res
 # this is necessesaray to run apache2
 CMD apachectl -D FOREGROUND
 
