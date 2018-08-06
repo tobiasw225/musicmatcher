@@ -31,6 +31,7 @@
         , dataType: "text"
         , success: function(data) {
             var svg = vrvToolkit.renderData(data, {});
+            console.log("---------" + svg.toString());
             $("#svg_output").html(svg);
         }
     });
