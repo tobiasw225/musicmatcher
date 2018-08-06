@@ -1,20 +1,12 @@
 <?php
 
 function get_all_file_names_of_folder($path){
-	/*$files = scandir($path);
-	$files = array_diff(scandir($path), array('.', '..'));
-	if (count($files) != 0){
-		foreach (files as $value) {
-    echo "$value <br>";
-	}
-		return $files;
-	}
-	*/
 	$files = array();
 	foreach(glob($path.'/*.png') as $file) {
 		array_push($files, $file);
 	}
-	return $files;
+	echo json_encode($files);
+;
 }
 
 function crop_my_jpg_image($x,$y,$width,$heigth,$src){
@@ -35,7 +27,8 @@ function crop_my_png_image($x,$y,$width,$heigth,$src){
 	/**
 	* crops picture and saves it
 	**/
-	$src = '../'.$src;
+	$src = $src;
+	
 	$img_r = imagecreatefrompng($src);
 	list($src_w, $src_h) = getimagesize($src);
 	$dst_r = ImageCreateTrueColor( $width, $heigth );

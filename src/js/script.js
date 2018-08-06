@@ -14,15 +14,33 @@ $(function() {
 	 * load filenames with php?
 	 *
 	 */
+	function load_filenames (path){
+					$.post("php/receive.php", {
+							path: path
+					}).done(function(data, textStatus, jqXHR) {
+						// not sure if that's possible
+				
+						var files = JSON.parse("[" + data + "]")[0];
+						var rand_index = Math.floor(Math.random() * files.length)   ;
+						console.log(rand_index);
+						console.log(files.length)
+						console.log(files[rand_index]);
+						init_cs_js_with_picture(files[rand_index]);
+						
+					}).fail(function(jqXHR, textStatus, errorThrown) {
+						alert(errorThrown);
+					});
+	}// end-of-function
+	
+	load_filenames('../res/');
 
-	//
-	// Initialise CropSelect
-	//
-	$('#crop-select').CropSelectJs({
-		// Image
-		// @todo how to select pic?
-		imageSrc : 'res/0001.bin.png',
 
+	function init_cs_js_with_picture(path){
+		$('#crop-select').CropSelectJs({
+		//
+		// Initialise CropSelect
+		//
+		imageSrc : path,
 		// What to do when the selected area is resized
 		selectionResize : function(data) {
 			$('#scaled-width').html(data.widthScaledToImage);
@@ -34,7 +52,11 @@ $(function() {
 			$('#scaled-y').html(data.yScaledToImage);
 		}
 	});
+		
+	}
 
+
+	
 	//$('#crop-select').CropSelectJs('disableAnimatedBorder');
 
 	$('#sendtoomr').click(function() {
@@ -72,12 +94,8 @@ $(function() {
 
 		x = x * scale_factor;
 		y = y * scale_factor;
-
-		//console.log(scale_factor);
-		//console.log(width, height);
-		//console.log(x, y);
-		console.log(src);
 		// send it to receive.php for cropping
+
 		$.post("php/receive.php", {
 			x : x,
 			y : y,
