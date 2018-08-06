@@ -8,7 +8,10 @@ FROM ubuntu:latest
 LABEL authors="Tobias Wenzel, Pavel Brodianskyi & Conal Hanamy"
 
 
+
+# -------------------------------------------------------------
 ## install java 8 and it's dependecies
+# -------------------------------------------------------------
 
 ENV TZ Europe/Berlin	
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -22,44 +25,76 @@ RUN apt-get update && \
     apt-get install -y oracle-java8-installer && \
     apt-get clean
 
-
+# -------------------------------------------------------------
 ## install the webserver & php
+## & move project files to web-server dir
+# -------------------------------------------------------------
+
 RUN  apt-get install apache2 php7.2 php7.2-gd -y
 
 
-# @todo copy out, res not inside src
 COPY src/ /var/www/html
+COPY res/ /var/www/html/res
+#COPY out /var/www/html
 
-RUN apt-get update 
-RUN apt-get upgrade -y
-RUN apt-get autoremove -y
+# -------------------------------------------------------------
+## refresh packages & upgrade
+# -------------------------------------------------------------
 
+RUN apt-get update && \
+ apt-get upgrade -y && \
+ apt-get autoremove -y
+
+
+# -------------------------------------------------------------
+## tesseract
+## ->  also needed for Audiveris
+# -------------------------------------------------------------
+
+RUN apt-get install libfreetype6-dev -y && \
+ apt-get install tesseract-ocr tesseract-ocr-deu tesseract-ocr-eng tesseract-ocr-fra  -y 
+## pipe into  /etc/environment
+# echo "TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/" >> /etc/environment 
+ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/
+
+
+# -------------------------------------------------------------
 ## Install Audiveris & it's dependencies
-
-## install tesseract
-RUN apt-get install libfreetype6-dev -y
-RUN apt-get install tesseract-ocr tesseract-ocr-deu tesseract-ocr-eng tesseract-ocr-fra  -y
-RUN export TESSDATA_PREFIX=/usr/share/tesseract-ocr/
+# -------------------------------------------------------------
 
 ## not test yet. 
 RUN apt-get install git -y
-# RUN cd backend/ && git clone https://github.com/Audiveris/audiveris.git
-# RUN git checkout .
-# RUN git checkout developement
-# RUN cd audiveris &&  audiveris/gradlew clean build 
+
+## the cloning takes a lot of time.
+RUN git clone https://github.com/Audiveris/audiveris.git 
+RUN cd audiveris && \
+ git checkout development && \
+ export TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/ && \
+  ./gradlew clean build 
+
+## move compiled program 
+RUN tar -xf /audiveris/build/distributions/Audiveris.tar -C /home/
+
+
+
 ##... set projet variable to executable
 
-
-## to crop notes these packages are needed.
-
+# -------------------------------------------------------------
+## crop notes
+# -------------------------------------------------------------
 RUN apt-get install -y libpng-dev
-#RUN docker-php-ext-install gd
 
+# -------------------------------------------------------------
 # grant permission for file editing
+# -------------------------------------------------------------
+
 RUN chown www-data:www-data /var/www/html/
-RUN chown www-data:www-data /var/www/html/out/
+RUN chown www-data:www-data /var/www/html/out
+RUN chown www-data:www-data /var/www/html/res
+# this is necessesaray to run apache2
 CMD apachectl -D FOREGROUND
 
+# grant port access
 EXPOSE 80
 
 

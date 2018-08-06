@@ -9,7 +9,7 @@
 
 		<!-- CropSelectJs files -->
 		<link href="node_modules/crop-select-js/crop-select-js.min.css" rel="stylesheet" type="text/css" />
-		<script src="node_modules/crop-select-js//crop-select-js.min.js"></script>
+		<script src="node_modules/crop-select-js/crop-select-js.min.js"></script>
 		
 		<!-- Tooltips --> 
    		<link rel="stylesheet" type="text/css" href="css/tooltipster.bundle.min.css" />
