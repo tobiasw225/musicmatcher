@@ -1,5 +1,6 @@
 backend/audiveris/
 src/out/*
+src/res/*
 
 .idea/*
 # Byte-compiled / optimized / DLL files

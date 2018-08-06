@@ -32,8 +32,10 @@ RUN apt-get update && \
 
 RUN  apt-get install apache2 php7.2 php7.2-gd -y
 
-# @todo copy out, res not inside src
+
 COPY src/ /var/www/html
+COPY res/ /var/www/html/res
+#COPY out /var/www/html
 
 # -------------------------------------------------------------
 ## refresh packages & upgrade

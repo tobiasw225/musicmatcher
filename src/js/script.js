@@ -32,12 +32,14 @@ $(function() {
 					});
 	}// end-of-function
 	
-	files = load_filenames('../res');
+	load_filenames('../res/');
 
 
 	function init_cs_js_with_picture(path){
 		$('#crop-select').CropSelectJs({
-		// Image
+		//
+		// Initialise CropSelect
+		//
 		imageSrc : path,
 		// What to do when the selected area is resized
 		selectionResize : function(data) {
@@ -53,27 +55,8 @@ $(function() {
 		
 	}
 
-	//
-	// Initialise CropSelect
-	//
-	/*
-	$('#crop-select').CropSelectJs({
-		// Image
-		// @todo how to select pic?
-		imageSrc : 'res/0001.bin.png',
 
-		// What to do when the selected area is resized
-		selectionResize : function(data) {
-			$('#scaled-width').html(data.widthScaledToImage);
-			$('#scaled-height').html(data.heightScaledToImage);
-		},
-		// What to do when the selected area is moved
-		selectionMove : function(data) {
-			$('#scaled-x').html(data.xScaledToImage);
-			$('#scaled-y').html(data.yScaledToImage);
-		}
-	});
-*/
+	
 	//$('#crop-select').CropSelectJs('disableAnimatedBorder');
 
 	$('#sendtoomr').click(function() {

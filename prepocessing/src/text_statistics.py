@@ -138,6 +138,11 @@ def create_txt_file_statistic(folder_name):
     save_as_json(res, folder_name+"stats.json")
 
 def create_txt_stat_overview(stat_file):
+    """
+
+    :param stat_file:
+    :return:
+    """
     assert os.path.isfile(stat_file)
     stats = load_json(stat_file)
     correct_ar = []
