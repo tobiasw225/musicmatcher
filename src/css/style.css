@@ -43,3 +43,8 @@
 .contactus {
 	height: 30em;
 }
+
+/* move note-element*/
+.note{
+	cursor: move;
+}
