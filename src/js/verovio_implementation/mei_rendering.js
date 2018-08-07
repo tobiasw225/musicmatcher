@@ -20,16 +20,44 @@ $.ajax({
 
 function set_attribute(svg) {
     var svg_header = document.getElementsByTagName("svg")[0];
-    var ns = "http://www.w3.org/2000/svg";
-    svg_header.setAttributeNS(ns, "onload", "makeDraggable(evt)");
+    // var ns = "http://www.w3.org/2000/svg";
+    svg_header.setAttributeNS(null, "onload", "makeDraggable(evt)");
     console.log("svg_header", svg_header);
 
 }
 
-function makeDraggable(evt){
+function makeDraggable(evt) {
     var svg_event = evt.target;
     svg_event.addEventListener("mousedown", startDrag);
     svg_event.addEventListener("mousemove", drag);
     svg_event.addEventListener("mouseup", endDrag);
     svg_event.addEventListener("mouseleave", endDrag);
+
+    function startDrag(evt) {
+        //search for class note in svg
+        if (evt.target.classList.contains('note')) {
+            selectedElement = evt.target;
+        } else {
+            console.log("class note is not found!!!");
+        }
+    }
+
+    function drag(evt) {
+
+        if (selectedElement) {
+            evt.preventDefault();
+            //need to change coordinate
+            //    var x = parseFloat(selectedElement.getAttributeNS(null, "x"));
+             //    selectedElement.setAttributeNS(null, "x", x + 0.1);
+
+        }
+
+    }
+
+    function endDrag(evt) {
+         //set current element to null for further using
+        selectedElement = null;
+
+    }
 }
+
