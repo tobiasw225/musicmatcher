@@ -37,7 +37,7 @@
         
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item ">
               <a class="nav-link" href="index.php">home
               </a>
             </li>
@@ -46,7 +46,7 @@
               <a class="nav-link" href="crop_notes.php">cropper</a>
             </li>
             
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="#">note correction</a>
                               <span class="sr-only">(current)</span>
 

@@ -92,6 +92,11 @@ RUN chown www-data:www-data /var/www/html/
 RUN chown www-data:www-data /var/www/html/out
 RUN chown www-data:www-data /var/www/html/res
 # this is necessesaray to run apache2
+
+ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_GROUP www-data
+ENV APACHE_LOG_DIR /var/log/apache2
+
 CMD apachectl -D FOREGROUND
 
 # grant port access

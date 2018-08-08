@@ -38,7 +38,6 @@ function crop_my_png_image($x,$y,$width,$heigth,$src){
 	$output_file = "../out/".basename($src);
 	imagepng($dst_r, $output_file);
 //	echo "<p>you deserve a cookie. but just one!</p>";
-//	echo $output_file;
 	echo "<img class='changed_img' src='$output_file?=". filemtime($output_file)."'/>";
 	imagedestroy($dst_r);
 	

@@ -22,8 +22,6 @@ $(function() {
 				
 						var files = JSON.parse("[" + data + "]")[0];
 						var rand_index = Math.floor(Math.random() * files.length)   ;
-						console.log(rand_index);
-						console.log(files.length)
 						console.log(files[rand_index]);
 						init_cs_js_with_picture(files[rand_index]);
 						
@@ -32,7 +30,7 @@ $(function() {
 					});
 	}// end-of-function
 	
-	load_filenames('../res/');
+	load_filenames('../res');
 
 
 	function init_cs_js_with_picture(path){
@@ -61,6 +59,7 @@ $(function() {
 
 	$('#sendtoomr').click(function() {
 		if (current_img_path.length) {
+			console.log(current_img_path);
 			$.post("php/omr_processing.php", {
 				proc_image : current_img_path
 			}).done(function(data, textStatus, jqXHR) {
