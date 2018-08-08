@@ -33,12 +33,23 @@ function makeDraggable(evt) {
     svg.addEventListener('mousemove', drag);
     svg.addEventListener('mouseup', endDrag);
 
-    var selectedElement;
+    var selectedElement, offset;
+
+    function getMousePostion(evt) {
+        var CTM = svg.getScreenCTM();
+        return {
+          x: (evt.clientX - CTM.e) / CTM.a,
+          y: (evt.clientY - CTM.f) / CTM.d
+        };
+    }
 
     function startDrag(evt) {
 
         selectedElement = evt.target;
         console.log("startDrag", selectedElement);
+        offset = getMousePostion(evt);
+        offset.x -= parseFloat(selectedElement.getAttributeNS(null, "x"));
+        offset.y -= parseFloat(selectedElement.getAttributeNS(null, "y"));
 
     }
 
@@ -46,12 +57,9 @@ function makeDraggable(evt) {
         console.log("function_drag");
         if (selectedElement){
             evt.preventDefault();
-            var x = parseFloat(selectedElement.getAttributeNS(null, "x"));
-            //console.log("x= ", x);
-            if (x) {
-                console.log("zaschliv x =", x);
-                selectedElement.setAttributeNS(null, "x", x + 100);
-            }
+            var coord = getMousePostion(evt);
+            selectedElement.setAttributeNS(null, "x", coord.x - offset.x);
+            selectedElement.setAttributeNS(null, "y", coord.y - offset.y);
 
         } else {
             console.log("selected element is null!!!");
