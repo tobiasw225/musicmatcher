@@ -13,51 +13,54 @@ $.ajax({
         var svg = vrvToolkit.renderData(data, {});
         //  console.log("---------" + svg.toString());
         $("#svg_output").html(svg);
-        set_attribute(svg);
+        set_attribute();
 
     }
 });
 
-function set_attribute(svg) {
+function set_attribute() {
+
     var svg_header = document.getElementsByTagName("svg")[0];
-    // var ns = "http://www.w3.org/2000/svg";
     svg_header.setAttributeNS(null, "onload", "makeDraggable(evt)");
-    console.log("svg_header", svg_header);
+    console.log("element_note", svg_header);
 
 }
 
 function makeDraggable(evt) {
-    var svg_event = evt.target;
-    svg_event.addEventListener("mousedown", startDrag);
-    svg_event.addEventListener("mousemove", drag);
-    svg_event.addEventListener("mouseup", endDrag);
-    svg_event.addEventListener("mouseleave", endDrag);
+
+    var svg = evt.target;
+    svg.addEventListener('mousedown', startDrag);
+    svg.addEventListener('mousemove', drag);
+    svg.addEventListener('mouseup', endDrag);
+
+    var selectedElement;
 
     function startDrag(evt) {
-        //search for class note in svg
-        if (evt.target.classList.contains('note')) {
-            selectedElement = evt.target;
-        } else {
-            console.log("class note is not found!!!");
-        }
+
+        selectedElement = evt.target;
+        console.log("startDrag", selectedElement);
+
     }
 
     function drag(evt) {
-
-        if (selectedElement) {
+        console.log("function_drag");
+        if (selectedElement){
             evt.preventDefault();
-            //need to change coordinate
-            //    var x = parseFloat(selectedElement.getAttributeNS(null, "x"));
-             //    selectedElement.setAttributeNS(null, "x", x + 0.1);
+            var x = parseFloat(selectedElement.getAttributeNS(null, "x"));
+            //console.log("x= ", x);
+            if (x) {
+                console.log("zaschliv x =", x);
+                selectedElement.setAttributeNS(null, "x", x + 100);
+            }
 
+        } else {
+            console.log("selected element is null!!!");
         }
 
     }
 
     function endDrag(evt) {
-         //set current element to null for further using
         selectedElement = null;
-
     }
 }
 
