@@ -34,7 +34,7 @@ RUN  apt-get install apache2 php7.2 php7.2-gd -y
 
 
 COPY src/ /var/www/html
-COPY res/ /var/www/html/res
+#COPY res/ /var/www/html/res
 #COPY out /var/www/html
 
 # -------------------------------------------------------------
@@ -88,14 +88,22 @@ RUN apt-get install -y libpng-dev
 # grant permission for file editing
 # -------------------------------------------------------------
 
-RUN chown www-data:www-data /var/www/html/
-RUN chown www-data:www-data /var/www/html/out
-RUN chown www-data:www-data /var/www/html/res
-# this is necessesaray to run apache2
 
-ENV APACHE_RUN_USER www-data
-ENV APACHE_RUN_GROUP www-data
-ENV APACHE_LOG_DIR /var/log/apache2
+RUN chown -R www-data:www-data /var/www/html/
+RUN chown -R www-data:www-data /var/www/html/out
+RUN chown -R www-data:www-data /var/www/html/res
+
+sudo chmod -R 770 /var/www/html/out
+
+
+# this is necessesaray to run apache2
+RUN apt-get install sudo
+
+
+RUN adduser www-data sudo
+RUN echo 'www-data ALL=(user) NOPASSWD: /home/docker/Audiveris/bin/Audiveris' >> /etc/sudoers
+
+EUN chown www-data:www-data -R /home/docker/Audiveris
 
 CMD apachectl -D FOREGROUND
 
