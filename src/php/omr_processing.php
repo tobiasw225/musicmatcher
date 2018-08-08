@@ -20,7 +20,7 @@ if( isset($_POST['proc_image'])){
 	}
 	$cmd = "/home/docker/Audiveris/bin/Audiveris -batch -print -export -output ../out ../out/bub_gb_1UMvAAAAMAAJ_Page_0x131df.png ";
 	echo $cmd;
-	$output = system($cmd);
+	$output = system("python3 ../call_audiveris.py");
 
 //	$output = exec($cmd);
 	//exec("sh speech.sh ".escapeshellarg("hello this is a test"));
