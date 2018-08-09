@@ -1,18 +1,38 @@
 # Docker 
 
 
-The recommended way to set up the system is through docker, since it enables easy crossplattform development.
-To use the docker-containers, you'll first need docker:
+The recommended way to set up the system is through docker, since it enables easy crossplattform development. To make the installation process as easy as possible we created a build-script which downloads all necessary components. Make the file executable and run the script:
 
-	$ sudo apt-get install docker
+	$ sudo chmod +x docker/build.sh
+	$ sudo docker/build.sh
+	
+Afterwards you can use docker-compose to load the docker-containers and it's content.
 
-Visit [docker.com](https://www.docker.com/docker-windows) to download the windows version.
+## Docker-Compose
 
-After having installed docker, move into the musicmatcher directory. If a webserver is running in the background, you can stop it e.g. with 
 
-	$ sudo /etc/init.d/apache2 stop 
+If everything is installed you can build the project. Change into the main  directory and run:
 
-## With Single Dockerfile
+	$ docker-compose -f docker/docker-compose.yml build
+	
+This will install all needed dependecies in our project and set some environment variables. You thus can skip the sections on how to install audiveris and how to install without docker. To run the program, enter the following command. Make sure your computer has enough space (~1GB).
+
+To run all containers run:
+
+	$ docker-compose docker/docker-compose.yml up
+
+You can now access the web-page at your [localhost](http://localhost).
+
+### Postgres - Database
+
+For testing we are using a Postgres-Database. You can access the database e.g. with pgAdmin with the following parameters:
+
+host: 127.0.0.1
+port: 5433
+user: postgres
+psw: cs2018
+
+## Single Dockerfile
 
 Finally you build the container with the following command. Make sure to be in the musicmatcher directory, docker will find the Dockerfile automatically. 
 
@@ -25,33 +45,5 @@ This will install all needed dependecies in our project and set some environment
 
 You can now access the web-page at your [localhost](http://localhost).
 
-## With Docker-Compose
-The new version links several docker-containers with docker-compose. To install docker-compose run the following commands in a shell:
 
-
-	$ sudo apt-get install curl
-	$ sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
-	$ sudo chmod +x /usr/local/bin/docker-compose
-	$ docker-compose --version
-
-If everything is installed you can build the project. Change into the docker directory and run:
-
-	$ docker-compose build
-	
-This will install all needed dependecies in our project and set some environment variables. You thus can skip the sections on how to install audiveris and how to install without docker. To run the program, enter the following command. Make sure your computer has enough space (~1GB).
-
-To run all containers run:
-
-	$ docker-compose up
-
-You can now access the web-page at your [localhost](http://localhost).
-
-## Postgres - Database
-
-For testing we are using a Postgres-Database. You can access the database e.g. with pgAdmin with the following parameters:
-
-host: 127.0.0.1
-port: 5433
-user: postgres
-psw: cs2018
 

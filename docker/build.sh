@@ -9,7 +9,7 @@ printf "...........................................\n\n";
 
 # set project directories
 project_dir="$(dirname "$(pwd)")"
-audiveris_dir="$project_dir/backend/audiveris";
+audiveris_dir="backend/audiveris";
 
 audiveris_in_folder=false;
 

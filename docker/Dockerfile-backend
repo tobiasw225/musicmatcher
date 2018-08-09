@@ -7,8 +7,6 @@
 FROM ubuntu:latest
 LABEL authors="Tobias Wenzel, Pavel Brodianskyi"
 
-
-
 # -------------------------------------------------------------
 ## install java 8 and it's dependecies
 # -------------------------------------------------------------
@@ -24,8 +22,7 @@ RUN apt-get update && \
     echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
     apt-get install -y oracle-java8-installer && \
     apt-get clean
-
-
+RUN apt-get install git -y
 
 # -------------------------------------------------------------
 ## tesseract
@@ -41,6 +38,21 @@ ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/
 
 
 # -------------------------------------------------------------
+## Install Audiveris & it's dependencies
+# -------------------------------------------------------------
+
+
+COPY backend/ /home/docker
+RUN cd /home/docker/audiveris && \
+ export TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/ && \
+  ./gradlew clean build 
+
+## move compiled program 
+RUN tar -xf /home/docker/audiveris/build/distributions/Audiveris.tar -C /home/docker
+RUN rm -rf /home/docker/audiveris
+
+
+# -------------------------------------------------------------
 # grant permission for file editing
 # -------------------------------------------------------------
 
@@ -51,27 +63,7 @@ ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/
 #RUN chmod -R 770 /var/www/html/out
 
 
-
-# -------------------------------------------------------------
-## Install Audiveris & it's dependencies
-# -------------------------------------------------------------
-
-
-RUN apt-get update && \
-  apt-get install git -y
-
-## the cloning takes a lot of time.
-RUN git clone https://github.com/Audiveris/audiveris.git 
-RUN cd audiveris && \
- git checkout development && \
- export TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/ && \
-  ./gradlew clean build 
-
-## move compiled program 
-RUN tar -xf /audiveris/build/distributions/Audiveris.tar -C /home
-
 # this is necessesaray to run apache2
-
 # not sure if we need this
 #RUN apt-get install sudo
 #RUN adduser www-data sudo
