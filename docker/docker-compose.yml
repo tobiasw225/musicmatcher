@@ -1,0 +1,50 @@
+{
+    "version": "3",
+    "volumes": {
+        "postgres_data": {},
+    },
+    "services": {
+        "postgres": {
+            "image": "postgres:alpine",
+            "volumes": [
+                "postgres_data:/var/lib/postgresql/data/"
+            ],
+            "environment": {
+                "POSTGRES_PASSWORD": "cs2018",
+                "POSTGRES_DB": "musicmatcher",
+                "POSTGRES_USER" : "postgres"
+            },
+            "ports" : ["127.0.0.1:5433:5432"]
+        },
+        "apache": {
+            "build": {
+                "context": "./",
+                "dockerfile": "Dockerfile-apache"
+            },
+            "volumes": [
+                "../src:/var/www/html/"
+            ],
+            "ports": [
+                "127.0.0.1:80:80"
+            ],
+            "depends_on": [
+                "postgres",
+            ]
+        },
+        "backend": {
+            "build" : {
+                "context" : "./",
+                "dockerfile": "Dockerfile-backend"
+            },
+            "volumes": [
+                "../src:/var/www/html/"
+            ],
+#            "ports": [
+#                "127.0.0.1:80:80"
+#            ],
+            "depends_on": [
+                "apache",
+            ]
+        }
+    }
+}

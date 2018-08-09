@@ -5,7 +5,7 @@
 # stop with $ sudo docker stop $(docker ps -a -q) 
 
 FROM ubuntu:latest
-LABEL authors="Tobias Wenzel, Pavel Brodianskyi & Conal Hanamy"
+LABEL authors="Tobias Wenzel, Pavel Brodianskyi"
 
 
 
@@ -33,9 +33,9 @@ RUN apt-get update && \
 RUN  apt-get install apache2 php7.2 php7.2-gd -y
 
 
-COPY src/ /var/www/html
-#COPY res/ /var/www/html/res
-#COPY out /var/www/html
+COPY ../src/ /var/www/html
+#COPY ../res/ /var/www/html/res
+#COPY ../out /var/www/html
 
 # -------------------------------------------------------------
 ## refresh packages & upgrade
