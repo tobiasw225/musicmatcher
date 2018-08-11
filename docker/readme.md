@@ -27,10 +27,10 @@ You can now access the web-page at your [localhost](http://localhost).
 
 For testing we are using a Postgres-Database. You can access the database e.g. with pgAdmin with the following parameters:
 
-host: 127.0.0.1
-port: 5433
-user: postgres
-psw: cs2018
+- host: 127.0.0.1
+- port: 5433
+- user: postgres
+- psw: cs2018
 
 ## Single Dockerfile
 

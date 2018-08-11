@@ -25,7 +25,7 @@
 			#myresponse {
 				text-align: center;
 				background-color: LightSmoke;
-  				line-height: 200px;
+  				/*line-height: 200px;*/
   			   	border: dotted black 1px;
 
 			}

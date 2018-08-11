@@ -30,7 +30,7 @@ $(function() {
 					});
 	}// end-of-function
 	
-	load_filenames('../res');
+	load_filenames('/home/docker/res');
 
 
 	function init_cs_js_with_picture(path){

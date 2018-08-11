@@ -151,9 +151,8 @@ RUN echo 'www-data ALL=(user) NOPASSWD: /home/docker/Audiveris/bin/Audiveris' >>
 RUN chown www-data:www-data -R /home/Audiveris
 
 
-
-
 CMD apachectl -D FOREGROUND
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 # grant port access
 EXPOSE 80

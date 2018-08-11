@@ -15,15 +15,14 @@ if( isset($_POST['proc_image'])){
 	$cmd = "$audiveris_path $audiveris_options $output_folder $input_file  > /tmp/a.txt 2>&1";
 
 
-	if(is_file($input_file)) { echo "<b>Works:" . $input_file . "</b></br>"; } else {
-		echo $input_file;
+	if(is_file($input_file)) { } else {
+		 echo "<b>Does not exist:" . $input_file . "</b></br>";
 	}
-	$cmd = "/home/docker/Audiveris/bin/Audiveris -batch -print -export -output ../out ../out/bub_gb_1UMvAAAAMAAJ_Page_0x131df.png ";
-	echo $cmd;
+	$cmd = "/home/docker/Audiveris/bin/Audiveris -batch -export -output ../out ../out/bub_gb_1UMvAAAAMAAJ_Page_0x131df.png ";
+	//echo $cmd;
 	$output = system("python3 ../call_audiveris.py");
 
-//	$output = exec($cmd);
-	//exec("sh speech.sh ".escapeshellarg("hello this is a test"));
+	//$output = exec($cmd);
 	
 
 	echo "<pre>$output</pre>";

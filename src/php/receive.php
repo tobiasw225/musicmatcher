@@ -35,12 +35,28 @@ function crop_my_png_image($x,$y,$width,$heigth,$src){
 	imagecopyresampled($dst_r,$img_r,0,0, $x,$y,
 		$src_w,$src_h,$src_w,$src_h);
 	header('Content-type: image/png');
-	$output_file = "../out/".basename($src);
+	$output_file = basename($src);
 	imagepng($dst_r, $output_file);
 //	echo "<p>you deserve a cookie. but just one!</p>";
 	echo "<img class='changed_img' src='$output_file?=". filemtime($output_file)."'/>";
-	imagedestroy($dst_r);
 	
+	$conn = pg_pconnect("dbname=music_matcher user=postgres password=cs2018");
+	$query = "insert into tbl_images values ('$dst_r', 'now')";
+	$result = pg_query($query);
+
+	if($result)
+	{
+	    echo "File is valid, and was successfully uploaded.\n";
+	    unlink($uploadfile);
+	}
+	else
+	{
+	    echo "Filename already exists. Use another filename. Enter all the values.";
+	    unlink($uploadfile);
+	}
+	pg_close($conn);
+	
+	imagedestroy($dst_r);
 
 }
 
