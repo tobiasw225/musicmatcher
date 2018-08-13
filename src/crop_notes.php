@@ -25,11 +25,12 @@
 		<!-- Custom styles -->
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 	</head>
+
 	<body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.php">music matcher: select</a>
+        <a class="navbar-brand" href="index.php">music matcher</a>
         <!-- responsive menu -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -37,27 +38,30 @@
         
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item ">
               <a class="nav-link" href="index.php">home
-                <span class="sr-only">(current)</span>
               </a>
             </li>
+            
+            <li class="nav-item ">
+              <a class="nav-link" href="mark_image.php">detect</a>
+            </li>
 
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="crop_notes.php">cropper</a>
+                     <span class="sr-only">(current)</span>
+
             </li>
             
-            <li class="nav-item">
+            <li class="nav-item ">
               <a class="nav-link" href="note_correction.php">note correction</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contact.html">contact</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="#">sign up</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">sign in</a>
+              <a class="nav-link" href="login.php">sign in</a>
             </li>
             
           </ul>
@@ -73,7 +77,10 @@
 					
 				<div class="col-xs-12 col-md-6" class="tooltip" id="pic_section" title="drag the corners to select the notes!">
 					<!-- this is where the pic goes !-->
-					<div id="crop-select"></div>
+					<div id="crop-select">
+
+						
+					</div>
 				</div>
 
 				<div class="col-xs-12 col-md-6" class="tooltip" title="nothing to see here. move to the left." id="resdivwrapper" >
@@ -103,6 +110,7 @@
 		</div>
 
 
-
+		
+		
 	</body>
 </html>
