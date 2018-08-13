@@ -38,9 +38,8 @@
         
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">home
-                <span class="sr-only">(current)</span>
+            <li class="nav-item ">
+              <a class="nav-link" href="index.php">home
               </a>
             </li>
             <li class="nav-item ">
@@ -58,8 +57,9 @@
               <a class="nav-link" href="contact.html">contact</a>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="login.php">sign in</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">sign in</a>
+                    <span class="sr-only">(current)</span>
             </li>
             
           </ul>
@@ -67,19 +67,51 @@
       </div>
  
     </nav>
-    		<div class="container" style="margin-top: 10px">
-	<h1>music matcher</h1>
-<h2>How to get started</h2>
-<p>...</p>	
+    
+      <div class="container" style="margin-top: 10px">
 
-<h2>Contribute</h2>
-<p>...</p>	
-<a href="https://github.com/tobiasw225/musicmatcher">on github</a>
+    <div class="row" style="margin-top:20px">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+            <form th:action="@{/login}" method="post">
+                <fieldset>
+                    <h1>Please Sign In</h1>
 
+                    <div th:if="${param.error}">
+                        <div class="alert alert-danger">
+                            Invalid username and password.
+                        </div>
+                    </div>
+                    <div th:if="${param.logout}">
+                        <div class="alert alert-info">
+                            You have been logged out.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="username" id="username" class="form-control input-lg"
+                               placeholder="UserName" required="true" autofocus="true"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" id="password" class="form-control input-lg"
+                               placeholder="Password" required="true"/>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign In"/>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
 
 </div>
-<div class="navbar navbar-fixed-bottom">
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
-</div>
+
+	<div class="navbar navbar-fixed-bottom">
+		<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+	</div>
 	</body>
 </html>
