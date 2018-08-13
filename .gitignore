@@ -1,4 +1,4 @@
-backend/audiveris/
+
 docker/backend/*
 test_files/*
 src/out/*
