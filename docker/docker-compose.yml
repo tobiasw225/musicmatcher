@@ -23,7 +23,8 @@
                 "dockerfile": "docker/Dockerfile-apache"
             },
             "volumes": [
-                "../src:/var/www/html/"
+                "../src:/var/www/html/",
+                "../test_files:/var/www/html/"
             ],
             "ports": [
                 "127.0.0.1:80:80"

@@ -81,7 +81,7 @@ function update_has_sm($has_sm, $res_id){
 }
 
 function update_pic_status($edit_status, $res_id){
-	$sql = "UPDATE tbl_res SET img_status ='$edit_status' WHERE res_id=$res_id;";
+	$sql = "UPDATE tbl_res SET res_status ='$edit_status' WHERE res_id=$res_id;";
 	exec_sql($sql);
 }
 
@@ -96,7 +96,7 @@ function insert_res_has_tag($tag_id, $res_id){
  * Load Images from database
  * 
  --------------------------------------------------------------------------*/
-function get_random_img_res_id(){
+function get_random_res_res_id(){
 
 	$sql = <<<EOF
       SELECT res_id FROM tbl_res ORDER BY res_id DESC LIMIT 1;
@@ -113,28 +113,30 @@ EOF;
 	return rand($min,$max);;
 }
 
-function load_img_from_db($res_id){
+function load_res_from_db($res_id){
+	/**
+	 * 
+	 */
 	$sql = <<<EOF
-      SELECT * FROM tbl_res WHERE res_id = '$res_id';
+      SELECT res_path FROM tbl_res WHERE res_id = '$res_id';
 EOF;
 	$res = exec_sql($sql);
-	$raw = pg_fetch_result($res, 'img_obj_txt');
-	$id = pg_fetch_result($res, 'res_id');	
-	// Convert to binary and send to the browser
-	echo "key=$id src='data:image;base64, $raw' ";
+	$raw = pg_fetch_result($res, 'res_path');
+	echo "key=$res_id src='$raw' ";
 }
 
+
 /*
-function insert_img_into_db($file_path){
+function insert_res_into_db($file_path){
 	$binary = file_get_contents("../".$file_path);
 	$base64 = base64_encode($binary);
-	$sql = "INSERT INTO tbl_res (img_obj_txt) VALUES ('$base64');";
+	$sql = "INSERT INTO tbl_res (res_obj_txt) VALUES ('$base64');";
 	exec_sql($sql);
 }
 */
 function load_random_image() {
-	$res_id = get_random_img_res_id();
-	load_img_from_db($res_id);
+	$res_id = get_random_res_res_id();
+	load_res_from_db($res_id);
 }
 
 
@@ -187,14 +189,14 @@ class MMDatabase {
 	} // end-of-constructor
 	
 	
-	function insert_img_into_db($file_path){
+	function insert_res_into_db($file_path){
 		
 		 //saves the image as txt in a postgres-database
 		 
 
 		$binary = file_get_contents("../".$file_path);
 		$base64 = base64_encode($binary);
-		$sql = "INSERT INTO tbl_images_txt (img_obj_txt) VALUES ('$base64');";
+		$sql = "INSERT INTO tbl_images_txt (res_obj_txt) VALUES ('$base64');";
 		$result = pg_query($this->db, $sql);
 		if (!$result) {
 		  echo "Es gab einen Fehler beim Einfügen in die Datenbank.\n";

@@ -7,7 +7,7 @@ import sys
 from datetime import datetime
 import os.path
 
-conn_string = "host=localhost port=5432 dbname=test user=tobias password=test123"
+conn_string = "host=172.19.0.2 port=5432 dbname=musicmatcher user=postgres password=cs2018"
 
 import base64
 
@@ -72,7 +72,7 @@ class PostGresDb:
         img_path = "/".join(img_path.split("/")[5:])
         # base64_img = file_to_base64(img_path)
 
-        sql = """INSERT INTO tbl_images_txt (img_added_date, img_status, img_path) VALUES (%s, %s, %s) RETURNING img_id"""
+        sql = """INSERT INTO tbl_res (res_added_date, res_status, res_path) VALUES (%s, %s, %s) RETURNING res_id"""
 
         try:
             img_id = self.insert(sql=sql,
@@ -106,6 +106,10 @@ def load_folder_into_db(folder_path):
 
 
 def create_db():
+    """
+
+    :return:
+    """
     pg_db = PostGresDb()
 
     """ create tables in the PostgreSQL database"""
@@ -252,7 +256,7 @@ def create_db():
 
 if __name__ == '__main__':
     pass
-    #load_folder_into_db("/home/tobias/mygits/musicmatcher/test_files/res")
+    load_folder_into_db("/home/tobias/mygits/musicmatcher/test_files/res")
     # pg_db = PostGresDb()
     # pg_db.insert_img_into_db("/home/tobias/mygits/musicmatcher/test_files/res/bsb10527854_00145.jpg")
     # file_to_base64("/home/tobias/mygits/musicmatcher/test_files/res/bsb10527854_00145.jpg")
