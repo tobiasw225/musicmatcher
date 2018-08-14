@@ -5,14 +5,15 @@
     },
     "services": {
         "postgres": {
-            "image": "postgres:alpine",
+            "image": "postgres",
             "volumes": [
                 "postgres_data:/var/lib/postgresql/data/"
             ],
             "environment": {
                 "POSTGRES_PASSWORD": "cs2018",
                 "POSTGRES_DB": "musicmatcher",
-                "POSTGRES_USER" : "postgres"
+                "POSTGRES_USER" : "postgres",
+                "debug": "false"
             },
             "ports" : ["127.0.0.1:5433:5432"]
         },
@@ -31,12 +32,12 @@
                 "postgres",
             ]
         }
-,
-       "backend": {
-            "build" : {
-                "context" : "./",
-                "dockerfile": "Dockerfile-ocr"
-            }
-        }
+#,
+#       "backend": {
+#            "build" : {
+#                "context" : "./",
+#                "dockerfile": "Dockerfile-ocr"
+#            }
+#        }
     }
 }

@@ -4,7 +4,7 @@
 -------------------------------------------------------------------------- */
 
 // change this according to settings
-$conn_string = "host=localhost port=5432 dbname=test user=tobias password=test123";
+$conn_string = "host=postgres_1 port=5432 dbname=musicmatcher user=postgres password=cs2018";
 
 /**--------------------------------------------------------------------------
  * Helper functions
