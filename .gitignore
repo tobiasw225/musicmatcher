@@ -1,4 +1,5 @@
 backend/audiveris/
+<<<<<<< HEAD
 src/out/*
 src/res/*
 
@@ -107,3 +108,5 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+=======
+>>>>>>> remotes/origin/pavel_branch
