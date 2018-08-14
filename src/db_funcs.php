@@ -4,7 +4,7 @@
 -------------------------------------------------------------------------- */
 
 // change this according to settings
-$conn_string = "host=postgres_1 port=5432 dbname=musicmatcher user=postgres password=cs2018";
+$conn_string = "host=172.19.0.2 port=5432 dbname=musicmatcher user=postgres password=cs2018";
 
 /**--------------------------------------------------------------------------
  * Helper functions
@@ -81,7 +81,7 @@ function update_has_sm($has_sm, $res_id){
 }
 
 function update_pic_status($edit_status, $res_id){
-	$sql = "UPDATE tbl_images_txt SET img_status ='$edit_status' WHERE img_id=$res_id;";
+	$sql = "UPDATE tbl_res SET img_status ='$edit_status' WHERE res_id=$res_id;";
 	exec_sql($sql);
 }
 
@@ -99,41 +99,42 @@ function insert_res_has_tag($tag_id, $res_id){
 function get_random_img_res_id(){
 
 	$sql = <<<EOF
-      SELECT img_id FROM tbl_images_txt ORDER BY img_id DESC LIMIT 1;
+      SELECT res_id FROM tbl_res ORDER BY res_id DESC LIMIT 1;
 EOF;
 	$res = exec_sql($sql);
-	$max = pg_fetch_result($res, 'img_id');	
+	$max = pg_fetch_result($res, 'res_id');	
 	
 	$sql = <<<EOF
-      SELECT img_id FROM tbl_images_txt ORDER BY img_id LIMIT 1;
+      SELECT res_id FROM tbl_res ORDER BY res_id LIMIT 1;
 EOF;
 	$res = exec_sql($sql);
-	$min = pg_fetch_result($res, 'img_id');	
+	$min = pg_fetch_result($res, 'res_id');	
 	
 	return rand($min,$max);;
 }
 
-function load_img_from_db($img_id){
+function load_img_from_db($res_id){
 	$sql = <<<EOF
-      SELECT * FROM tbl_images_txt WHERE img_id = '$img_id';
+      SELECT * FROM tbl_res WHERE res_id = '$res_id';
 EOF;
 	$res = exec_sql($sql);
 	$raw = pg_fetch_result($res, 'img_obj_txt');
-	$id = pg_fetch_result($res, 'img_id');	
+	$id = pg_fetch_result($res, 'res_id');	
 	// Convert to binary and send to the browser
 	echo "key=$id src='data:image;base64, $raw' ";
 }
 
+/*
 function insert_img_into_db($file_path){
 	$binary = file_get_contents("../".$file_path);
 	$base64 = base64_encode($binary);
-	$sql = "INSERT INTO tbl_images_txt (img_obj_txt) VALUES ('$base64');";
+	$sql = "INSERT INTO tbl_res (img_obj_txt) VALUES ('$base64');";
 	exec_sql($sql);
 }
-
+*/
 function load_random_image() {
-	$img_id = get_random_img_res_id();
-	load_img_from_db($img_id);
+	$res_id = get_random_img_res_id();
+	load_img_from_db($res_id);
 }
 
 
