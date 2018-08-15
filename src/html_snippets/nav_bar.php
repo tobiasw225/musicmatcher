@@ -19,13 +19,9 @@
 
             
             <li class="nav-item">
-              <a class="nav-link" href="note_correction.php">note correction</a>
+              <a class="nav-link" href="note_correction.php">ocr correction</a>
             </li>
-            <!--
-            <li class="nav-item">
-              <a class="nav-link" href="contact.php">contact</a>
-            </li>
-            -->
+
 
             <li class="nav-item">
               <a class="nav-link" href="login.php">sign in</a>

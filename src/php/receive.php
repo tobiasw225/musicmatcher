@@ -8,7 +8,11 @@ function get_all_file_names_of_folder($path){
 	echo json_encode($files);
 ;
 }
-
+if (isset($_POST['path'])){
+	$res= get_all_file_names_of_folder($_POST['path']);
+	echo $res;
+	exit;
+}
 
 	// currently not used. could be reused for cropping advertisement.
 	// js in cropper.js
@@ -60,10 +64,6 @@ if( isset($_POST['x']) && isset($_POST['y'])&&
 }
 	*/
 	
-if (isset($_POST['path'])){
-	$res= get_all_file_names_of_folder($_POST['path']);
-	echo $res;
-	exit;
-}
+
 
 ?>

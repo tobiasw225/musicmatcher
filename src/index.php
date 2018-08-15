@@ -15,7 +15,9 @@
 
 		<div class="container" style="margin-top: 10px">
 			<h1>music matcher</h1>
+			The Musikalisches Wochenblatt - Organ für Musiker und Musikfreunde (short: MWb), was a music journal in the time of the german empire. It was founded in 1870 by Oscal Paul and published until 1910 in Leipzig. Henceforward it was published by Ernst Wilhelm Fritsch as the Neue Zeitschrift für Musik (short: NZFM). It discusses developments in music, concerts and features critics from all over Germany with a focus led on Leipzig. In this project we chose to use these documents as our research corpus because of the regional connection to our univerisity and it's rich information about the 19th as well as the beginning of the 20th century.
 			<h2>...yet another OCR-correction project?</h2>
+			
 			
 			<h2>How to get started</h2>
 			<p>

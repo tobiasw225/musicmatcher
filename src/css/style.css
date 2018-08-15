@@ -1,5 +1,4 @@
 
-    <style>
       body {
       }
       @media (min-width: 992px) {
@@ -7,9 +6,7 @@
         }
       }
 
-			.crop-select-js {
-				width : 65%;
-			}
+
 
 			#pic_section {
 				height: 100%;
@@ -30,10 +27,10 @@
 
 			}
 			#dbpic {
-				width: 90%;
+				width: 100%;
 			}
 			.changed_img {
-				width : 70%;
+				width : 80%;
 			}
 			
 			.helper {

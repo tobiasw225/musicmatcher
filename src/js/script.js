@@ -5,6 +5,7 @@
 $(function() {
 	
 
+$(".xzoom").xzoom();
 
 	var current_img_path = "";
 
@@ -13,14 +14,14 @@ $(function() {
 		theme : 'tooltipster-punk'
 	});
 
-
+	/*
 	function load_filenames (path){
 					$.post("php/receive.php", {
 							path: path
 					}).done(function(data, textStatus, jqXHR) {
 						var files = JSON.parse("[" + data + "]")[0];
 						var rand_index = Math.floor(Math.random() * files.length)   ;
-						var abs_filename = files[rand_index].replace("../res", "res");
+						var abs_filename = files[rand_index];
 						init_cs_js_with_picture(abs_filename);
 						
 					}).fail(function(jqXHR, textStatus, errorThrown) {
@@ -28,7 +29,7 @@ $(function() {
 					});
 	}// end-of-function
 	
-	load_filenames('../res');
+	//load_filenames('../res');
 	
 	function init_with_db_image (){
 					$.post("db_funcs.php", {
@@ -41,7 +42,7 @@ $(function() {
 	}// end-of-function
 	//init_with_db_image();
 	
-
+	*/
 		
 
 

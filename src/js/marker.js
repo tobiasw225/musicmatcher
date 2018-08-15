@@ -42,28 +42,6 @@ $(function() {
 		$("#myselectedtags span.tags").each(function() {
 			tags.push($(this).text());
 		});
-		if (is_sheet_music) { 
-
-			
-			$.post("php/receive.php", {
-				is_title_page : is_title_page,
-				is_sheet_music : is_sheet_music,
-				res_id : res_id,
-				tags : tags
-			}).done(function(data, textStatus, jqXHR) {
-				bootbox.alert({
-				    message: "Vielen Dank. Im nächsten Schritt darfst du die Noten ausschneiden.",
-				    backdrop: true,
-				});
-				// syntax-fehler werden fälschlicherweise angezeigt.
-				sleep(sleep_time/4).then(() => {
-				location.href = 'crop_notes.php';
-				});
-			}).fail(function(jqXHR, textStatus, errorThrown) {
-				alert(errorThrown);
-			});
-		} else {
-			
 			bootbox.alert({
 				    message: "Vielen Dank. Die Daten werden eingefügt und du kannst einfach beim nächsten Bild weitermachen.",
 				    backdrop: true,
@@ -82,7 +60,7 @@ $(function() {
 			}).fail(function(jqXHR, textStatus, errorThrown) {
 				alert(errorThrown);
 			});
-		}
+		
 	});
 
 	/**
