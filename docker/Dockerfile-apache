@@ -1,8 +1,5 @@
 FROM php:apache
 
-#RUN apt-get update \
-#  && apt-get install --yes --no-install-recommends libpq-dev \
-#  && docker-php-ext-install pdo pdo_pgsql 
 
 
 RUN apt-get update \
@@ -15,3 +12,7 @@ RUN apt-get install -y libpq-dev \
 
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
+
+#RUN mkdir -p /var/www/html/test_files
+#COPY test_files/ /var/www/html/test_files
+#COPY src/ /var/www/html/
