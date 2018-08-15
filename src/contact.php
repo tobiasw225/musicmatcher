@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!-- 
+	we can move this information onto our main-page
+-->
+
 <html lang="en">
 	<head>
 		<?php include('html_snippets/header.php'); ?>

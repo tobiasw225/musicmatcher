@@ -9,24 +9,14 @@ function get_all_file_names_of_folder($path){
 ;
 }
 
-function crop_my_jpg_image($x,$y,$width,$heigth,$src){
 
-	$jpeg_quality = 90;
-	$img_r = imagecreatefromjpeg($src);
-	$dst_r = ImageCreateTrueColor( $width, $heigth );
-
-	imagecopyresampled($dst_r,$img_r,0,0,$x,$y,
-	$width,$heigth,$width,$height);
-
-	header('Content-type: image/jpeg');
-	imagejpeg($dst_r,null,$jpeg_quality);
-}
-
-
+	// currently not used. could be reused for cropping advertisement.
+	// js in cropper.js
+/*
 function crop_my_png_image($x,$y,$width,$heigth,$src){
-	/**
-	* crops picture and saves it
-	**/
+
+	// crops picture and saves it
+
 	$src = $src;
 	
 	$img_r = imagecreatefrompng($src);
@@ -57,8 +47,9 @@ function crop_my_png_image($x,$y,$width,$heigth,$src){
 	pg_close($conn);
 	
 	imagedestroy($dst_r);
-
 }
+
+ 
 
 if( isset($_POST['x']) && isset($_POST['y'])&&
 	isset($_POST['width']) && isset($_POST['height'])){
@@ -67,6 +58,7 @@ if( isset($_POST['x']) && isset($_POST['y'])&&
     $_POST['src']);
    exit;
 }
+	*/
 	
 if (isset($_POST['path'])){
 	$res= get_all_file_names_of_folder($_POST['path']);

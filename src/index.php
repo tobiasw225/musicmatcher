@@ -15,6 +15,8 @@
 
 		<div class="container" style="margin-top: 10px">
 			<h1>music matcher</h1>
+			<h2>...yet another OCR-correction project?</h2>
+			
 			<h2>How to get started</h2>
 			<p>
 				...
