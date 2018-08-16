@@ -14,19 +14,14 @@
             </li>
             
             <li class="nav-item ">
-              <a class="nav-link" href="mark_image.php">detect</a>
+              <a class="nav-link" href="tag_page.php">tagging</a>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="crop_notes.php">cropper</a>
-            </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="note_correction.php">note correction</a>
+              <a class="nav-link" href="note_correction.php">ocr correction</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.php">contact</a>
-            </li>
+
 
             <li class="nav-item">
               <a class="nav-link" href="login.php">sign in</a>

@@ -7,8 +7,20 @@
 			include('html_snippets/header.php');
 			include 'db_funcs.php';
 		?>
+		<!-- Messages PLUGIN  -->
+
     	<script type="text/javascript" src="js/bootbox.min.js"></script>
+
+		<!-- XZOOM PLUGIN  -->
+		<link rel="stylesheet" type="text/css" href="css/xzoom.css" media="all" />
+		<script type="text/javascript" src="js/xzoom.min.js"></script>
+		<!-- PDF.js -->
+				<script src="js/pdf.worker.js"></script>
+
+		<script src="js/pdf.js"></script>
+		
 		<script src="js/marker.js" type="text/javascript"></script>
+
 	</head>
 
 	<body>
@@ -24,7 +36,7 @@
 					
 
 
-				<div class="col-xs-12 col-md-6" class="tooltip" title="" id="resdivwrapper" >
+				<div class="col-xs-12 col-md-6" class="tooltip" title=""  >
 						
 						<div class="custom-control form-control-lg custom-checkbox">
 						    <input type="checkbox" class="custom-control-input" id="title_check">
@@ -92,10 +104,24 @@
 				</div>
 				
 				
-				<div class="col-xs-12 col-md-6" class="tooltip" id="" title="">
-						<img id="dbpic" <?php
+				<div class="col-xs-12 col-md-6" class="tooltip xzoom-container" id="" title="">
+					
+						<img id="dbpic" class="xzoom" src="test_files/res/bub_gb_1UMvAAAAMAAJ_Page_0x1bdf_prev.png" <?php
 						load_random_image();
 						?>>
+					
+					
+					<!--
+					 <canvas id="the-canvas"></canvas>
+
+						<div id="pdf-main-container">
+						    <div id="pdf-loader"></div>
+						    <div id="pdf-contents">	
+						        <canvas id="pdf-canvas" width="400"></canvas>
+						    </div>
+						</div>		
+					-->
+				
 				</div>
 				
 
