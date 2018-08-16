@@ -1,0 +1,32 @@
+# Latest Ubuntu with tesseract
+# Build image with:  $	docker build -t musicmatcher .
+# Run image with:  $ docker run  -p 8000:80 -v /home/tobias/mygits/musicmatcher/src/:/var/www/html/ musicmatcher
+# use -d flag to run in background
+# stop with $ sudo docker stop $(docker ps -a -q) 
+
+FROM ubuntu:latest
+LABEL authors="Tobias Wenzel, Pavel Brodianskyi"
+
+ENV TZ Europe/Berlin	
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+
+# -------------------------------------------------------------
+## tesseract
+## ->  also needed for Audiveris
+# -------------------------------------------------------------
+
+RUN apt-get update && \
+ apt-get install libfreetype6-dev -y && \
+ apt-get install tesseract-ocr tesseract-ocr-deu tesseract-ocr-eng tesseract-ocr-fra  -y 
+
+RUN echo "TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/" >> /etc/environment 
+ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/
+
+
+
+
+
+
+
+

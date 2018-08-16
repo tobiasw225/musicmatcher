@@ -5,24 +5,26 @@
     },
     "services": {
         "postgres": {
-            "image": "postgres:alpine",
+            "image": "postgres",
             "volumes": [
                 "postgres_data:/var/lib/postgresql/data/"
             ],
             "environment": {
                 "POSTGRES_PASSWORD": "cs2018",
                 "POSTGRES_DB": "musicmatcher",
-                "POSTGRES_USER" : "postgres"
+                "POSTGRES_USER" : "postgres",
+                "debug": "false"
             },
             "ports" : ["127.0.0.1:5433:5432"]
         },
         "apache": {
-            "build": {
-                "context": "./",
-                "dockerfile": "Dockerfile-apache"
+            "build" : {
+                "context" : "../",
+                "dockerfile": "docker/Dockerfile-apache"
             },
             "volumes": [
-                "../src:/var/www/html/"
+                "../src:/var/www/html/",
+                "../test_files:/var/www/html/test_files"
             ],
             "ports": [
                 "127.0.0.1:80:80"
@@ -30,21 +32,15 @@
             "depends_on": [
                 "postgres",
             ]
-        },
-        "backend": {
-            "build" : {
-                "context" : "./",
-                "dockerfile": "Dockerfile-backend"
-            },
-            "volumes": [
-                "../src:/var/www/html/"
-            ],
-#            "ports": [
-#                "127.0.0.1:80:80"
-#            ],
-            "depends_on": [
-                "apache",
-            ]
         }
+
+## this can be used for tesseract	
+#,
+#       "backend": {
+#            "build" : {
+#                "context" : "./",
+#                "dockerfile": "Dockerfile-ocr"
+#            }
+#        }
     }
 }
