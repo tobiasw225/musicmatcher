@@ -105,12 +105,13 @@
 				
 				
 				<div class="col-xs-12 col-md-6" class="tooltip xzoom-container" id="" title="">
-					<!--
+					
 						<img id="dbpic" class="xzoom" src="test_files/res/bub_gb_1UMvAAAAMAAJ_Page_0x1bdf_prev.png" <?php
 						load_random_image();
 						?>>
-					-->
-
+					
+					
+					<!--
 					 <canvas id="the-canvas"></canvas>
 
 						<div id="pdf-main-container">
@@ -119,6 +120,7 @@
 						        <canvas id="pdf-canvas" width="400"></canvas>
 						    </div>
 						</div>		
+					-->
 				
 				</div>
 				

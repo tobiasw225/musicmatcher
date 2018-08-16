@@ -3,7 +3,7 @@
 
 	<head>
 		<?php
-		include ('html_snippets/header.php');
+			include ('html_snippets/header.php');
 		?>
 	</head>
 
