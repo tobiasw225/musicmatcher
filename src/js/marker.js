@@ -36,7 +36,17 @@ $(function() {
 	$('#submit_marker').click(function() {
 
 		var is_title_page = ($('#title_check').prop('checked'));
-		var is_sheet_music = ($('#sm_check').prop('checked'));
+		var is_sheet_music = 0;
+		var ad_count = $("input[type=range]#ad_count").val();
+		var sm_count = $("input[type=range]#sm_count").val();
+		
+		if (sm_count > 0) {
+			// not nec. since > 1 == true, just for to make things clear
+			// is_sheet_music should become sm_count in db
+			is_sheet_music = 1;
+		}
+		console.log(sm_count);
+		console.log(ad_count);
 		var res_id = $('#dbpic').attr('key');
 		// collects all tags
 		var tags = [];
@@ -51,6 +61,8 @@ $(function() {
 		$.post("php/receive.php", {
 			is_title_page : is_title_page,
 			is_sheet_music : is_sheet_music,
+			sm_count: sm_count,
+			ad_count: ad_count,
 			res_id : res_id
 		}).done(function(data, textStatus, jqXHR) {
 			// syntax-fehler werden fälschlicherweise angezeigt.
@@ -104,7 +116,7 @@ $(function() {
 	// end-of-taglistener
 	
 	
-
+	// handle sliders
 	$(document).on('change', "input[type=range]", function(event) {
 		var newval=$(this).val();
 		$(this).next('span').text(newval);
