@@ -122,7 +122,7 @@ function load_res_from_db($res_id){
 EOF;
 	$res = exec_sql($sql);
 	$raw = pg_fetch_result($res, 'res_path');
-	echo "key=$res_id src='$raw' ";
+	echo "key=$res_id xoriginal='$raw' ";
 }
 
 

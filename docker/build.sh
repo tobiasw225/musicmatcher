@@ -36,7 +36,17 @@ printf '\n\n'
 echo 'finished build script. you should now be able to run docker compose';
 echo "start to build the script..."
 
-docker-compose build
+wd=${PWD##*/}
+if [[ $PWD = *"docker"* ]]; then
+    cd .. && docker-compose -f  docker/docker-compose.yml build
+    docker-compose -f  docker/docker-compose.yml run
+elif [[ $PWD = *"musicmatcher"* ]]; then
+    docker-compose -f  docker/docker-compose.yml build
+    docker-compose -f  docker/docker-compose.yml run
+else
+    echo "please change into the 'musicmatcher' dir and run:";
+    echo "docker-compose -f  docker/docker-compose.yml build";
+fi
 
 
 
