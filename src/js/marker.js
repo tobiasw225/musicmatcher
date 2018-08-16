@@ -12,12 +12,6 @@ $(function() {
 	delete_key = 46;
 
 
-	var __PDF_DOC,
-	    __CURRENT_PAGE,
-	    __TOTAL_PAGES,
-	    __PAGE_RENDERING_IN_PROGRESS = 0,
-	    __CANVAS = $('#pdf-canvas').get(0),
-	    __CANVAS_CTX = __CANVAS.getContext('2d');
 
 	// sleep time expects milliseconds
 	var sleep_time = 5000;
@@ -119,13 +113,12 @@ $(function() {
 	 * 
 	 */
 	// Initialize and load the PDF
+	/*
 	function showPDF(pdf_url) {
 		PDFJS.disableWorker = true;
 		PDFJS.getDocument(url).then(function getPdfHelloWorld(pdf) {
 
 			pdf.getPage(1).then(function getPageHelloWorld(page) {
-
-
 				var scale = 2.0;
 				var viewport = page.getViewport(scale);
 
@@ -140,13 +133,59 @@ $(function() {
 				});
 			});
 		});
-	}
+		
+	}*/
+   		var pageNum = 1;
+         var pdfScale = 1; // make pdfScale a global variable
+         var shownPdf; // another global we'll use for the buttons
+	      var url = 'test_files/res/bub_gb_1UMvAAAAMAAJ_Page_0x2ddf.pdf';
+
+         function renderPage(page) {
+            var scale = pdfScale; // render with global pdfScale variable
+            var viewport = page.getViewport(scale);
+            var canvas = document.getElementById('the-canvas');
+            var context = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+            var renderContext = {
+               canvasContext: context,
+               viewport: viewport
+            };
+            page.render(renderContext);
+         }
+
+         function displayPage(pdf, num) {
+            pdf.getPage(num).then(function getPage(page) { renderPage(page); });
+         }
+
+         var pdfDoc = PDFJS.getDocument(url).then(function getPdfHelloWorld(pdf) {
+            displayPage(pdf, 1);
+            shownPdf = pdf;
+         });
 
 
 
 
-    var url = 'test_files/res/bub_gb_1UMvAAAAMAAJ_Page_0x2ddf.pdf';
-	showPDF(url);
+
+	$('#the-canvas').mousedown(function(event) {
+		switch (event.which) {
+		case 1:
+			pdfScale = pdfScale + 0.25;
+			displayPage(shownPdf, pageNum);
+			break;
+		case 3:
+			if (pdfScale <= 0.25) {
+				return;
+			}
+			pdfScale = pdfScale - 0.25;
+			displayPage(shownPdf, pageNum);
+			break;
+		default:
+			alert('You have a strange Mouse!');
+		}
+	}); 
+
+
 
 
 
