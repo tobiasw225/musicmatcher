@@ -3,6 +3,9 @@
  */
 
 $(function() {
+	
+
+
 	var current_img_path = "";
 
 	// init tooltips
@@ -10,10 +13,7 @@ $(function() {
 		theme : 'tooltipster-punk'
 	});
 
-	/**
-	 * load filenames with php?
-	 *
-	 */
+
 	function load_filenames (path){
 					$.post("php/receive.php", {
 							path: path
@@ -22,19 +22,33 @@ $(function() {
 				
 						var files = JSON.parse("[" + data + "]")[0];
 						var rand_index = Math.floor(Math.random() * files.length)   ;
-						console.log(rand_index);
-						console.log(files.length)
+						//console.log(files.length);
 						console.log(files[rand_index]);
-						init_cs_js_with_picture(files[rand_index]);
+						var abs_filename = files[rand_index].replace("../res", "res");
+						
+						init_cs_js_with_picture(abs_filename);
 						
 					}).fail(function(jqXHR, textStatus, errorThrown) {
 						alert(errorThrown);
 					});
 	}// end-of-function
 	
-	load_filenames('../res/');
+	load_filenames('../res');
+	
+	function init_with_db_image (){
+					$.post("db_funcs.php", {
+							init_image: 1
+					}).done(function(data, textStatus, jqXHR) {
+						// not sure if that's possible
+							init_cs_js_with_picture(data);
+						
+					}).fail(function(jqXHR, textStatus, errorThrown) {
+						alert(errorThrown);
+					});
+	}// end-of-function
 
-
+	//init_with_db_image();
+	
 	function init_cs_js_with_picture(path){
 		$('#crop-select').CropSelectJs({
 		//
@@ -59,8 +73,12 @@ $(function() {
 	
 	//$('#crop-select').CropSelectJs('disableAnimatedBorder');
 
+
+
+
 	$('#sendtoomr').click(function() {
 		if (current_img_path.length) {
+			console.log(current_img_path);
 			$.post("php/omr_processing.php", {
 				proc_image : current_img_path
 			}).done(function(data, textStatus, jqXHR) {
@@ -116,5 +134,9 @@ $(function() {
 	$('#select-all-btn').click(function() {
 		$('#crop-select').CropSelectJs('selectEverything');
 	});
+
+
+
+
 
 });
