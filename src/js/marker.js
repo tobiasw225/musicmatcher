@@ -104,8 +104,13 @@ $(function() {
 	// end-of-taglistener
 	
 	
+
+	$(document).on('change', "input[type=range]", function(event) {
+		var newval=$(this).val();
+		$(this).next('span').text(newval);
+	});
 	
-	
+	// pdf viewer
 	/*
 	 - * change viewport-scale to zoom in
 	 * - theoretisch könnte man die pdfs auch ganz lassen,

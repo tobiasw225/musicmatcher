@@ -8,15 +8,12 @@
 			include 'db_funcs.php';
 		?>
 		<!-- Messages PLUGIN  -->
-
     	<script type="text/javascript" src="js/bootbox.min.js"></script>
-
 		<!-- XZOOM PLUGIN  -->
 		<link rel="stylesheet" type="text/css" href="css/xzoom.css" media="all" />
 		<script type="text/javascript" src="js/xzoom.min.js"></script>
 		<!-- PDF.js -->
-				<script src="js/pdf.worker.js"></script>
-
+		<script src="js/pdf.worker.js"></script>
 		<script src="js/pdf.js"></script>
 		
 		<script src="js/marker.js" type="text/javascript"></script>
@@ -43,24 +40,21 @@
 						    <label class="custom-control-label" for="title_check">Titelseite oder ein Einband?</label>
 						</div>
 						
-						<div class="custom-control form-control-lg custom-checkbox">
-						    <input type="checkbox" class="custom-control-input" id="sm_check">
-						    <label class="custom-control-label" for="sm_check">Sind Noten zu sehen?</label>
-						</div>
-						
+
 					<div class="slidecontainer">
-					  <input type="range" min="1" max="10" value="1" class="slider" id="sm_count" readonly>
+					  <label  for="sm_count">Wie viele Notenabschnitte siehst du?</label>
+					  <input type="range" min="0" max="10" value="0" class="slider" id="sm_count">
+					  <span id="sm_count_display">0</span>
 					</div>
-					
-						<div class="custom-control form-control-lg custom-checkbox">
-						    <input type="checkbox" class="custom-control-input" id="ad_check">
-						    <label class="custom-control-label" for="ad_check">Ist Werbung zu sehen?</label>
-						</div>
-						
+
 					<div class="slidecontainer">
-					  <input type="range" min="1" max="10" value="1" class="slider" id="ad_count" readonly>
+					<label  for="ad_count">Wie viele Werbeanzeigen siehst du?</label>
+
+					  <input type="range" min="0" max="10" value="0" class="slider" id="ad_count">
+					  <span id="ad_count_display">0</span>
+
 					</div>
-										<br />
+						<br />
 	
 				  <div class="form-group">
 				    <input type="text" class="form-control" id="taginput" placeholder="Gib ein paar Tags ein!">
