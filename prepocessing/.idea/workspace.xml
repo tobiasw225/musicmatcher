@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4865278b-74c8-472c-af48-a4d022cebe68" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/image_processing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/db_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/my_tesseract_funcs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/my_tesseract_funcs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/db_funcs.php" beforeDir="false" afterPath="$PROJECT_DIR$/../src/db_funcs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tag_page.php" beforeDir="false" afterPath="$PROJECT_DIR$/../src/tag_page.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +15,7 @@
     <session id="597535185">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.6" value="1" />
@@ -38,12 +36,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="3603" />
+          <entry key="py" value="3613" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="3603" />
+          <entry key="Python" value="3613" />
         </counts>
       </usages-collector>
     </session>
@@ -95,8 +93,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/db_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="906">
-              <caret line="265" column="92" selection-start-line="265" selection-start-column="92" selection-end-line="265" selection-end-column="92" />
+            <state relative-caret-position="414">
+              <caret line="78" column="26" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="26" />
               <folding>
                 <element signature="e#2775#8075#0" />
                 <element signature="e#2904#3413#0" />
@@ -318,14 +316,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24934107" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32864866" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32756758" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32756758" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -400,8 +397,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/db_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="906">
-          <caret line="265" column="92" selection-start-line="265" selection-start-column="92" selection-end-line="265" selection-end-column="92" />
+        <state relative-caret-position="414">
+          <caret line="78" column="26" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="26" />
           <folding>
             <element signature="e#2775#8075#0" />
             <element signature="e#2904#3413#0" />

@@ -30,8 +30,7 @@
 			  <div class="row">
 
 
-					
-
+				
 
 				<div class="col-xs-12 col-md-6" class="tooltip" title=""  >
 						
@@ -100,21 +99,23 @@
 				
 				<div class="col-xs-12 col-md-6" class="tooltip xzoom-container" id="" title="">
 					
-						<img id="dbpic" class="xzoom" src="test_files/res/bub_gb_1UMvAAAAMAAJ_Page_0x1bdf_prev.png" <?php
-						load_random_image();
-						?>>
-					
-					
+					<!-- with pngs -->
 					<!--
+						<img id="dbpic" class="xzoom" <?php
+						load_random_png_image();
+						?>>
+					-->
+					
+					
 					 <canvas id="the-canvas"></canvas>
 
 						<div id="pdf-main-container">
 						    <div id="pdf-loader"></div>
 						    <div id="pdf-contents">	
-						        <canvas id="pdf-canvas" width="400"></canvas>
+						        <canvas id="pdf-canvas" key=0 width="400"></canvas>
 						    </div>
 						</div>		
-					-->
+
 				
 				</div>
 				

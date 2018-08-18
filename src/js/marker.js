@@ -12,7 +12,6 @@ $(function() {
 	delete_key = 46;
 
 
-
 	// sleep time expects milliseconds
 	var sleep_time = 5000;
 	function sleep(time) {
@@ -152,10 +151,9 @@ $(function() {
 		});
 		
 	}*/
-   		var pageNum = 1;
-         var pdfScale = 1; // make pdfScale a global variable
-         var shownPdf; // another global we'll use for the buttons
-	      var url = 'test_files/res/bub_gb_1UMvAAAAMAAJ_Page_0x2ddf.pdf';
+   		 var pageNum = 1;
+         var pdfScale = 1; 
+         var shownPdf; 
 
          function renderPage(page) {
             var scale = pdfScale; // render with global pdfScale variable
@@ -175,11 +173,38 @@ $(function() {
             pdf.getPage(num).then(function getPage(page) { renderPage(page); });
          }
 
-         var pdfDoc = PDFJS.getDocument(url).then(function getPdfHelloWorld(pdf) {
+		function init_pdf(pdf_url, pdf_id) {
+			
+			var pdfDoc = PDFJS.getDocument(pdf_url).then(function getPdfHelloWorld(pdf) {
             displayPage(pdf, 1);
             shownPdf = pdf;
-         });
+         	});
+         				$("#pdf-canvas").attr('key', pdf_id);
 
+		}
+		
+		function load_rand_pdf_image_from_db() {
+			/**
+			 * 
+			 */
+			$.post("db_funcs.php", {
+				init_image : 1
+			}).done(function(data, textStatus, jqXHR) {
+				var res = data.split(',');
+				var pdf_path = res[1].replace('.pdf','');
+				init_pdf(pdf_path, res[0]);
+
+
+			}).fail(function(jqXHR, textStatus, errorThrown) {
+				alert(errorThrown);
+			});
+		}
+		
+		// 
+		load_rand_pdf_image_from_db();
+
+
+	
 
 
 
