@@ -113,18 +113,34 @@ EOF;
 	return rand($min,$max);;
 }
 
-function load_res_from_db($res_id){
+function load_png_from_db($res_id){
 	/**
 	 * 
 	 */
 	$sql = <<<EOF
-      SELECT res_path FROM tbl_res WHERE res_id = '$res_id';
+      SELECT res_img_path, res_img_thumb_path FROM tbl_res WHERE res_id = '$res_id';
 EOF;
 	$res = exec_sql($sql);
-	$raw = pg_fetch_result($res, 'res_path');
-	echo "key=$res_id xoriginal='$raw' ";
+	$row = pg_fetch_row($res);		
+	$img_path = $row[0];
+	$thumb_path = $row[1];
+	echo "key=$res_id src='$thumb_path' xoriginal='$img_path' ";
 }
 
+function load_pdf_from_db($res_id){
+	/**
+	 * 
+	 */
+	$sql = <<<EOF
+      SELECT res_pdf_path FROM tbl_res WHERE res_id = '$res_id';
+EOF;
+	$res = exec_sql($sql);
+
+	$row = pg_fetch_row($res);		
+	$pdf_path = $row[0];
+
+	echo "$res_id, $pdf_path";
+}
 
 /*
 function insert_res_into_db($file_path){
@@ -134,9 +150,15 @@ function insert_res_into_db($file_path){
 	exec_sql($sql);
 }
 */
-function load_random_image() {
+function load_random_png_image() {
 	$res_id = get_random_res_res_id();
-	load_res_from_db($res_id);
+	load_png_from_db($res_id);
+}
+
+function load_random_pdf_image() {
+	$res_id = get_random_res_res_id();
+	load_pdf_from_db($res_id);
+	
 }
 
 
@@ -150,10 +172,11 @@ if (isset($_POST['tag_like'])){
 }
 
 if (isset($_POST['init_image'])){
-	$res= load_random_image();
-	echo $res;
+	echo load_random_pdf_image();
 	exit;
 }
+
+
 
 if( isset($_POST['is_title_page']) &&
  isset($_POST['is_sheet_music']) 

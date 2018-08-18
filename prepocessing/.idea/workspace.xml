@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4865278b-74c8-472c-af48-a4d022cebe68" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/db_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/db_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/db_funcs.php" beforeDir="false" afterPath="$PROJECT_DIR$/../src/db_funcs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/tag_page.php" beforeDir="false" afterPath="$PROJECT_DIR$/../src/tag_page.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,33 +15,33 @@
     <session id="597535185">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="8" />
+          <entry key="py" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="8" />
+          <entry key="Python" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="3296" />
+          <entry key="py" value="3613" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="3296" />
+          <entry key="Python" value="3613" />
         </counts>
       </usages-collector>
     </session>
@@ -50,11 +51,25 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/my_tesseract_funcs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2040">
-              <caret line="144" column="72" selection-start-line="144" selection-start-column="41" selection-end-line="144" selection-end-column="72" />
+            <state relative-caret-position="1719">
+              <caret line="91" column="39" selection-start-line="91" selection-start-column="39" selection-end-line="91" selection-end-column="39" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#3225#3670#0" />
+                <element signature="e#3717#3941#0" />
+                <element signature="e#4002#4780#0" />
+                <element signature="e#4844#5681#0" />
+                <element signature="e#5747#6482#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/image_processing.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="11" lean-forward="true" selection-start-column="11" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -62,7 +77,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/text_statistics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
+            <state relative-caret-position="2314">
               <caret line="96" column="87" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="87" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
@@ -78,10 +93,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/db_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="74" column="109" selection-start-line="74" selection-start-column="109" selection-end-line="74" selection-end-column="109" />
+            <state relative-caret-position="414">
+              <caret line="78" column="26" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="26" />
               <folding>
-                <marker date="1534267571962" expanded="true" signature="2848:7961" ph="..." />
+                <element signature="e#2775#8075#0" />
+                <element signature="e#2904#3413#0" />
+                <element signature="e#3423#4158#0" />
+                <element signature="e#4168#4808#0" />
+                <element signature="e#4818#5744#0" />
+                <element signature="e#5754#6746#0" />
+                <element signature="e#6756#7652#0" />
               </folding>
             </state>
           </provider>
@@ -90,7 +111,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/json_helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="364">
               <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
               <folding>
                 <element signature="e#1#12#0" expanded="true" />
@@ -125,9 +146,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/mwb_crawler.py" />
-        <option value="$PROJECT_DIR$/src/my_tesseract_funcs.py" />
         <option value="$PROJECT_DIR$/src/json_helper.py" />
         <option value="$PROJECT_DIR$/src/text_statistics.py" />
+        <option value="$PROJECT_DIR$/src/my_tesseract_funcs.py" />
+        <option value="$PROJECT_DIR$/src/image_processing.py" />
         <option value="$PROJECT_DIR$/src/db_controller.py" />
       </list>
     </option>
@@ -164,6 +186,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -192,6 +215,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/db_controller.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="image_processing" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="prepocessing" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/image_processing.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -246,10 +290,12 @@
       <item itemvalue="Python.mwb_crawler" />
       <item itemvalue="Python.text_statistics" />
       <item itemvalue="Python.db_controller" />
+      <item itemvalue="Python.image_processing" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.db_controller" />
+        <item itemvalue="Python.image_processing" />
         <item itemvalue="Python.text_statistics" />
         <item itemvalue="Python.mwb_crawler" />
       </list>
@@ -270,14 +316,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24934107" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32827735" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32864866" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32756758" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -304,29 +349,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/my_tesseract_funcs.py" />
     <entry file="file://$PROJECT_DIR$/mwb_crawler.py" />
-    <entry file="file://$PROJECT_DIR$/src/my_tesseract_funcs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="144" column="72" selection-start-line="144" selection-start-column="41" selection-end-line="144" selection-end-column="72" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/json_helper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-          <folding>
-            <element signature="e#1#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/text_statistics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
+        <state relative-caret-position="2314">
           <caret line="96" column="87" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="87" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
@@ -338,12 +363,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/json_helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+          <folding>
+            <element signature="e#1#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/my_tesseract_funcs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1719">
+          <caret line="91" column="39" selection-start-line="91" selection-start-column="39" selection-end-line="91" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#3225#3670#0" />
+            <element signature="e#3717#3941#0" />
+            <element signature="e#4002#4780#0" />
+            <element signature="e#4844#5681#0" />
+            <element signature="e#5747#6482#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/image_processing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="11" lean-forward="true" selection-start-column="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/db_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="74" column="109" selection-start-line="74" selection-start-column="109" selection-end-line="74" selection-end-column="109" />
+        <state relative-caret-position="414">
+          <caret line="78" column="26" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="26" />
           <folding>
-            <marker date="1534267571962" expanded="true" signature="2848:7961" ph="..." />
+            <element signature="e#2775#8075#0" />
+            <element signature="e#2904#3413#0" />
+            <element signature="e#3423#4158#0" />
+            <element signature="e#4168#4808#0" />
+            <element signature="e#4818#5744#0" />
+            <element signature="e#5754#6746#0" />
+            <element signature="e#6756#7652#0" />
           </folding>
         </state>
       </provider>
