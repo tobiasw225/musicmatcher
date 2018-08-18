@@ -21,6 +21,20 @@ After downloading, the pdfs are cutted into single pages with the following scri
 	$ sudo snap install pdftk
 	$ src/split_pdfs.sh
 	
+#### Images
+
+#### Insertion into db
+
+Call 
+
+	$ python3 musicmatcher/prepocessing/src/db_controller.py
+	
+with the function
+	
+	$ create_db_with_test_data(folder='test_data')
+
+and replace 'test_data' with your folder. This will be simplified.
+
 
 ### Tesseract
 uses pytesseract and wand to use imagick
