@@ -260,10 +260,14 @@ def create_db():
             pg_db.con.close()
 
 
+def create_db_with_test_data(folder):
+    """
+        call this function to read some test pdf/png -data into the database
+        you should have thumbnails created and pdfs
+    """
+    create_db()
+    load_folder_into_db(folder)
+
 if __name__ == '__main__':
-    pass
-    load_folder_into_db("/home/tobias/mygits/musicmatcher/test_files/bub_gb_1UMvAAAAMAAJ_img")
-    #create_db()
-    #pg_db = PostGresDb()
-    #pg_db.insert_res_into_db("/home/tobias/mygits/musicmatcher/test_files/res/bsb10527854_00145.jpg")
-    # file_to_base64("/home/tobias/mygits/musicmatcher/test_files/res/bsb10527854_00145.jpg")
+    create_db_with_test_data("/home/tobias/mygits/musicmatcher/test_files/bub_gb_1UMvAAAAMAAJ_img")
+
