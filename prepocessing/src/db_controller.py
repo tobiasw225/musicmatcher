@@ -10,7 +10,7 @@ import os.path
 conn_string = "host=172.19.0.2 port=5432 dbname=musicmatcher user=postgres password=cs2018"
 
 import base64
-
+import re
 
 def file_to_base64(filename):
     with open(filename, "rb") as image_file:
@@ -53,6 +53,8 @@ class PostGresDb:
             self.cur.execute(sql, (args[0], args[1], args[2],))
         elif len(args) == 4:
             self.cur.execute(sql, (args[0], args[1], args[2], args[3],))
+        elif len(args) == 5:
+            self.cur.execute(sql, (args[0], args[1], args[2], args[3], args[4]))
 
         if "RETURNING" in sql:
             id = self.cur.fetchone()[0]
@@ -60,25 +62,26 @@ class PostGresDb:
         self.cur.close()
         return id
 
-    def insert_img_into_db(self, img_path=""):
+    def insert_res_into_db(self, img_path=""):
         """
         update to new structure
-        :param person:
+        :param img_path:
         :return:
         """
         now = datetime.now()
         status = 'fresh'
         # not very elegant...
         img_path = "/".join(img_path.split("/")[5:])
-        # base64_img = file_to_base64(img_path)
+        thumbnail_path = img_path.replace('_img/', '_thumb/T_')
+        pdf_path = img_path.replace('_img', '_pdf').replace('png', 'pdf')
 
-        sql = """INSERT INTO tbl_res (res_added_date, res_status, res_path) VALUES (%s, %s, %s) RETURNING res_id"""
-
+        sql = """INSERT INTO tbl_res (res_added_date, res_status, res_pdf_path, res_img_path,
+        res_img_thumb_path)
+         VALUES (%s, %s, %s, %s, %s) RETURNING res_id"""
         try:
             img_id = self.insert(sql=sql,
-                                 args=[now, status, img_path])
+                                 args=[now, status, pdf_path, img_path, thumbnail_path])
             print(img_id)
-
 
         except psycopg2.DatabaseError as e:
             if self.con:
@@ -100,7 +103,7 @@ def load_folder_into_db(folder_path):
         file = os.path.join(folder_path, file)
         if os.path.isfile(file):
             print("load {}".format(os.path.basename(file)))
-            pg_db.insert_img_into_db(file)
+            pg_db.insert_res_into_db(file)
         else:
             print('dont take {}'.format(os.path.basename(file)))
 
@@ -134,7 +137,10 @@ def create_db():
                 res_id SERIAL NOT NULL,
                 res_added_date timestamp(4) with time zone,
                 res_status character varying COLLATE pg_catalog."default",
-                res_path character varying COLLATE pg_catalog."default",
+                res_pdf_path character varying COLLATE pg_catalog."default",
+                res_img_path character varying COLLATE pg_catalog."default",
+                res_img_thumb_path character varying COLLATE pg_catalog."default",
+
                 CONSTRAINT tbl_images_txt_pkey PRIMARY KEY (res_id)
             )
             WITH (
@@ -240,23 +246,28 @@ def create_db():
     conn = None
     try:
 
-        cur = pg_db.conn.cursor()
+        cur = pg_db.con.cursor()
         # create table one by one
         for command in commands:
             cur.execute(command)
         # close communication with the PostgreSQL database server
         cur.close()
-        conn.commit()
+        pg_db.con.commit()
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
     finally:
-        if conn is not None:
-            conn.close()
+        if pg_db.con is not None:
+            pg_db.con.close()
 
+
+def create_db_with_test_data(folder):
+    """
+        call this function to read some test pdf/png -data into the database
+        you should have thumbnails created and pdfs
+    """
+    create_db()
+    load_folder_into_db(folder)
 
 if __name__ == '__main__':
-    pass
-    load_folder_into_db("/home/tobias/mygits/musicmatcher/test_files/res")
-    # pg_db = PostGresDb()
-    # pg_db.insert_img_into_db("/home/tobias/mygits/musicmatcher/test_files/res/bsb10527854_00145.jpg")
-    # file_to_base64("/home/tobias/mygits/musicmatcher/test_files/res/bsb10527854_00145.jpg")
+    create_db_with_test_data("/home/tobias/mygits/musicmatcher/test_files/bub_gb_1UMvAAAAMAAJ_img")
+
