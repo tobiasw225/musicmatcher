@@ -43,12 +43,6 @@
 .contactus {
 	height: 30em;
 }
-<<<<<<< HEAD
-
-/* move note-element*/
-.note{
-	cursor: move;
-=======
 /**
  * 	tags
  */
@@ -117,18 +111,8 @@
 }
 
 .slidecontainer {
-<<<<<<< HEAD
-<<<<<<< HEAD
-	width: 50%;
->>>>>>> 068e156541d58622e618a659f6683a1fe6cc0cec
-=======
 	width: 100%;
 	height: 6.5em;
->>>>>>> 8fa7503de7e0291090a3d39b758afa1404b1a278
-=======
-	width: 100%;
-	height: 6.5em;
->>>>>>> 8fa7503de7e0291090a3d39b758afa1404b1a278
 }
 
 
