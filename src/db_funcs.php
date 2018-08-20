@@ -44,7 +44,7 @@ function exec_sql($sql) {
  --------------------------------------------------------------------------*/
 function load_tags(){
 		$sql = <<<EOF
-      SELECT tag_name FROM tbl_tags LIMIT 15;
+      SELECT tag_name FROM tbl_tags;
 EOF;
 	$res = exec_sql($sql);
 	//$tag_array = array();

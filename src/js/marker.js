@@ -1,5 +1,8 @@
 $(function() {
-
+	/**
+	 * Everything concerning tags, and marking res.
+	 */
+	
 	// key-map
 	rightclick = 3;
 	leftclick = 1;
@@ -10,7 +13,6 @@ $(function() {
 	whitespace = 32;
 	backspace = 8;
 	delete_key = 46;
-
 
 	// sleep time expects milliseconds
 	var sleep_time = 5000;
@@ -24,9 +26,7 @@ $(function() {
 		$('#sm_check').prop('checked', false);
 		$('#ad_check').prop('checked', false);
 		$("#taginput").val('');
-		$("#myselectedtags span.tags").each(function() {
-			$(this).remove();
-		});
+		//$(".has-items div").remove();
 	});
 
 	/**
@@ -38,18 +38,19 @@ $(function() {
 		var is_sheet_music = 0;
 		var ad_count = $("input[type=range]#ad_count").val();
 		var sm_count = $("input[type=range]#sm_count").val();
-		
+
 		if (sm_count > 0) {
 			// not nec. since > 1 == true, just for to make things clear
 			// is_sheet_music should become sm_count in db
 			is_sheet_music = 1;
 		}
-		console.log(sm_count);
-		console.log(ad_count);
+		//console.log(sm_count);
+		//console.log(ad_count);
 		var res_id = $('#dbpic').attr('key');
 		// collects all tags
+
 		var tags = [];
-		$("#myselectedtags span.tags").each(function() {
+		$(".has-items div").each(function() {
 			tags.push($(this).text());
 		});
 		bootbox.alert({
@@ -60,8 +61,8 @@ $(function() {
 		$.post("php/receive.php", {
 			is_title_page : is_title_page,
 			is_sheet_music : is_sheet_music,
-			sm_count: sm_count,
-			ad_count: ad_count,
+			sm_count : sm_count,
+			ad_count : ad_count,
 			res_id : res_id
 		}).done(function(data, textStatus, jqXHR) {
 			// syntax-fehler werden fälschlicherweise angezeigt.
@@ -78,219 +79,48 @@ $(function() {
 	/**
 	 * tag-input
 	 */
-	$(document).on('click', "#tagsearch span.tags", function(event) {
-		$(this).prependTo($('#myselectedtags'));
-	});
 
-	$(document).on('click', "#myselectedtags span.tags", function(event) {
-		$(this).prependTo($('#tagsearch'));
-	});
-
-/*
-	$("#taginput").keydown(function(event) {
-		if ((event.keyCode === whitespace) || (event.keyCode === enter)) {
-			// bei leerzeichen | enter füge hinzu
-			tag = $(this).val().toLowerCase();
-			var tag_span = $(document.createElement("span"));
-			tag_span.text(tag);
-			tag_span.addClass('tags');
-			$(tag_span).prependTo($("#tagsearch"));
-			$(this).val('');
-		} else {
-			$.post("db_funcs.php", {
-				tag_like : $(this).val()
-			}).done(function(data, textStatus, jqXHR) {
-				$("#tagsearch span.tags").each(function() {
-					$(this).remove();
-				});
-				$('#tagsearch').prepend(data);
-			}).fail(function(jqXHR, textStatus, errorThrown) {
-				alert(errorThrown);
-			});
-		}
-
-	});
-	// end-of-taglistener
-	*/
-	
-
-	function init_selectize_tag_search(){
+	function init_selectize_tag_search() {
 		$.post("db_funcs.php", {
 			get_all_tags : 1
 		}).done(function(data, textStatus, jqXHR) {
 			fill_selectize(data);
-			
+
 		}).fail(function(jqXHR, textStatus, errorThrown) {
 			alert(errorThrown);
 		});
-		
-	}
-	function fill_selectize(tags_string){
-			var options = [];
-			var tags = tags_string.trim().split(' ');
-			var tag_num = tags.length;
-					
-			for (var i = 0; i < tag_num; i++) {
-				options.push({
-		        	id: i,
-		        	tag: tags[i]
-		    	});
-			}
-			$('#select-junk').selectize({
-		    maxItems: null,
-		    maxOptions: 100,
-		    valueField: 'id',
-		    labelField: 'tag',
-		    searchField: 'tag',
-		    sortField: 'tag',
-		    options: options,
-		    create: false
-		});
 
 	}
-	
+
+	function fill_selectize(tags_string) {
+		var options = [];
+		var tags = tags_string.trim().split(' ');
+		var tag_num = tags.length;
+
+		for (var i = 0; i < tag_num; i++) {
+			options.push({
+				id : i,
+				tag : tags[i]
+			});
+		}
+		$('#select-tags').selectize({
+			maxItems : null,
+			maxOptions : 100,
+			valueField : 'id',
+			labelField : 'tag',
+			searchField : 'tag',
+			sortField : 'tag',
+			options : options,
+			create : false
+		});
+	}
+
 	init_selectize_tag_search();
-	
-	/*
-	var options = [];
-for (var i = 0; i < 25000; i++) {
-    var title = [];
-    for (var j = 0; j < 8; j++) {
-        title.push(letters.charAt(Math.round((letters.length - 1) * Math.random())));
-    }
-    options.push({
-        id: i,
-        title: title.join('')
-    });
-}
-	
-	$('#select-junk').selectize({
-	    maxItems: null,
-	    maxOptions: 100,
-	    valueField: 'id',
-	    labelField: 'tag',
-	    searchField: 'tag',
-	    sortField: 'tag',
-	    options: options,
-	    create: false
-	});
-	
-	*/
+
 	// handle sliders
 	$(document).on('change', "input[type=range]", function(event) {
-		var newval=$(this).val();
+		var newval = $(this).val();
 		$(this).next('span').text(newval);
 	});
-	
-	// pdf viewer
-	/*
-	 - * change viewport-scale to zoom in
-	 * - theoretisch könnte man die pdfs auch ganz lassen,
-	 * allerdings wollen wir die dateien vielleicht ja auch so haben, dass wir Sachen markieren können.
-	 * 
-	 */
-	// Initialize and load the PDF
-	/*
-	function showPDF(pdf_url) {
-		PDFJS.disableWorker = true;
-		PDFJS.getDocument(url).then(function getPdfHelloWorld(pdf) {
-
-			pdf.getPage(1).then(function getPageHelloWorld(page) {
-				var scale = 2.0;
-				var viewport = page.getViewport(scale);
-
-				var canvas = document.getElementById('the-canvas');
-				var context = canvas.getContext('2d');
-				canvas.height = viewport.height;
-				canvas.width = viewport.width;
-
-				page.render({
-					canvasContext : context,
-					viewport : viewport
-				});
-			});
-		});
-		
-	}*/
-   		 var pageNum = 1;
-         var pdfScale = 1; 
-         var shownPdf; 
-
-         function renderPage(page) {
-            var scale = pdfScale; // render with global pdfScale variable
-            var viewport = page.getViewport(scale);
-            var canvas = document.getElementById('the-canvas');
-            var context = canvas.getContext('2d');
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
-            var renderContext = {
-               canvasContext: context,
-               viewport: viewport
-            };
-            page.render(renderContext);
-         }
-
-         function displayPage(pdf, num) {
-            pdf.getPage(num).then(function getPage(page) { renderPage(page); });
-         }
-
-		function init_pdf(pdf_url, pdf_id) {
-			
-			var pdfDoc = PDFJS.getDocument(pdf_url).then(function getPdfHelloWorld(pdf) {
-            displayPage(pdf, 1);
-            shownPdf = pdf;
-         	});
-         				$("#pdf-canvas").attr('key', pdf_id);
-
-		}
-		
-		function load_rand_pdf_image_from_db() {
-			/**
-			 * 
-			 */
-			$.post("db_funcs.php", {
-				init_image : 1
-			}).done(function(data, textStatus, jqXHR) {
-				var res = data.split(',');
-				var pdf_path = res[1].replace('.pdf','');
-				init_pdf(pdf_path, res[0]);
-
-
-			}).fail(function(jqXHR, textStatus, errorThrown) {
-				alert(errorThrown);
-			});
-		}
-		
-		// 
-		//load_rand_pdf_image_from_db();
-
-
-
-
-	$('#the-canvas').mousedown(function(event) {
-		switch (event.which) {
-		case 1:
-			pdfScale = pdfScale + 0.25;
-			displayPage(shownPdf, pageNum);
-			break;
-		case 3:
-			if (pdfScale <= 0.25) {
-				return;
-			}
-			pdfScale = pdfScale - 0.25;
-			displayPage(shownPdf, pageNum);
-			break;
-		default:
-			alert('You have a strange Mouse!');
-		}
-	}); 
-
-
-
-
-
-
-
-
 
 });

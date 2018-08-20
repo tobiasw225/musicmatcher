@@ -17,7 +17,8 @@
 		<script src="js/pdf.js"></script>
 		
 		<script src="js/marker.js" type="text/javascript"></script>
-	
+		<script src="js/pdf_handler.js" type="text/javascript"></script>
+
 		<link rel="stylesheet" type="text/css" href="node_modules/selectize/css/selectize.default.css" media="all" />
 		<script src="node_modules/selectize/js/standalone/selectize.min.js"></script>
 	
@@ -58,42 +59,17 @@
 					</div>
 						<br />
 	
-				<!--
-				  <div class="form-group">
-				    <input type="text" class="form-control" id="taginput" placeholder="Gib ein paar Tags ein!">
-				  </div>
-				  		<div id="tagsearch">
-						<?php
-						load_tags();
-						?>
-						</div>
-					-->
+
 						
 				<div class="control-group">
-					<label for="select-junk">Tags:</label>
-					<select id="select-junk" placeholder="Start Typing..."></select>
+					<label for="select-tags">Tags:</label>
+					<select id="select-tags" placeholder="Beginne, Tags einzugeben..."></select>
 				</div>
 						
 						<br />
 						<div id="myselectedtags"></div>
 							
 
-							
-							<p> 
-								<br />
-
-								Tag-Eingabe. Zunächst werden alle Tags (aus der Datenbank) angezeigt. Bei Eingabe wird gefiltert. 
-								Bestätigen mit Enter-Taste. Die markierten Tags werden markiert. 
-								Draufklicken soll auch möglich sein.
-							</p>
-							
-							<p>
-								Noch cooler wäre natürlich eine dynamische Listbox.
-							</p>
-
-							<p>
-								Noch cooler wäre natürlich ein uniquer check.
-							</p>
 						
 					<div class="col mybuttons" >
 						<button class="btn btn-default" id="reset-marker-btn" class="tooltip" title="">
