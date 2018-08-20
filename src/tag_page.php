@@ -26,9 +26,7 @@
 
 	<body>
 
-   		<?php
-		include ('html_snippets/nav_bar.php');
-		?>
+   		<?php include ('html_snippets/nav_bar.php'); ?>
     
 		<div class="container" style="margin-top: 10px">
 			  <div class="row">

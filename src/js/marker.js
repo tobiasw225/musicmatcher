@@ -39,11 +39,7 @@ $(function() {
 		var ad_count = $("input[type=range]#ad_count").val();
 		var sm_count = $("input[type=range]#sm_count").val();
 
-		if (sm_count > 0) {
-			// not nec. since > 1 == true, just for to make things clear
-			// is_sheet_music should become sm_count in db
-			is_sheet_music = 1;
-		}
+
 		//console.log(sm_count);
 		//console.log(ad_count);
 		var res_id = $('#dbpic').attr('key');
@@ -60,17 +56,17 @@ $(function() {
 
 		$.post("db_funcs.php", {
 			is_title_page : is_title_page,
-			is_sheet_music : is_sheet_music,
 			sm_count : sm_count,
 			ad_count : ad_count,
 			res_id : res_id,
-			tags : tags
+			tags : tags,
+			insert_meta : 1
 		}).done(function(data, textStatus, jqXHR) {
 			// syntax-fehler werden fälschlicherweise angezeigt.
-			/*
+			
 			sleep(sleep_time).then(() => {
 				location.reload();
-			});*/
+			});
 
 		}).fail(function(jqXHR, textStatus, errorThrown) {
 			alert(errorThrown);
