@@ -109,5 +109,10 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+#idea workspace
+../../.idea/workspace.xml
+
+
 =======
 >>>>>>> remotes/origin/pavel_branch
