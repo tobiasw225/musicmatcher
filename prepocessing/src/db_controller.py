@@ -44,7 +44,7 @@ class PostGresDb:
     def insert(self, sql, args):
         self.con = psycopg2.connect(conn_string)
         self.cur = self.con.cursor()
-        id = None
+        d_id = None
         if len(args) == 1:
             self.cur.execute(sql, (args[0],))
         elif len(args) == 2:
@@ -57,10 +57,10 @@ class PostGresDb:
             self.cur.execute(sql, (args[0], args[1], args[2], args[3], args[4]))
 
         if "RETURNING" in sql:
-            id = self.cur.fetchone()[0]
+            d_id = self.cur.fetchone()[0]
         self.con.commit()
         self.cur.close()
-        return id
+        return d_id
 
     def insert_res_into_db(self, img_path=""):
         """

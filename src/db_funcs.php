@@ -47,12 +47,20 @@ function load_tags(){
       SELECT tag_name FROM tbl_tags LIMIT 15;
 EOF;
 	$res = exec_sql($sql);
+	//$tag_array = array();
+	$tags_string = "";
 	while ($row = pg_fetch_row($res)) {
 		$tag = strtolower($row[0]);
-  		echo "<span class='tags'>$tag</span>";
+		$tags_string .= "$tag ";
+		//array_push($tag_array,"$tag");
+  		//echo "<span class='tags'>$tag</span>";
+  		//echo "<option value=$tag>";	
 	}
 	
+	return $tags_string; 
 }
+
+
 
 function load_tags_like($tag){
 		$tag_search_sql = <<<SQL
@@ -61,7 +69,8 @@ SQL;
 		$res = exec_sql($tag_search_sql);
 		while ($row = pg_fetch_row($res)) {
 			$tag = strtolower($row[0]);
-	  		echo "<span class='tags'>$tag</span>";
+	  		//echo "<span class='tags'>$tag</span>";
+	  		echo '<option value="$tag">';
 		}
 }
 
@@ -176,6 +185,10 @@ if (isset($_POST['init_image'])){
 	exit;
 }
 
+if (isset($_POST['get_all_tags'])){
+	echo load_tags();
+}
+
 
 
 if( isset($_POST['is_title_page']) &&
@@ -194,9 +207,6 @@ if( isset($_POST['is_title_page']) &&
 		// should never come here, but just in case
 		header( 'Location: php/mark_image.php' );
 		} 
-
-	
-
 }
 
 

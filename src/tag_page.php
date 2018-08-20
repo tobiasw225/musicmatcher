@@ -17,7 +17,10 @@
 		<script src="js/pdf.js"></script>
 		
 		<script src="js/marker.js" type="text/javascript"></script>
-
+	
+		<link rel="stylesheet" type="text/css" href="node_modules/selectize/css/selectize.default.css" media="all" />
+		<script src="node_modules/selectize/js/standalone/selectize.min.js"></script>
+	
 	</head>
 
 	<body>
@@ -55,6 +58,7 @@
 					</div>
 						<br />
 	
+				<!--
 				  <div class="form-group">
 				    <input type="text" class="form-control" id="taginput" placeholder="Gib ein paar Tags ein!">
 				  </div>
@@ -63,8 +67,17 @@
 						load_tags();
 						?>
 						</div>
+					-->
+						
+				<div class="control-group">
+					<label for="select-junk">Tags:</label>
+					<select id="select-junk" placeholder="Start Typing..."></select>
+				</div>
+						
 						<br />
 						<div id="myselectedtags"></div>
+							
+
 							
 							<p> 
 								<br />
@@ -100,13 +113,13 @@
 				<div class="col-xs-12 col-md-6" class="tooltip xzoom-container" id="" title="">
 					
 					<!-- with pngs -->
-					<!--
+
 						<img id="dbpic" class="xzoom" <?php
 						load_random_png_image();
 						?>>
-					-->
+
 					
-					
+					<!--
 					 <canvas id="the-canvas"></canvas>
 
 						<div id="pdf-main-container">
@@ -115,7 +128,7 @@
 						        <canvas id="pdf-canvas" key=0 width="400"></canvas>
 						    </div>
 						</div>		
-
+-->
 				
 				</div>
 				

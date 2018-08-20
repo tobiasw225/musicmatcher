@@ -86,8 +86,8 @@ $(function() {
 		$(this).prependTo($('#tagsearch'));
 	});
 
+/*
 	$("#taginput").keydown(function(event) {
-
 		if ((event.keyCode === whitespace) || (event.keyCode === enter)) {
 			// bei leerzeichen | enter füge hinzu
 			tag = $(this).val().toLowerCase();
@@ -104,17 +104,78 @@ $(function() {
 					$(this).remove();
 				});
 				$('#tagsearch').prepend(data);
-
 			}).fail(function(jqXHR, textStatus, errorThrown) {
 				alert(errorThrown);
 			});
-
 		}
 
 	});
 	// end-of-taglistener
+	*/
 	
+
+	function init_selectize_tag_search(){
+		$.post("db_funcs.php", {
+			get_all_tags : 1
+		}).done(function(data, textStatus, jqXHR) {
+			fill_selectize(data);
+			
+		}).fail(function(jqXHR, textStatus, errorThrown) {
+			alert(errorThrown);
+		});
+		
+	}
+	function fill_selectize(tags_string){
+			var options = [];
+			var tags = tags_string.trim().split(' ');
+			var tag_num = tags.length;
+					
+			for (var i = 0; i < tag_num; i++) {
+				options.push({
+		        	id: i,
+		        	tag: tags[i]
+		    	});
+			}
+			$('#select-junk').selectize({
+		    maxItems: null,
+		    maxOptions: 100,
+		    valueField: 'id',
+		    labelField: 'tag',
+		    searchField: 'tag',
+		    sortField: 'tag',
+		    options: options,
+		    create: false
+		});
+
+	}
 	
+	init_selectize_tag_search();
+	
+	/*
+	var options = [];
+for (var i = 0; i < 25000; i++) {
+    var title = [];
+    for (var j = 0; j < 8; j++) {
+        title.push(letters.charAt(Math.round((letters.length - 1) * Math.random())));
+    }
+    options.push({
+        id: i,
+        title: title.join('')
+    });
+}
+	
+	$('#select-junk').selectize({
+	    maxItems: null,
+	    maxOptions: 100,
+	    valueField: 'id',
+	    labelField: 'tag',
+	    searchField: 'tag',
+	    sortField: 'tag',
+	    options: options,
+	    create: false
+	});
+	
+	*/
 	// handle sliders
 	$(document).on('change', "input[type=range]", function(event) {
 		var newval=$(this).val();
@@ -201,10 +262,7 @@ $(function() {
 		}
 		
 		// 
-		load_rand_pdf_image_from_db();
-
-
-	
+		//load_rand_pdf_image_from_db();
 
 
 
@@ -226,6 +284,8 @@ $(function() {
 			alert('You have a strange Mouse!');
 		}
 	}); 
+
+
 
 
 
