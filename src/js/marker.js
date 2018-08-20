@@ -58,17 +58,19 @@ $(function() {
 			backdrop : true,
 		});
 
-		$.post("php/receive.php", {
+		$.post("db_funcs.php", {
 			is_title_page : is_title_page,
 			is_sheet_music : is_sheet_music,
 			sm_count : sm_count,
 			ad_count : ad_count,
-			res_id : res_id
+			res_id : res_id,
+			tags : tags
 		}).done(function(data, textStatus, jqXHR) {
 			// syntax-fehler werden fälschlicherweise angezeigt.
+			/*
 			sleep(sleep_time).then(() => {
 				location.reload();
-			});
+			});*/
 
 		}).fail(function(jqXHR, textStatus, errorThrown) {
 			alert(errorThrown);

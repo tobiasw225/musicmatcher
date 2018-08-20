@@ -61,7 +61,7 @@ EOF;
 }
 
 
-
+/*
 function load_tags_like($tag){
 		$tag_search_sql = <<<SQL
 	      SELECT tag_name FROM tbl_tags WHERE tag_name LIKE '%$tag%' LIMIT 15;
@@ -73,14 +73,25 @@ SQL;
 	  		echo '<option value="$tag">';
 		}
 }
+ * */
 
 function insert_tag_into_db($tag){
 	// return
 	$conn = get_conn();
-	$sql = "INSERT INTO tbl_tags (tag_name) VALUES ('$tag');";
-	$result = pg_query($conn, $sql);
-	test_sql($result);
+	
+	//$sql = "INSERT INTO tbl_tags (tag_name) VALUES ('$tag');";
+	//$result = pg_query($conn, $sql);
+	
+	// @todo only insert if not existing.
+	$sql = "SELECT tag_id FROM tbl_tags WHERE tag_name = '$tag'";
+	$res = exec_sql($sql);
+
+	$row = pg_fetch_row($res);
+	$new_id = $row['0'];
+	
+	test_sql($res);
 	pg_close($conn);
+	return $new_id;
 }
 
 function update_has_sm($has_sm, $res_id){
@@ -147,7 +158,6 @@ EOF;
 
 	$row = pg_fetch_row($res);		
 	$pdf_path = $row[0];
-
 	echo "$res_id, $pdf_path";
 }
 
@@ -194,19 +204,16 @@ if (isset($_POST['get_all_tags'])){
 if( isset($_POST['is_title_page']) &&
  isset($_POST['is_sheet_music']) 
  && isset($_POST['res_id'])){
-
-		//update_has_sm($_POST['is_sheet_music'], $res_id){
-		update_pic_status('touched', $_POST['res_id']);
+		$res_id = $_POST['res_id'];
+		update_pic_status('touched',$res_id);
 		if (isset($_POST['tags'])){
 			foreach ($_POST['tags'] as $tag) {
-           		insert_tag_into_db($tag);
-				//insert_res_has_tag($tag_id, $res_id);
+           		$tag_id = insert_tag_into_db($tag);
+				echo "$tag_id";
+				insert_res_has_tag($tag_id, $res_id);
        		}
 		}
-		if (!$_POST['is_sheet_music']) {
-		// should never come here, but just in case
-		header( 'Location: php/mark_image.php' );
-		} 
+
 }
 
 
