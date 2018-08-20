@@ -1,9 +1,9 @@
 
 
       body {
-      	margin: 0; height: 100%; overflow: hidden
+      	margin: 0; height: 100%; width: 100%;// overflow: hidden
       }
-      @media (min-width: 992px) {
+      @media (min-width: 1200px) {
         body {
         }
       }
@@ -31,9 +31,7 @@
 			#dbpic {
 				width: 100%;
 			}
-			.changed_img {
-				width : 80%;
-			}
+
 			
 			.helper {
 				 display: inline-block;
