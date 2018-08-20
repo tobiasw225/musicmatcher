@@ -12,12 +12,13 @@
 
             
             <li class="nav-item ">
-              <a class="nav-link" href="tag_page.php">tagging</a>
+              <a class="nav-link" href="http://localhost:8000/tag_page.php">tagging</a>
             </li>
 
             
             <li class="nav-item">
-              <a class="nav-link" href="note_correction.php">ocr correction</a>
+              <a class="nav-link" href="http://localhost:8000/php/text_correction.php
+              ">ocr correction</a>
             </li>
 
 
