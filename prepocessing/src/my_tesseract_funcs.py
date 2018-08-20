@@ -35,8 +35,7 @@ class Pdf2Text:
         #logger.info(output_filename)
         if os.path.isfile(output_filename):
             return
-
-        with Image(filename=filename,resolution=400) as img:
+        with Image(filename=filename, resolution=400) as img:
             img.compression_quality = 100
             img.format = 'png'
             img.save(filename=output_filename)
@@ -89,12 +88,12 @@ class Pdf2Text:
         if os.path.isfile(output_filename):
             return
 
-
         cmd = TEXT_CLEANER_PATH + " -g -e stretch -f 50 -o 10  -s 1  {} {}".format(filename, output_filename)
-        proc = subprocess.Popen([cmd],shell=True)
+        proc = subprocess.Popen([cmd], shell=True)
         proc.wait()
         logger.info("save as {}".format(output_filename))
         return output_filename
+
 
     def run_tesseract_on_file(self, filename):
         """
@@ -104,7 +103,6 @@ class Pdf2Text:
         :return:
         """
         output_file = self.output_folder_text + basename(filename) + ".txt"
-
         logger.info("write to {}".format(output_file))
 
         text = pytesseract.image_to_string(PILImage.open(filename), lang='deu')

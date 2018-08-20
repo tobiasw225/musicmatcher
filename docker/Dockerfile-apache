@@ -1,0 +1,18 @@
+FROM php:apache
+
+
+
+RUN apt-get update \
+&& apt-get install libpng-dev -y
+RUN docker-php-ext-install gd
+
+RUN apt-get install -y libpq-dev \
+  && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+  && docker-php-ext-install pdo pdo_pgsql pgsql
+
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+
+#RUN mkdir -p /var/www/html/test_files
+#COPY test_files/ /var/www/html/test_files
+#COPY src/ /var/www/html/

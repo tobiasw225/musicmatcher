@@ -1,5 +1,6 @@
-backend/audiveris/
-<<<<<<< HEAD
+
+docker/backend/*
+test_files/*
 src/out/*
 src/res/*
 

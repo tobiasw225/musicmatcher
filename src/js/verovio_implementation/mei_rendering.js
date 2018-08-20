@@ -7,7 +7,7 @@ var vrvToolkit = new verovio.toolkit();
 /* Load the file using a HTTP GET */
 ////////////////////////////////////
 $.ajax({
-    url: "http://172.17.0.2/Input_files/Example_from_omr.xml"
+    url: "http://127.0.0.1:8000//Input_files/test_html/Example_from_omr.xml"
     , dataType: "text"
     , success: function (data) {
         var svg = vrvToolkit.renderData(data, {});
