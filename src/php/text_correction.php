@@ -98,7 +98,7 @@
         }
 
         .button:active {
-            z-index: 14;
+            z-index: 1	4;
             background-color: #3e8e41;
             box-shadow: 0 5px #666;
             transform: translateY(4px);
@@ -114,7 +114,7 @@
 </head>
 <body>
 		<?php
-		include ('../html_snippets/nav_bar.php');
+			include ('../html_snippets/nav_bar.php');
 		?>
 
 

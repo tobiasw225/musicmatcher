@@ -38,7 +38,31 @@ function exec_sql($sql) {
 	test_sql($res);
 	return $res;
 }
-
+/**
+ * user functions
+ */
+ 
+ function register_user($username, $email, $password){
+ 			$sql = "INSERT INTO tbl_users (u_name, u_psw, u_mail, u_points) VALUES ('$username', '$password', '$email', 0);";
+			$res = exec_sql($sql);
+			test_sql($res);
+			
+ }
+ 
+ $c_uname = '';
+ $c_points = 0;
+ $c_uid = 0;
+ function login_user($u_name, $u_psw){
+ 	$sql = "SELECT u_id, u_name, u_points FROM tbl_users WHERE u_name = '$u_name' AND u_psw='$u_psw'";
+	$res = exec_sql($sql);
+	$row = pg_fetch_row($res);
+	global $c_uname, $c_points, $c_uid;
+	$c_uname = $row['1'];
+	$c_points = $row['2'];
+	$c_uid = $row['0'];
+ }
+ 
+ 
 /**--------------------------------------------------------------------------
  * Functions to load and save tags 
  --------------------------------------------------------------------------*/
@@ -61,19 +85,7 @@ EOF;
 }
 
 
-/*
-function load_tags_like($tag){
-		$tag_search_sql = <<<SQL
-	      SELECT tag_name FROM tbl_tags WHERE tag_name LIKE '%$tag%' LIMIT 15;
-SQL;
-		$res = exec_sql($tag_search_sql);
-		while ($row = pg_fetch_row($res)) {
-			$tag = strtolower($row[0]);
-	  		//echo "<span class='tags'>$tag</span>";
-	  		echo '<option value="$tag">';
-		}
-}
- * */
+
 
 function insert_tag_into_db($tag){
 	// return
@@ -215,8 +227,8 @@ if( isset($_POST['insert_meta'])){
 		$u_id = 1;
 		// mark the res. as being 'touched'
 		update_pic_status('touched',$res_id);
-		echo "pr";	
-				insert_res_info($res_id, $_POST['is_title_page'],
+
+		insert_res_info($res_id, $_POST['is_title_page'],
 		$_POST['sm_count'], $_POST['ad_count'],$u_id);
 		
 		// connect tags and res

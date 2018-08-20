@@ -54,7 +54,7 @@ $(function() {
 			backdrop : true,
 		});
 
-		$.post("db_funcs.php", {
+		$.post("php/db_funcs.php", {
 			is_title_page : is_title_page,
 			sm_count : sm_count,
 			ad_count : ad_count,
@@ -79,7 +79,7 @@ $(function() {
 	 */
 
 	function init_selectize_tag_search() {
-		$.post("db_funcs.php", {
+		$.post("http://localhost:8000/php/db_funcs.php", {
 			get_all_tags : 1
 		}).done(function(data, textStatus, jqXHR) {
 			fill_selectize(data);

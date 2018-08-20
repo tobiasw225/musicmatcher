@@ -12,7 +12,7 @@
 
             
             <li class="nav-item ">
-              <a class="nav-link" href="http://localhost:8000/tag_page.php">tagging</a>
+              <a class="nav-link" href="http://localhost:8000/php/tag_page.php">tagging</a>
             </li>
 
             
@@ -25,7 +25,7 @@
           </ul>
           
               <ul class="nav navbar-nav navbar-right">
-      			<li><a href="login.php"><span class="glyphicon glyphicon-user"></span> Sign Up | 
+      			<li><a href="http://localhost:8000/php/login.php"><span class="glyphicon glyphicon-user"></span> Sign Up | 
       			<span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     	 </ul>
         </div>

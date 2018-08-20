@@ -7,7 +7,7 @@
 		
 		<!-- Tooltips --> 
    		<link rel="stylesheet" type="text/css" href="http://localhost:8000/css/tooltipster.bundle.min.css" />
-    	<script type="text/javascript" src="http://localhost:8000/js/tooltipster.bundle.min.js"></script>
+    	<script type="text/javascript" src="http://localhost:8000/js/tooltipster/tooltipster.bundle.min.js"></script>
     	
     	<!-- Custom javascript -->
 		<script src="http://localhost:8000/js/script.js" type="text/javascript"></script>
