@@ -3,9 +3,7 @@
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   		<link rel="stylesheet" href="css/bootstrap.min.css" type = "text/css"/>
 
-		<!-- CropSelectJs files -->
-		<link href="node_modules/crop-select-js/crop-select-js.min.css" rel="stylesheet" type="text/css" />
-		<script src="node_modules/crop-select-js//crop-select-js.min.js"></script>
+
 		
 		<!-- Tooltips --> 
    		<link rel="stylesheet" type="text/css" href="css/tooltipster.bundle.min.css" />

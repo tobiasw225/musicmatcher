@@ -213,6 +213,10 @@ if( isset($_POST['is_title_page']) &&
 				insert_res_has_tag($tag_id, $res_id);
        		}
 		}
+		// @todo is sm
+		// @todo has_ad
+		// @todo title		
+		
 
 }
 
