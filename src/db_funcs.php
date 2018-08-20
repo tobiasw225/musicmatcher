@@ -105,9 +105,17 @@ function update_pic_status($edit_status, $res_id){
 	exec_sql($sql);
 }
 
-function insert_res_has_tag($tag_id, $res_id){
-	// not tested
+function insert_res_has_tag($tag_id, $res_id, $u_id){
+	// @todo insert u_id
 	$sql = "INSERT INTO rel_res_has_tags (tag_id, res_id) VALUES ('$tag_id','$res_id');";
+	exec_sql($sql);
+}
+
+function insert_res_info($res_id, $is_title_page,
+		$sm_count, $ad_count,$u_id){
+			
+		$sql = "INSERT INTO tbl_res_info (res_id, u_id, res_ad_count, res_sm_count, res_is_title_page) VALUES ('$res_id','$u_id', '$ad_count', '$sm_count', '$is_title_page');";
+	echo "$sql";
 	exec_sql($sql);
 }
 
@@ -201,18 +209,26 @@ if (isset($_POST['get_all_tags'])){
 
 
 
-if( isset($_POST['is_title_page']) &&
- isset($_POST['is_sheet_music']) 
- && isset($_POST['res_id'])){
+if( isset($_POST['insert_meta'])){
 		$res_id = $_POST['res_id'];
+		// also get user_id
+		$u_id = 1;
+		// mark the res. as being 'touched'
 		update_pic_status('touched',$res_id);
+		echo "pr";	
+				insert_res_info($res_id, $_POST['is_title_page'],
+		$_POST['sm_count'], $_POST['ad_count'],$u_id);
+		
+		// connect tags and res
 		if (isset($_POST['tags'])){
 			foreach ($_POST['tags'] as $tag) {
            		$tag_id = insert_tag_into_db($tag);
-				echo "$tag_id";
-				insert_res_has_tag($tag_id, $res_id);
+				insert_res_has_tag($tag_id, $res_id, $u_id);
        		}
 		}
+
+
+		
 
 }
 
