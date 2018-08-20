@@ -5,21 +5,22 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Text correction</title>
     <style type="text/css">
-        body {
+       /* body {
             margin: 0;
-        }
+       }*/
 
         #sidebar, #image_header, #image_header_tag {
             position: absolute;
         }
 
+		
         #image_header {
             padding: 10px;
         }
-
+		/*
         #header {
             z-index: 4;
-            height: 80px; /* Высота слоя */
+            height: 80px;
             background: lightslategray;
             border-bottom: 2px solid #7B5427;
         }
@@ -29,7 +30,7 @@
             padding: 20px;
             margin: 0;
         }
-
+*/
         #sidebar {
             padding-top: 50px;
             padding-left: 20px;
@@ -105,10 +106,17 @@
     </style>
     <script src="../js/vendor/jquery.js"></script>
     <script src="../js/add_image.js"></script>
+	<?php
+		include ('../html_snippets/header.php');
+		?>
+
 
 </head>
 <body>
-<div id="header"><h1></h1></div>
+		<?php
+		include ('../html_snippets/nav_bar.php');
+		?>
+
 
 <div id="sidebar_header">
 
