@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -7,10 +10,8 @@
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   		<link rel="stylesheet" href="http://localhost:8000/css/bootstrap.min.css" type = "text/css"/>
 
-
-		
 		<!-- Tooltips --> 
-    	<script type="text/javascript" src="http://localhost:8000/js/tooltipster.bundle.min.js"></script>
+    	<script type="text/javascript" src="http://localhost:8000/js/tooltipster/tooltipster.bundle.min.js"></script>
     	
     	<!-- Custom javascript -->
 
@@ -19,7 +20,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 		<!-- Custom styles -->
-		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="http://localhost:8000/css/style.css" />
 
 
 		<link rel="stylesheet" type="text/css" href="http://localhost:8000/css/login_style.css" media="all" />
@@ -29,8 +30,9 @@
 
 	<body>
 
-		<?php
+		<?php 
 		include ('../html_snippets/nav_bar.php');
+		include ('../html_snippets/user_info.php');
 		?>
 		
       <div class="container" style="margin-top: 10px">
@@ -117,11 +119,11 @@
  	if (isset($_POST["log_username"]) && isset($_POST["log_password"])) {
  		if (strlen($_POST["log_username"]) && strlen($_POST["log_password"])){
  			login_user($_POST["log_username"], $_POST["log_password"]);
-			echo $c_uname;
-			echo $c_points;
-			echo $c_uid;
-			
- 		}
+			//Session registrieren
+			$_SESSION['user_name'] = $c_uname;
+ 			$_SESSION['user_points'] = $c_points;
+			$_SESSION['user_id'] = $c_uid;
+ 		} 
 	}
  	
  	

@@ -57,6 +57,7 @@ function exec_sql($sql) {
 	$res = exec_sql($sql);
 	$row = pg_fetch_row($res);
 	global $c_uname, $c_points, $c_uid;
+
 	$c_uname = $row['1'];
 	$c_points = $row['2'];
 	$c_uid = $row['0'];

@@ -10,6 +10,7 @@
 
 
 
+
 			#pic_section {
 				height: 100%;
 				border-right: .3em dotted black;
@@ -122,3 +123,17 @@ span[id$="display"] {
 	margin: 1em;
 	  font-weight: bold;
 }
+
+
+/**
+ * 	user information 
+ */
+.user_info {
+  	width: 20%;
+  	position: absolute;
+  	left: 5%;
+  	top: 90%;
+  }
+.current_user {
+	  	font-weight: bold;
+}  

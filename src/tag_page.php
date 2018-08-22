@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -7,7 +10,7 @@
 		include ('php/db_funcs.php');
 		?>
 		<!-- Messages PLUGIN  -->
-		<script type="text/javascript" src="http://localhost:8000/js/bootbox.min.js"></script>
+		<script type="text/javascript" src="http://localhost:8000/js/bootbox/bootbox.min.js"></script>
 		<!-- XZOOM PLUGIN  -->
 		<link rel="stylesheet" type="text/css" href="http://localhost:8000/css/xzoom.css" media="all" />
 		<script type="text/javascript" src="http://localhost:8000/js/xzoom/xzoom.min.js"></script>
@@ -17,7 +20,6 @@
 		<script src="http://localhost:8000/js/pdfjs/pdf.worker.js"></script>
 		<script src="http://localhost:8000/js/pdfjs/pdf.js"></script>
 		<script src="http://localhost:8000/js/pdf_handler.js" type="text/javascript"></script>
-
 		-->
 		<script src="http://localhost:8000/js/marker.js" type="text/javascript"></script>
 
@@ -30,9 +32,14 @@
 
 		<?php
 			include ('html_snippets/nav_bar.php');
+			include ('html_snippets/user_info.php');
 		?>
+		
+
 
 		<div class="container" style="margin-top: 10px">
+
+				
 			<div class="row">
 
 				<div class="col-xs-12 col-md-6" class="tooltip" title=""  >

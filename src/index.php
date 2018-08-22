@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -11,6 +14,7 @@
 
 		<?php
 		include ('html_snippets/nav_bar.php');
+		include ('html_snippets/user_info.php');
 		?>
 
 		<div class="container" style="margin-top: 10px">

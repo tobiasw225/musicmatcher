@@ -5,7 +5,6 @@
 $(function() {
 	
 
-$(".xzoom").xzoom();
 
 	var current_img_path = "";
 
