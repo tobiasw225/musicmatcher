@@ -9,8 +9,6 @@ function edit_content() {
     add_attr();
     console.log( document.getElementsByClassName("ocr_line"));
     document.getElementsByClassName("ocr_line").contentEditable = true;
-
-    
 }
 
 function add_attr() {

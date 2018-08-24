@@ -5,6 +5,7 @@ from PIL import Image as PILImage
 import pytesseract
 import cv2
 import os
+import re
 
 from my_logging import *
 logger = get_my_logger(fout_name="logger.log")
@@ -87,7 +88,6 @@ class Pdf2Text:
         logger.info(output_filename)
         if os.path.isfile(output_filename):
             return
-
         cmd = TEXT_CLEANER_PATH + " -g -e stretch -f 50 -o 10  -s 1  {} {}".format(filename, output_filename)
         proc = subprocess.Popen([cmd], shell=True)
         proc.wait()
@@ -105,9 +105,10 @@ class Pdf2Text:
         output_file = self.output_folder_text + basename(filename) + ".txt"
         logger.info("write to {}".format(output_file))
 
-        text = pytesseract.image_to_string(PILImage.open(filename), lang='deu')
+        text = pytesseract.image_to_string(PILImage.open(filename), lang='deu', config="hocr")
+        #pytesseract.run_tesseract('image.png', 'output', lang=None, boxes=False, config="hocr")
 
-        with open(output_file, 'w') as fout:
+        with open(output_file, 'w', encoding='utf-8') as fout:
             fout.write(text)
 
     def run_on_file(self, filename):
@@ -195,19 +196,45 @@ class Pdf2Text:
                 print("{0}/{1}:\t of everything {2}".format(i + 1, num_files, folder))
                 self.run_pdf_to_png_on_folder(folder_name=folder)
 
+def rename_files(input_folder):
+    files = os.listdir(input_folder)
+    re_name = re.compile(r'(0x[^\.]+)\.*')
+    for i, file in enumerate(files, 0):
+        #print(100*i/len(files))
+        old_filename = os.path.join(input_folder, file)
+        res = re.search(re_name, old_filename)
+        if res:
+            hex_num = res.group(1)
+            dec_num = str(int(hex_num, 16))
+            new_filename = old_filename.replace(hex_num, dec_num)
+            os.rename(old_filename, new_filename)
 
+
+
+def run_textcleaner_on_folder(input_folder, output_folder):
+    """
+
+    :param input_folder:
+    :param output_folder:
+    :return:
+    """
+    files = os.listdir(input_folder)
+    for i, file in enumerate(files, 0):
+        print(100*i/len(files))
+        print(os.path.join(input_folder, file))
+        p2t.call_textcleaner(filename=os.path.join(input_folder, file),   output_folder=output_folder)
 
 if __name__ == '__main__':
     filename = "/home/tobias/pyenvs/tesseractvenv/input/Page_001.pdf"
-    output_folder = "/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/"
+    output_folder = "/home/tobias/Dokumente/CS_Data/out/mwb_raw/splitted/bub_gb_1UMvAAAAMAAJ/clean_png/"
     p2t = Pdf2Text(output_folder)
     #p2t.run_on_folder("/home/tobias/pyenvs/tesseractvenv/input")
-    p2t.call_textcleaner("/home/tobias/Dokumente/Citizen\ Science/project/crawling/out/mwb_raw/splitted/bub_gb_1UMvAAAAMAAJ/img/bub_gb_1UMvAAAAMAAJ_Page_0x1bdf.png",
-                         output_folder="/home/tobias/Dokumente/Citizen\ Science/project/crawling/out/mwb_raw/splitted/bub_gb_1UMvAAAAMAAJ/")
-
+    input_folder = "/home/tobias/Dokumente/CS_Data/out/mwb_raw/splitted/bub_gb_1UMvAAAAMAAJ/clean_png"
+    #run_textcleaner_on_folder(input_folder=input_folder, output_folder=output_folder)
+    #rename_files(input_folder)
     #p2t.run_on_file(filename)
-
+    #os.environ['TESSDATA_PREFIX'] = '/usr/share/tesseract-ocr/'
     #p2t.run_pdf_to_png_on_folder("/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/splitted/bub_gb_1UMvAAAAMAAJ")
     #p2t.run_func_complete("/home/tobias/Dokumente/Citizen Science/project/crawling/out/mwb_raw/splitted/")
     #conv_filename = p2t.convert_image_to_greyscale("/home/tobias/pyenvs/tesseractvenv/mw.png", args={"preprocess":"blur"})
-    #p2t.run_tesseract_on_file(conv_filename)
+    p2t.run_tesseract_on_file("/home/tobias/Dokumente/CS_Data/out/mwb_raw/splitted/bub_gb_1UMvAAAAMAAJ/clean_png/clean.bub_gb_1UMvAAAAMAAJ_Page_86239.png")

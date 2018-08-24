@@ -6,7 +6,7 @@ import psycopg2
 import sys
 from datetime import datetime
 import os.path
-
+import glob
 conn_string = "host=172.19.0.2 port=5432 dbname=musicmatcher user=postgres password=cs2018"
 
 import base64
@@ -16,6 +16,20 @@ def file_to_base64(filename):
     with open(filename, "rb") as image_file:
         # decoding to not save byte but string
         return str(base64.b64encode(image_file.read()).decode('utf-8'))
+
+
+def read_sql_create_cmds(sql_folder: str):
+    """
+
+    :param sql_folder:
+    :return:
+    """
+    sql_commands = []
+    for sql_file in sorted(glob.glob(sql_folder + "/*.sql")):
+        print(sql_file)
+        with open(sql_file, 'r') as fin:
+            sql_commands.append(fin.read())
+    return sql_commands
 
 
 class PostGresDb:
@@ -55,6 +69,8 @@ class PostGresDb:
             self.cur.execute(sql, (args[0], args[1], args[2], args[3],))
         elif len(args) == 5:
             self.cur.execute(sql, (args[0], args[1], args[2], args[3], args[4]))
+        elif len(args) == 6:
+            self.cur.execute(sql, (args[0], args[1], args[2], args[3], args[4], args[5]))
 
         if "RETURNING" in sql:
             d_id = self.cur.fetchone()[0]
@@ -72,24 +88,53 @@ class PostGresDb:
         status = 'fresh'
         # not very elegant...
         img_path = "/".join(img_path.split("/")[5:])
-        thumbnail_path = img_path.replace('_img/', '_thumb/T_')
-        pdf_path = img_path.replace('_img', '_pdf').replace('png', 'pdf')
+        thumbnail_path = img_path.replace('png/', 'thumb/T_')
+        pdf_path = img_path.replace('png', 'pdf')
+        hocr_path = img_path.replace('png', 'hocr')
 
         sql = """INSERT INTO tbl_res (res_added_date, res_status, res_pdf_path, res_img_path,
-        res_img_thumb_path)
-         VALUES (%s, %s, %s, %s, %s) RETURNING res_id"""
+        res_img_thumb_path, res_hocr_path)
+         VALUES (%s, %s, %s, %s, %s, %s) RETURNING res_id"""
+        img_id = None
         try:
             img_id = self.insert(sql=sql,
-                                 args=[now, status, pdf_path, img_path, thumbnail_path])
+                                 args=[now, status, pdf_path, img_path, thumbnail_path, hocr_path])
             print(img_id)
-
+        except psycopg2.IntegrityError as ie:
+            if self.con:
+                self.con.rollback()
+                pass
         except psycopg2.DatabaseError as e:
             if self.con:
                 self.con.rollback()
-
             print('Error %s' % e)
             sys.exit(1)
 
+        # funktioniert anders als gedacht.
+
+        # if img_id:
+        #     preprocessing_path = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
+        #     project_path = os.path.abspath(os.path.join(preprocessing_path, os.pardir))
+        #
+        #     abshocr_path = project_path + "/"+hocr_path
+        #     with open(abshocr_path, 'r') as fin:
+        #         hocr = fin.read()
+        #
+        #     sql = """INSERT INTO rel_res_has_hocr (res_id, hocr)
+        #      VALUES (%s, %s)"""
+        #     try:
+        #         img_id = self.insert(sql=sql,
+        #                              args=[img_id, hocr])
+        #         print(img_id)
+        #     except psycopg2.IntegrityError as ie:
+        #         if self.con:
+        #             self.con.rollback()
+        #             pass
+        #     except psycopg2.DatabaseError as e:
+        #         if self.con:
+        #             self.con.rollback()
+        #         print('Error %s' % e)
+        #         sys.exit(1)
 
 def load_folder_into_db(folder_path):
     """
@@ -104,148 +149,22 @@ def load_folder_into_db(folder_path):
         if os.path.isfile(file):
             print("load {}".format(os.path.basename(file)))
             pg_db.insert_res_into_db(file)
+
         else:
             print('dont take {}'.format(os.path.basename(file)))
 
 
-def create_db():
+def create_db(sql_folder: str):
     """
 
     :return:
     """
     pg_db = PostGresDb()
+    commands = read_sql_create_cmds(sql_folder)
+
 
     """ create tables in the PostgreSQL database"""
-    commands = (
-        """CREATE TABLE public.tbl_tags
-            (
-                tag_id SERIAL NOT NULL ,
-                tag_name character varying COLLATE pg_catalog."default" NOT NULL,
-                CONSTRAINT tbl_tags_pkey PRIMARY KEY (tag_id),
-                CONSTRAINT tbl_tags_tag_name_key UNIQUE (tag_name)
-            )
-            WITH (
-                OIDS = FALSE
-            )
-            TABLESPACE pg_default;
-            
-            ALTER TABLE public.tbl_tags
-                OWNER to postgres;
-        """,
-        """CREATE TABLE public.tbl_res
-            (
-                res_id SERIAL NOT NULL,
-                res_added_date timestamp(4) with time zone,
-                res_status character varying COLLATE pg_catalog."default",
-                res_pdf_path character varying COLLATE pg_catalog."default",
-                res_img_path character varying COLLATE pg_catalog."default",
-                res_img_thumb_path character varying COLLATE pg_catalog."default",
-
-                CONSTRAINT tbl_images_txt_pkey PRIMARY KEY (res_id)
-            )
-            WITH (
-                OIDS = FALSE
-            )
-            TABLESPACE pg_default;
-            
-            ALTER TABLE public.tbl_res
-                OWNER to postgres;
-        """,
-        """CREATE TABLE public.tbl_users
-            (
-                u_id SERIAL NOT NULL,
-                u_name character varying COLLATE pg_catalog."default" NOT NULL,
-                u_psw character varying COLLATE pg_catalog."default" NOT NULL,
-                u_mail character varying COLLATE pg_catalog."default",
-                u_points bigint NOT NULL DEFAULT 0,
-                CONSTRAINT tbl_users_pkey PRIMARY KEY (u_id)
-            )
-            WITH (
-                OIDS = FALSE
-            )
-            TABLESPACE pg_default;
-            
-            ALTER TABLE public.tbl_users
-                OWNER to postgres;
-
-        """,
-        """CREATE TABLE public.rel_user_edited_res
-            (
-                res_id bigint NOT NULL,
-                u_id bigint NOT NULL,
-                edit_time date NOT NULL,
-                CONSTRAINT rel_user_edited_res_pkey PRIMARY KEY (res_id, u_id),
-                CONSTRAINT rel_user_edited_res_id_fkey FOREIGN KEY (res_id)
-                    REFERENCES public.tbl_res (res_id) MATCH SIMPLE
-                    ON UPDATE NO ACTION
-                    ON DELETE NO ACTION,
-                CONSTRAINT rel_user_edited_img_u_id_fkey FOREIGN KEY (u_id)
-                    REFERENCES public.tbl_users (u_id) MATCH SIMPLE
-                    ON UPDATE NO ACTION
-                    ON DELETE NO ACTION
-            )
-            WITH (
-                OIDS = FALSE
-            )
-            TABLESPACE pg_default;
-            
-            ALTER TABLE public.rel_user_edited_res
-                OWNER to postgres;
-        """,
-        """
-                CREATE TABLE public.tbl_res_info
-        (
-            res_id bigint NOT NULL,
-            u_id bigint NOT NULL,
-            res_name character varying COLLATE pg_catalog."default",
-            res_has_text boolean,
-            res_has_sheet_music boolean,
-            res_source character varying COLLATE pg_catalog."default",
-            CONSTRAINT tbl_resources_pkey PRIMARY KEY (res_id),
-            CONSTRAINT tbl_resources_fkey FOREIGN KEY (res_id)
-                REFERENCES public.tbl_res (res_id) MATCH SIMPLE
-                ON UPDATE NO ACTION
-                ON DELETE NO ACTION,
-            CONSTRAINT tbl_resources_fkey2 FOREIGN KEY (u_id)
-                REFERENCES public.tbl_users (u_id) MATCH SIMPLE
-                ON UPDATE NO ACTION
-                ON DELETE NO ACTION
-        )
-        WITH (
-            OIDS = FALSE
-        )
-        TABLESPACE pg_default;
-        
-        ALTER TABLE public.tbl_res_info
-            OWNER to postgres;
-        """,
-        """
-            CREATE TABLE public.rel_res_has_tags
-            (
-                res_id bigint NOT NULL,
-                tag_id bigint NOT NULL,
-                CONSTRAINT rel_res_has_tags_pkey PRIMARY KEY (res_id, tag_id),
-                CONSTRAINT rel_res_has_tags_res_id_fkey FOREIGN KEY (res_id)
-                    REFERENCES public.tbl_res (res_id) MATCH SIMPLE
-                    ON UPDATE NO ACTION
-                    ON DELETE NO ACTION,
-                CONSTRAINT rel_res_has_tags_tag_id_fkey FOREIGN KEY (tag_id)
-                    REFERENCES public.tbl_tags (tag_id) MATCH SIMPLE
-                    ON UPDATE NO ACTION
-                    ON DELETE NO ACTION
-            )
-            WITH (
-                OIDS = FALSE
-            )
-            TABLESPACE pg_default;
-            
-            ALTER TABLE public.rel_res_has_tags
-                OWNER to postgres;
-        """
-        )
-    conn = None
     try:
-
         cur = pg_db.con.cursor()
         # create table one by one
         for command in commands:
@@ -258,16 +177,24 @@ def create_db():
     finally:
         if pg_db.con is not None:
             pg_db.con.close()
+    print('created db')
+    admin_account = """INSERT INTO tbl_users (u_name, u_psw)
+         VALUES (%s, %s)"""
+    try:
+        pg_db.insert(sql=admin_account, args=['admin','admin'])
+    except psycopg2.IntegrityError:
+        pass
 
 
 def create_db_with_test_data(folder):
     """
+        @todo -> this is only for one sample!
         call this function to read some test pdf/png -data into the database
         you should have thumbnails created and pdfs
     """
-    create_db()
+    create_db(sql_folder='../res/sql')
     load_folder_into_db(folder)
 
 if __name__ == '__main__':
-    create_db_with_test_data("/home/tobias/mygits/musicmatcher/test_files/bub_gb_1UMvAAAAMAAJ_img")
-
+    create_db_with_test_data("/home/tobias/mygits/musicmatcher/test_files/bub_gb_ppAPAAAAYAAJ/png")
+    #load_folder_into_db("/home/tobias/mygits/musicmatcher/test_files/bub_gb_ppAPAAAAYAAJ/png")

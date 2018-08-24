@@ -11,7 +11,7 @@ def create_thumbnails_for_folder(folder: str):
     # get all the png files from the current folder
     for infile in glob.glob(folder+"/*.png"):
 
-        thumbnail_path = infile.replace('_img/', '_thumb/T_')
+        thumbnail_path = infile.replace('png/', 'thumb/T_')
         print(thumbnail_path)
         im = Image.open(infile)
         im.thumbnail((667, 880), Image.ANTIALIAS)
@@ -20,4 +20,4 @@ def create_thumbnails_for_folder(folder: str):
             im.save(thumbnail_path, "PNG")
 
 if __name__ == '__main__':
-    create_thumbnails_for_folder('/home/tobias/mygits/musicmatcher/test_files/img_original')
+    create_thumbnails_for_folder('/home/tobias/mygits/musicmatcher/test_files/bub_gb_ppAPAAAAYAAJ/png')
