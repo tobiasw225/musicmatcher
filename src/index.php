@@ -2,6 +2,7 @@
 <html>
 
 	<head>
+
 		<?php
 			include ('html_snippets/header.php');
 		?>
