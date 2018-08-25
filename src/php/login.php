@@ -71,7 +71,7 @@ session_start();
 									</div>
 
 								</form>
-								<form id="register-form" action="http://localhost:8000/db_funcs.php" method="post" role="form" style="display: none;">
+								<form id="register-form" action="#" method="post" role="form" style="display: none;">
 									<div class="form-group">
 										<input type="text" name="reg_username" id="sgn_username" tabindex="1" class="form-control" placeholder="Username" value="">
 									</div>

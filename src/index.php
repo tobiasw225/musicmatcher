@@ -37,6 +37,7 @@ session_start();
 		</div>
 
 		<?php
+
 		Include ('html_snippets/cc_licence.php');
 		?>
 	</body>

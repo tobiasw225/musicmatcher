@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4865278b-74c8-472c-af48-a4d022cebe68" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/res/sql/1_tbl_tags.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sql/2_tbl_users.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sql/3_tbl_res.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sql/rel_res_has_tags.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sql/rel_user_edited_res.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sql/tbl_res_info.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sql/create.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/db_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/image_processing.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/image_processing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/my_tesseract_funcs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/my_tesseract_funcs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/js/add_image.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/js/add_image.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,15 +15,15 @@
     <session id="597535185">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="4" />
+          <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.open.time.9" value="3" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -53,14 +42,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="4956" />
+          <entry key="py" value="5206" />
           <entry key="sql" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="4956" />
+          <entry key="Python" value="5206" />
           <entry key="SQL" value="15" />
         </counts>
       </usages-collector>
@@ -68,23 +57,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/db_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1150">
-              <caret line="113" selection-start-line="113" selection-end-line="113" />
+            <state relative-caret-position="655">
+              <caret line="214" lean-forward="true" selection-start-line="214" selection-end-line="214" />
               <folding>
                 <element signature="e#45#60#0" expanded="true" />
+                <element signature="e#3339#3373#0" />
+                <marker date="1535212794514" expanded="true" signature="4387:4614" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/res/sql/3_tbl_res.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="12" column="67" lean-forward="true" selection-start-line="12" selection-start-column="67" selection-end-line="12" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -149,7 +131,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -161,7 +143,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -177,22 +158,17 @@
             <path>
               <item name="prepocessing" type="b2602c69:ProjectViewProjectNode" />
               <item name="prepocessing" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="sql" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prepocessing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prepocessing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../authorship-unmasking-py-master" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Dropbox/Programme/nes_ammim_database" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -353,7 +329,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32864866" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32756758" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32756758" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39891893" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -394,24 +370,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/my_tesseract_funcs.py" />
     <entry file="file://$PROJECT_DIR$/mwb_crawler.py" />
-    <entry file="file://$PROJECT_DIR$/src/json_helper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-          <folding>
-            <element signature="e#1#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/my_tesseract_funcs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
           <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-            <marker date="1534957546537" expanded="false" signature="7184:7189" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -419,9 +381,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="11" column="45" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -429,23 +388,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="821">
           <caret line="165" column="82" selection-start-line="165" selection-start-column="82" selection-end-line="165" selection-end-column="82" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-            <marker date="1533543902222" expanded="true" signature="260:392" ph="..." />
-            <marker date="1533543902222" expanded="true" signature="414:2034" ph="..." />
-            <marker date="1533543902222" expanded="true" signature="1138:1196" ph="..." />
-            <marker date="1533543902222" expanded="true" signature="2880:2881" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/sql/create.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/res/sql/create.sql" />
     <entry file="file://$PROJECT_DIR$/res/sql/2_tbl_users.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
@@ -481,19 +427,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/sql/rel_res_has_ocr.sql">
+    <entry file="file://$PROJECT_DIR$/res/sql/rel_res_has_ocr.sql" />
+    <entry file="file://$PROJECT_DIR$/src/json_helper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/db_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1150">
-          <caret line="113" selection-start-line="113" selection-end-line="113" />
+        <state relative-caret-position="364">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
           <folding>
-            <element signature="e#45#60#0" expanded="true" />
+            <element signature="e#1#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -501,7 +441,19 @@
     <entry file="file://$PROJECT_DIR$/res/sql/3_tbl_res.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
-          <caret line="12" column="67" lean-forward="true" selection-start-line="12" selection-start-column="67" selection-end-line="12" selection-end-column="67" />
+          <caret line="12" column="67" selection-start-line="12" selection-start-column="67" selection-end-line="12" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/db_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="214" lean-forward="true" selection-start-line="214" selection-end-line="214" />
+          <folding>
+            <element signature="e#45#60#0" expanded="true" />
+            <element signature="e#3339#3373#0" />
+            <marker date="1535212794514" expanded="true" signature="4387:4614" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

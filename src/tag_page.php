@@ -74,8 +74,13 @@ session_start();
 						<button class="btn btn-default" id="reset-marker-btn" class="tooltip" title="">
 							Zurücksetzen
 						</button>
-						<button class="btn btn-default" id="submit_marker" class="tooltip" title="">
-							Weiter
+						
+						<button class="btn btn-default" id="stay_on_marker_page_btn" class="tooltip" title="">
+							Mit Tagging weitermachen
+						</button>
+						
+						<button class="btn btn-default" id="continue_with_ocr_btn" class="tooltip" title="">
+							Weiter mit OCR
 						</button>
 
 					</div>

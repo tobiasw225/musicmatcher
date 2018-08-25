@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <?php
 /**--------------------------------------------------------------------------
  * Function to handle Database Access
@@ -42,11 +45,17 @@ function exec_sql($sql) {
  * user functions
  */
  
+ 
+ 
  function register_user($username, $email, $password){
- 			$sql = "INSERT INTO tbl_users (u_name, u_psw, u_mail, u_points) VALUES ('$username', '$password', '$email', 0);";
+			$conn = get_conn();
+			$query = pg_query($conn, "INSERT INTO tbl_users (u_name, u_psw, u_mail, u_points) VALUES ('$username', '$password', '$email', 0) RETURNING u_id;");
+			$row = pg_fetch_row($query);
+			// assign default-group
+			$u_id = $row['0'];
+			$sql = "INSERT INTO rel_user_in_group (u_id, g_id) VALUES ('$u_id', 1)";
 			$res = exec_sql($sql);
 			test_sql($res);
-			
  }
  
  $c_uname = '';
@@ -57,7 +66,6 @@ function exec_sql($sql) {
 	$res = exec_sql($sql);
 	$row = pg_fetch_row($res);
 	global $c_uname, $c_points, $c_uid;
-
 	$c_uname = $row['1'];
 	$c_points = $row['2'];
 	$c_uid = $row['0'];
@@ -224,8 +232,10 @@ if (isset($_POST['get_all_tags'])){
 
 if( isset($_POST['insert_meta'])){
 		$res_id = $_POST['res_id'];
-		// also get user_id
-		$u_id = 1;
+		// save res_id for possible reuse in ocr
+		$_SESSION['last_res_id'] = $res_id;
+		// get user-id from session
+		$u_id = $_SESSION['user_id'];
 		// mark the res. as being 'touched'
 		update_pic_status('touched',$res_id);
 
@@ -240,48 +250,9 @@ if( isset($_POST['insert_meta'])){
        		}
 		}
 
-
-		
-
 }
 
 
-
-/*
-class MMDatabase {
-	function __construct(){
-		$this->note_limit = 20;
-		$this->db = pg_connect("host=localhost port=5432 dbname=test user=tobias password=test123");
- 		if(!$this->db){
-        	echo 'there has been an error connecting';
-    	} 
-	} // end-of-constructor
-	
-	
-	function insert_res_into_db($file_path){
-		
-		 //saves the image as txt in a postgres-database
-		 
-
-		$binary = file_get_contents("../".$file_path);
-		$base64 = base64_encode($binary);
-		$sql = "INSERT INTO tbl_images_txt (res_obj_txt) VALUES ('$base64');";
-		$result = pg_query($this->db, $sql);
-		if (!$result) {
-		  echo "Es gab einen Fehler beim Einfügen in die Datenbank.\n";
-		  exit;
-		}
-	}
-}
-
-function initDB() {
-	global $db;
-	$db = new MMDatabase();
-	if (!$db) {
-		echo $db -> lastErrorMsg();
-	}
-}
-*/
 
 
 ?>

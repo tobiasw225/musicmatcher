@@ -34,26 +34,19 @@ $(function() {
 	/**
 	 * used to submit tags + markers
 	 */
-	$('#submit_marker').click(function() {
-
-		var is_title_page = ($('#title_check').prop('checked'));
+	
+	function submit_markers(){
+				var is_title_page = ($('#title_check').prop('checked'));
 		var is_sheet_music = 0;
 		var ad_count = $("input[type=range]#ad_count").val();
 		var sm_count = $("input[type=range]#sm_count").val();
 
 
-		//console.log(sm_count);
-		//console.log(ad_count);
 		var res_id = $('#dbpic').attr('key');
 		// collects all tags
-
 		var tags = [];
 		$(".has-items div").each(function() {
 			tags.push($(this).text());
-		});
-		bootbox.alert({
-			message : "Vielen Dank. Die Daten werden eingefügt und du kannst einfach beim nächsten Bild weitermachen.",
-			backdrop : true,
 		});
 
 		$.post("php/db_funcs.php", {
@@ -64,18 +57,45 @@ $(function() {
 			tags : tags,
 			insert_meta : 1
 		}).done(function(data, textStatus, jqXHR) {
-			// syntax-fehler werden fälschlicherweise angezeigt.
-			
-			sleep(sleep_time).then(() => {
-				location.reload();
-			});
+
+		}).fail(function(jqXHR, textStatus, errorThrown) {
+			alert(errorThrown);
+		});
+		
+	}
+	
+	$('#continue_with_ocr_btn').click(function() {
+		var res_id = $('#dbpic').attr('key');
+		bootbox.alert({
+			message : "...Weiter gehts mit OCR. Viel Spaß!",
+			backdrop : true,
+		});
+		
+		submit_markers();
+		
+		$.post("php/text_correction.php", {
+			res_id : res_id
+		}).done(function(data, textStatus, jqXHR) {
 
 		}).fail(function(jqXHR, textStatus, errorThrown) {
 			alert(errorThrown);
 		});
 
 	});
-
+	
+	
+	$('#stay_on_marker_page_btn').click(function() {
+		
+		bootbox.alert({
+			message : "Vielen Dank. Die Daten werden eingefügt und du kannst einfach beim nächsten Bild weitermachen.",
+			backdrop : true,
+		});
+		submit_markers();
+		sleep(sleep_time).then(() => {
+			location.reload();
+		});
+	});
+	
 	/**
 	 * tag-input
 	 */

@@ -136,6 +136,31 @@ class PostGresDb:
         #         print('Error %s' % e)
         #         sys.exit(1)
 
+    def assign_default_group(self, u_id):
+        sql_insert = """INSERT INTO rel_user_in_group (u_id, g_id)
+             VALUES (%s, 1)"""
+        try:
+            self.insert(sql=sql_insert, args=[u_id])
+        except psycopg2.IntegrityError:
+            pass
+
+    def insert_user(self, user: str, psw: str):
+        """
+
+        :param user:
+        :param psw:
+        :return:
+        """
+        sql_insert = """INSERT INTO tbl_users (u_name, u_psw)
+             VALUES (%s, %s) RETURN u_id"""
+        try:
+            u_id = self.insert(sql=sql_insert, args=[user, psw])
+            self.assign_default_group(u_id)
+        except psycopg2.IntegrityError:
+            pass
+
+
+
 def load_folder_into_db(folder_path):
     """
 
@@ -178,12 +203,14 @@ def create_db(sql_folder: str):
         if pg_db.con is not None:
             pg_db.con.close()
     print('created db')
-    admin_account = """INSERT INTO tbl_users (u_name, u_psw)
-         VALUES (%s, %s)"""
+
+    default_group = """INSERT INTO tbl_groups (g_name)
+         VALUES (%s)"""
     try:
-        pg_db.insert(sql=admin_account, args=['admin','admin'])
+        pg_db.insert(sql=default_group, args=['default'])
     except psycopg2.IntegrityError:
         pass
+    pg_db.insert_user(user='admin', psw='admin')
 
 
 def create_db_with_test_data(folder):
@@ -194,6 +221,7 @@ def create_db_with_test_data(folder):
     """
     create_db(sql_folder='../res/sql')
     load_folder_into_db(folder)
+
 
 if __name__ == '__main__':
     create_db_with_test_data("/home/tobias/mygits/musicmatcher/test_files/bub_gb_ppAPAAAAYAAJ/png")
