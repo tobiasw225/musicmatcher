@@ -1,5 +1,5 @@
 		<title>music matcher</title>
-		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   		<link rel="stylesheet" href="http://localhost:8000/css/bootstrap.min.css" type = "text/css"/>
 

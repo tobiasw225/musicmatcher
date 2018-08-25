@@ -20,7 +20,9 @@ session_start();
         #image_header {
             padding: 10px;
         }
-		/*
+
+
+       /*
         #header {
             z-index: 4;
             height: 80px;
