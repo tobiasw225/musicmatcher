@@ -18,7 +18,6 @@ session_destroy();
 
        <script>
 		$(function() {
-
        		bootbox.alert({
 				message : "du bist ausgeloggt",
 				backdrop : true

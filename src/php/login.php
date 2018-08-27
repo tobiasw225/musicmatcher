@@ -117,7 +117,6 @@ if (!isset($_SESSION['user_name'])){
 				&& strlen($_POST["reg_password"])){
 				register_user($_POST["reg_username"], $_POST["reg_email"], $_POST["reg_password"]);
 				// @todo catch already existing
-				// @todo login not yet working
 				login_user($_POST["reg_username"], $_POST["reg_password"]);
 				//Session registrieren
 				$_SESSION['user_name'] = $c_uname;
