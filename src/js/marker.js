@@ -72,11 +72,16 @@ $(function() {
 		});
 		
 		submit_markers();
-		
+
 		$.post("php/text_correction.php", {
 			res_id : res_id
 		}).done(function(data, textStatus, jqXHR) {
-
+		// give the message above some time to load. 
+		sleep(sleep_time).then(() => {
+			window.location = "http://localhost:8000/php/text_correction.php";
+		});
+			
+			
 		}).fail(function(jqXHR, textStatus, errorThrown) {
 			alert(errorThrown);
 		});
@@ -91,7 +96,7 @@ $(function() {
 			backdrop : true,
 		});
 		submit_markers();
-		sleep(sleep_time).then(() => {
+		sleep(sleep_time/2).then(() => {
 			location.reload();
 		});
 	});
@@ -138,9 +143,15 @@ $(function() {
 	init_selectize_tag_search();
 
 	// handle sliders
+	var max_val = 10;
 	$(document).on('change', "input[type=range]", function(event) {
 		var newval = $(this).val();
-		$(this).next('span').text(newval);
+		if (parseInt(newval)>= 10) {
+			$(this).next('span').text('>10');
+		} else {
+			$(this).next('span').text(newval);
+
+		}
 	});
 
 });

@@ -2,6 +2,12 @@
 session_start();
 ?>
 <?php
+/**
+ * constants for user points. could also be saved in db
+ */
+$tag_bonus = 10;
+$ocr_bonus = 20;
+
 /**--------------------------------------------------------------------------
  * Function to handle Database Access
 -------------------------------------------------------------------------- */
@@ -45,8 +51,6 @@ function exec_sql($sql) {
  * user functions
  */
  
- 
- 
  function register_user($username, $email, $password){
 			$conn = get_conn();
 			$query = pg_query($conn, "INSERT INTO tbl_users (u_name, u_psw, u_mail, u_points) VALUES ('$username', '$password', '$email', 0) RETURNING u_id;");
@@ -71,6 +75,11 @@ function exec_sql($sql) {
 	$c_uid = $row['0'];
  }
  
+ function update_user_point($u_id, $u_points) {
+ 		$sql = "UPDATE tbl_users SET u_points ='$u_points' WHERE u_id=$u_id;";
+		exec_sql($sql);
+
+ }
  
 /**--------------------------------------------------------------------------
  * Functions to load and save tags 
@@ -127,7 +136,6 @@ function update_pic_status($edit_status, $res_id){
 }
 
 function insert_res_has_tag($tag_id, $res_id, $u_id){
-	// @todo insert u_id
 	$sql = "INSERT INTO rel_res_has_tags (tag_id, res_id) VALUES ('$tag_id','$res_id');";
 	exec_sql($sql);
 }
@@ -190,14 +198,7 @@ EOF;
 	echo "$res_id, $pdf_path";
 }
 
-/*
-function insert_res_into_db($file_path){
-	$binary = file_get_contents("../".$file_path);
-	$base64 = base64_encode($binary);
-	$sql = "INSERT INTO tbl_res (res_obj_txt) VALUES ('$base64');";
-	exec_sql($sql);
-}
-*/
+
 function load_random_png_image() {
 	$res_id = get_random_res_res_id();
 	load_png_from_db($res_id);
@@ -229,7 +230,9 @@ if (isset($_POST['get_all_tags'])){
 }
 
 
-
+/**
+ * call functions to insert tags + meta information
+ */
 if( isset($_POST['insert_meta'])){
 		$res_id = $_POST['res_id'];
 		// save res_id for possible reuse in ocr
@@ -249,7 +252,8 @@ if( isset($_POST['insert_meta'])){
 				insert_res_has_tag($tag_id, $res_id, $u_id);
        		}
 		}
-
+		$_SESSION['user_points'] = $_SESSION['user_points']+$tag_bonus;
+		update_user_point($u_id, $_SESSION['user_points']);
 }
 
 

@@ -1,5 +1,10 @@
 <?php 
 session_start();
+if (!isset($_SESSION['user_name'])){
+	$_SESSION['user_name'] = 'guest';
+	$_SESSION['user_id'] = 2;
+	$_SESSION['user_points'] = 0;
+}
 ?>
 <!DOCTYPE html>
 <html>

@@ -1,5 +1,10 @@
 <?php 
 session_start();
+if (!isset($_SESSION['user_name'])){
+	$_SESSION['user_name'] = 'guest';
+	$_SESSION['user_id'] = 2;
+	$_SESSION['user_points'] = 0;
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -109,20 +114,44 @@ session_start();
 		&& isset($_POST["reg_password"]) &&  isset($_POST["reg_confirm_password"])){
 			
 			if (($_POST["reg_password"] == $_POST["reg_confirm_password"])
-			&& strlen($_POST["reg_password"])){
-				// @todo catch already existing
+				&& strlen($_POST["reg_password"])){
 				register_user($_POST["reg_username"], $_POST["reg_email"], $_POST["reg_password"]);
+				// @todo catch already existing
+				// @todo login not yet working
+				login_user($_POST["reg_username"], $_POST["reg_password"]);
+				//Session registrieren
+				$_SESSION['user_name'] = $c_uname;
+ 				$_SESSION['user_points'] = $c_points;
+				$_SESSION['user_id'] = $c_uid;
+				
+				unset($_POST["reg_password"]);
+				unset($_POST["reg_confirm_password"]);
+				unset($_POST["reg_email"]);
+				unset($_POST["reg_username"]);
+			?>
+			 <script>
+        			window.setTimeout(function(){ window.location = "http://localhost:8000/php/login.php"; },100);
+       		</script>
+       		<?php
+				
 			} else {
 				echo "Passwörter stimmen nicht überein.";
 			}
  	}
- 	if (isset($_POST["log_username"]) && isset($_POST["log_password"])) {
+ 	// login users
+	if (isset($_POST["log_username"]) && isset($_POST["log_password"])) {
  		if (strlen($_POST["log_username"]) && strlen($_POST["log_password"])){
  			login_user($_POST["log_username"], $_POST["log_password"]);
+
 			//Session registrieren
 			$_SESSION['user_name'] = $c_uname;
  			$_SESSION['user_points'] = $c_points;
 			$_SESSION['user_id'] = $c_uid;
+			?>
+			 <script>
+        			window.setTimeout(function(){ window.location = "http://localhost:8000/php/login.php"; },0);
+       		</script>
+       		<?php
  		} 
 	}
  	
