@@ -116,7 +116,7 @@ if (!isset($_SESSION['user_name'])){
     </style>
     <script src="../js/vendor/jquery.js"></script>
     <script src="../js/add_image.js"></script>
-
+	<script src="../js/load_hocr.js"></script>
 	<?php
 		include ('../html_snippets/header.php');
 		?>

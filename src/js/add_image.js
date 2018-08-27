@@ -5,31 +5,7 @@
 
 
 });*/
-$(function() {
 
-	function get_hocr(res_id) {
-
-		$.post("http://localhost:8000/php/db_funcs.php", {
-			get_hocr : 1,
-			res_id : res_id
-		}).done(function(data, textStatus, jqXHR) {
-			console.log(data);
-			load_hocr(data);
-		}).fail(function(jqXHR, textStatus, errorThrown) {
-			alert(errorThrown);
-		});
-
-	}
-	// has to be in function to be called after post (without promise)
-	function load_hocr(url){
-		$("#sidebar").load(url);
-	}
-	// post request -> 0 ~ random hocr 
-	var res_id = 0;
-	get_hocr(res_id);
-	
-
-});
 
 
 
