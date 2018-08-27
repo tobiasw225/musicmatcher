@@ -1,5 +1,5 @@
 
-CREATE TABLE public.tbl_group
+CREATE TABLE public.tbl_groups
 (
     g_id bigint NOT NULL SERIAL NOT NULL,
     g_name character varying COLLATE pg_catalog."default" NOT NULL,
@@ -12,7 +12,7 @@ WITH (
 )
 TABLESPACE pg_default;
 
-ALTER TABLE public.tbl_group
+ALTER TABLE public.tbl_groups
     OWNER to postgres;
-COMMENT ON TABLE public.tbl_group
+COMMENT ON TABLE public.tbl_groups
     IS 'Each user can be assigned to several groups. These can be e.g. workgroups';

@@ -181,8 +181,9 @@ EOF;
 	$row = pg_fetch_row($res);		
 	$img_path = $row[0];
 	$thumb_path = $row[1];
-	echo "key=$res_id src='$thumb_path' xoriginal='$img_path' ";
+	echo "key=$res_id src='$img_path'";
 }
+
 
 function load_pdf_from_db($res_id){
 	/**

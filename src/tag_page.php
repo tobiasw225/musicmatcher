@@ -16,21 +16,29 @@ if (!isset($_SESSION['user_name'])){
 		?>
 		<!-- Messages PLUGIN  -->
 		<script type="text/javascript" src="http://localhost:8000/js/bootbox/bootbox.min.js"></script>
-		<!-- XZOOM PLUGIN  -->
-		<link rel="stylesheet" type="text/css" href="http://localhost:8000/css/xzoom.css" media="all" />
-		<script type="text/javascript" src="http://localhost:8000/js/xzoom/xzoom.min.js"></script>
-				<!-- PDF.js -->
 
-		<!--
-		<script src="http://localhost:8000/js/pdfjs/pdf.worker.js"></script>
-		<script src="http://localhost:8000/js/pdfjs/pdf.js"></script>
-		<script src="http://localhost:8000/js/pdf_handler.js" type="text/javascript"></script>
-		-->
 		<script src="http://localhost:8000/js/marker.js" type="text/javascript"></script>
-
+		
+		<!-- for autocompletition -->
 		<link rel="stylesheet" type="text/css" href="http://localhost:8000/node_modules/selectize/css/selectize.default.css" media="all" />
 		<script src="http://localhost:8000/node_modules/selectize/js/standalone/selectize.min.js"></script>
+		
+		<!-- for img-zooming -->
+		<link rel="stylesheet" type="text/css" href="http://localhost:8000/css/pavel_zoom.css"/>
+		<script src="http://localhost:8000/js/draggable_element.js"></script>
+		<script src="http://localhost:8000/js/mouse_zoom.js"></script>
 
+<style type="text/css">
+
+#image_element {
+
+	        width: 40em;
+            height: 30em;
+            left: -5em;
+            top: -0px;
+}
+        
+    </style>
 	</head>
 
 	<body>
@@ -94,22 +102,15 @@ if (!isset($_SESSION['user_name'])){
 
 				<div class="col-xs-12 col-md-6" class="tooltip xzoom-container" id="" title="">
 
-					<!-- with pngs -->
+					<button id="button_zoom_in" class="button"> +</button>
+					<button id="button_zoom_out" class="button"> -</button>
 
-					<img id="dbpic" class="xzoom" <?php
-					load_random_png_image();
-					?>>
-
-					<!--
-					<canvas id="the-canvas"></canvas>
-
-					<div id="pdf-main-container">
-					<div id="pdf-loader"></div>
-					<div id="pdf-contents">
-					<canvas id="pdf-canvas" key=0 width="400"></canvas>
+					<div id="image_header">
+					    <div id="image_header_tag">
+					        <img id="image_element" alt="wochenblatt_image" <?php load_random_png_image(); ?>>
+					    </div>
 					</div>
-					</div>
-					-->
+
 
 				</div>
 

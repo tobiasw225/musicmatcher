@@ -88,17 +88,17 @@ class PostGresDb:
         status = 'fresh'
         # not very elegant...
         img_path = "/".join(img_path.split("/")[5:])
-        thumbnail_path = img_path.replace('png/', 'thumb/T_')
+        img_path = 'http://localhost:8000/'+ img_path
         pdf_path = img_path.replace('png', 'pdf')
         hocr_path = img_path.replace('png', 'hocr')
 
         sql = """INSERT INTO tbl_res (res_added_date, res_status, res_pdf_path, res_img_path,
-        res_img_thumb_path, res_hocr_path)
-         VALUES (%s, %s, %s, %s, %s, %s) RETURNING res_id"""
+         res_hocr_path)
+         VALUES (%s, %s, %s, %s, %s) RETURNING res_id"""
         img_id = None
         try:
             img_id = self.insert(sql=sql,
-                                 args=[now, status, pdf_path, img_path, thumbnail_path, hocr_path])
+                                 args=[now, status, pdf_path, img_path, hocr_path])
             print(img_id)
         except psycopg2.IntegrityError as ie:
             if self.con:
@@ -152,7 +152,7 @@ class PostGresDb:
         :return:
         """
         sql_insert = """INSERT INTO tbl_users (u_name, u_psw)
-             VALUES (%s, %s) RETURN u_id"""
+             VALUES (%s, %s) RETURNING u_id"""
         try:
             u_id = self.insert(sql=sql_insert, args=[user, psw])
             self.assign_default_group(u_id)
