@@ -1,5 +1,4 @@
 $(function() {
-	//$(".xzoom").xzoom();
 
 	/**
 	 * Everything concerning tags, and marking res.

@@ -185,6 +185,27 @@ EOF;
 }
 
 
+function load_hocr_from_db($res_id){
+	/**
+	 * 
+	 */
+	$sql = <<<EOF
+      SELECT res_hocr_path FROM tbl_res WHERE res_id = '$res_id';
+EOF;
+	$res = exec_sql($sql);
+	$row = pg_fetch_row($res);		
+	$res_hocr_path = $row[0];
+	$res_hocr_path = "http://localhost:8000/". $res_hocr_path;
+	echo "$res_hocr_path";
+}
+
+
+function load_random_hocr_image(){
+
+	$res_id = get_random_res_res_id();
+	load_hocr_from_db($res_id);
+}
+
 function load_pdf_from_db($res_id){
 	/**
 	 * 
@@ -230,6 +251,19 @@ if (isset($_POST['get_all_tags'])){
 	echo load_tags();
 }
 
+/**
+ * if res_id is not set | 0 just fetch a random pic
+ */
+if (isset($_POST['get_hocr'])){
+
+	if ($_POST['res_id'] == 0) {
+		load_random_hocr_image();
+	} else {
+		load_hocr_from_db($_POST['res_id']);
+	}
+	
+	
+}
 
 /**
  * call functions to insert tags + meta information
