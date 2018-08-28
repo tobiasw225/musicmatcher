@@ -3,7 +3,6 @@
  */
 
 $(function() {
-	
 
 
 	var current_img_path = "";

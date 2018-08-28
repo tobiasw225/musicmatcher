@@ -14,6 +14,44 @@ if (!isset($_SESSION['user_name'])){
 		<?php
 			include ('html_snippets/header.php');
 		?>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    
+    
+
+
+      function drawChart() {
+		// not able to add ars directly!
+		var my_ar = [
+          ['Task', 'Hours per Day'],
+          ['untouched',     untouched],
+          ['touched',      touched],
+          ['tagged',      tagged],
+          ['ocr-corrected',      ocr_corrected]
+
+        ];
+ 
+        var data = google.visualization.arrayToDataTable(my_ar);
+
+        var options = {
+          title: 'Projekt Fortschritt'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+      // todo fetch numbers from db
+       google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+	var touched = 5;
+	var untouched = 4;
+	var ocr_corrected = 10;
+	var tagged = 5;      
+	
+	
+    </script>
 	</head>
 
 	<body>
@@ -39,6 +77,9 @@ if (!isset($_SESSION['user_name'])){
 				...
 			</p>
 			<a href="https://github.com/tobiasw225/musicmatcher">on github</a>
+
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+
 
 		</div>
 
