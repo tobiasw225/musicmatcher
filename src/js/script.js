@@ -8,38 +8,35 @@ $(function() {
 	var ocr_corrected;
 	var tagged;
 	
-	function drawChart() {
+	function drawTagChart() {
 
-		var my_ar = [['Task', 'State'], ['unbearbeitet', untouched], ['angesehen', touched], ['getagged', tagged], ['ocr-corrected', ocr_corrected]];
-
+		var my_ar = [['Task', 'State'], ['unbearbeitet', untouched], ['angesehen', touched], ['getagged', tagged]];
 		var data = google.visualization.arrayToDataTable(my_ar);
-
 		var options = {
-			title : 'Projekt Fortschritt'
+			title : 'Tagging Fortschritt'
 		};
-
-		var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-		chart.draw(data, options);
+		var tag_chart = new google.visualization.PieChart(document.getElementById('tagpiechart'));
+		tag_chart.draw(data, options);
 	}
 
-	function init_me(n_total, n_touched, n_untouched, n_ocr_corrected, n_tagged){
-		// todo fetch numbers from db
+
+
+
+	function init_tag_counts(n_total, n_touched, n_untouched, n_tagged){
+
 		total = parseInt(n_total);
 		touched= parseInt(n_touched);
-		ocr_corrected = parseInt(n_ocr_corrected);
 		untouched = parseInt(n_untouched);
 		tagged = parseInt(n_tagged);
-		
-		
 		google.charts.load('current', {
 			'packages' : ['corechart']
 		});
-		google.charts.setOnLoadCallback(drawChart);
-
-
+		google.charts.setOnLoadCallback(drawTagChart);
 	}
 	
+	
+	
+
 	
 	
 	function load_project_status() {
@@ -49,7 +46,7 @@ $(function() {
 		}).done(function(data, textStatus, jqXHR) {
 
 			var counts = data.trim().split(',');
-			init_me(counts[0], counts[1], counts[2], counts[3], counts[4]);
+			init_tag_counts(counts[0], counts[1], counts[2], counts[4]);
 
 		}).fail(function(jqXHR, textStatus, errorThrown) {
 			alert(errorThrown);
