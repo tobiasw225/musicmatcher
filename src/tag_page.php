@@ -32,8 +32,8 @@ if (!isset($_SESSION['user_name'])){
 
 #image_element {
 
-	        width: 40em;
-            height: 30em;
+	        width: 500px;
+            height: 600px;
             left: -5em;
             top: -0px;
 }

@@ -3,69 +3,70 @@
  */
 
 $(function() {
+	var touched;
+	var untouched;
+	var ocr_corrected;
+	var tagged;
+	
+	function drawChart() {
+
+		var my_ar = [['Task', 'State'], ['unbearbeitet', untouched], ['angesehen', touched], ['getagged', tagged], ['ocr-corrected', ocr_corrected]];
+
+		var data = google.visualization.arrayToDataTable(my_ar);
+
+		var options = {
+			title : 'Projekt Fortschritt'
+		};
+
+		var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+		chart.draw(data, options);
+	}
+
+	function init_me(n_total, n_touched, n_untouched, n_ocr_corrected, n_tagged){
+		// todo fetch numbers from db
+		total = parseInt(n_total);
+		touched= parseInt(n_touched);
+		ocr_corrected = parseInt(n_ocr_corrected);
+		untouched = parseInt(n_untouched);
+		tagged = parseInt(n_tagged);
+		
+		
+		google.charts.load('current', {
+			'packages' : ['corechart']
+		});
+		google.charts.setOnLoadCallback(drawChart);
 
 
-	var current_img_path = "";
+	}
+	
+	
+	
+	function load_project_status() {
+
+		$.post("http://localhost:8000/php/db_funcs.php", {
+			get_project_status : 1
+		}).done(function(data, textStatus, jqXHR) {
+
+			var counts = data.trim().split(',');
+			init_me(counts[0], counts[1], counts[2], counts[3], counts[4]);
+
+		}).fail(function(jqXHR, textStatus, errorThrown) {
+			alert(errorThrown);
+		});
+
+	}
+	if (window.location.href == 'http://localhost:8000/index.php'){
+			load_project_status();
+
+	}
+	
+	
+	
 
 	// init tooltips
 	$('.tooltip').tooltipster({
 		theme : 'tooltipster-punk'
 	});
-
-	/*
-	function load_filenames (path){
-					$.post("php/receive.php", {
-							path: path
-					}).done(function(data, textStatus, jqXHR) {
-						var files = JSON.parse("[" + data + "]")[0];
-						var rand_index = Math.floor(Math.random() * files.length)   ;
-						var abs_filename = files[rand_index];
-						init_cs_js_with_picture(abs_filename);
-						
-					}).fail(function(jqXHR, textStatus, errorThrown) {
-						alert(errorThrown);
-					});
-	}// end-of-function
-	
-	//load_filenames('../res');
-	
-	function init_with_db_image (){
-					$.post("db_funcs.php", {
-							init_image: 1
-					}).done(function(data, textStatus, jqXHR) {
-							init_cs_js_with_picture(data);
-					}).fail(function(jqXHR, textStatus, errorThrown) {
-						alert(errorThrown);
-					});
-	}// end-of-function
-	//init_with_db_image();
-	
-	*/
-		
-
-
-	// currently not used. could be reused for cropping advertisement.
-	// js in cropper.js
-	/*	
-	$('#sendtoomr').click(function() {
-		if (current_img_path.length) {
-			console.log(current_img_path);
-			$.post("php/omr_processing.php", {
-				proc_image : current_img_path
-			}).done(function(data, textStatus, jqXHR) {
-				$("#myresponse").html(data);
-				// reset current_img_path
-				current_img_path = "";
-				//alert("success");
-				//location.href = 'note_correction.php';
-			}).fail(function(jqXHR, textStatus, errorThrown) {
-				alert(errorThrown);
-			});
-		}
-	});
-	*/
-
-
-
 
 });

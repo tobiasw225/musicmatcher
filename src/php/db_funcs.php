@@ -89,14 +89,10 @@ function load_tags(){
       SELECT tag_name FROM tbl_tags;
 EOF;
 	$res = exec_sql($sql);
-	//$tag_array = array();
 	$tags_string = "";
 	while ($row = pg_fetch_row($res)) {
 		$tag = strtolower($row[0]);
 		$tags_string .= "$tag ";
-		//array_push($tag_array,"$tag");
-  		//echo "<span class='tags'>$tag</span>";
-  		//echo "<option value=$tag>";	
 	}
 	
 	return $tags_string; 
@@ -136,6 +132,7 @@ function update_pic_status($edit_status, $res_id){
 }
 
 function insert_res_has_tag($tag_id, $res_id, $u_id){
+	// could also count the tag the user uses
 	$sql = "INSERT INTO rel_res_has_tags (tag_id, res_id) VALUES ('$tag_id','$res_id');";
 	exec_sql($sql);
 }
@@ -144,7 +141,7 @@ function insert_res_info($res_id, $is_title_page,
 		$sm_count, $ad_count,$u_id){
 			
 		$sql = "INSERT INTO tbl_res_info (res_id, u_id, res_ad_count, res_sm_count, res_is_title_page) VALUES ('$res_id','$u_id', '$ad_count', '$sm_count', '$is_title_page');";
-	echo "$sql";
+
 	exec_sql($sql);
 }
 
@@ -184,6 +181,43 @@ EOF;
 	echo "key=$res_id src='$img_path'";
 }
 
+function load_project_status(){
+
+	$sql = <<<EOF
+      SELECT COUNT(res_status) FROM tbl_res WHERE res_status='fresh';
+EOF;
+	$res = exec_sql($sql);
+	$fresh = pg_fetch_row($res);
+	$fresh = $fresh[0];
+
+	$sql = <<<EOF
+      SELECT COUNT(res_status) FROM tbl_res WHERE res_status='touched';
+EOF;
+	$res = exec_sql($sql);
+	$touched = pg_fetch_row($res);	
+	$touched = $touched[0];
+	
+
+	$sql = <<<EOF
+      SELECT COUNT(res_status) FROM tbl_res WHERE res_status='ocr_corrected';
+EOF;
+	$res = exec_sql($sql);
+	$ocr_corrected = pg_fetch_row($res);
+	$ocr_corrected = $ocr_corrected[0];
+	
+	
+		$sql = <<<EOF
+      SELECT COUNT(res_id) FROM rel_res_has_tags 
+EOF;
+	$res = exec_sql($sql);
+	$tagged = pg_fetch_row($res);
+	$tagged = $tagged[0];
+	
+	$total = $ocr_corrected + $touched + $fresh;
+	echo "$total, $fresh, $touched, $ocr_corrected, $tagged";
+		
+	
+}
 
 function load_hocr_from_db($res_id){
 	/**
@@ -201,24 +235,11 @@ EOF;
 
 
 function load_random_hocr_image(){
-
 	$res_id = get_random_res_res_id();
 	load_hocr_from_db($res_id);
 }
 
-function load_pdf_from_db($res_id){
-	/**
-	 * 
-	 */
-	$sql = <<<EOF
-      SELECT res_pdf_path FROM tbl_res WHERE res_id = '$res_id';
-EOF;
-	$res = exec_sql($sql);
 
-	$row = pg_fetch_row($res);		
-	$pdf_path = $row[0];
-	echo "$res_id, $pdf_path";
-}
 
 
 function load_random_png_image() {
@@ -236,6 +257,12 @@ function load_random_pdf_image() {
 /**--------------------------------------------------------------------------
  * Handle POST-Variables
  --------------------------------------------------------------------------*/
+if (isset($_POST['get_project_status'])){
+
+	load_project_status();
+	exit;
+}
+ 
 if (isset($_POST['tag_like'])){
 	$res= load_tags_like($_POST['tag_like']);
 	echo $res;
@@ -261,8 +288,6 @@ if (isset($_POST['get_hocr'])){
 	} else {
 		load_hocr_from_db($_POST['res_id']);
 	}
-	
-	
 }
 
 /**
@@ -284,6 +309,7 @@ if( isset($_POST['insert_meta'])){
 		if (isset($_POST['tags'])){
 			foreach ($_POST['tags'] as $tag) {
            		$tag_id = insert_tag_into_db($tag);
+				
 				insert_res_has_tag($tag_id, $res_id, $u_id);
        		}
 		}

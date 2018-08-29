@@ -41,13 +41,12 @@ $(function() {
 		var sm_count = $("input[type=range]#sm_count").val();
 
 
-		var res_id = $('#dbpic').attr('key');
+		var res_id = $('#image_element').attr('key');
 		// collects all tags
 		var tags = [];
 		$(".has-items div").each(function() {
 			tags.push($(this).text());
 		});
-
 		$.post("php/db_funcs.php", {
 			is_title_page : is_title_page,
 			sm_count : sm_count,
@@ -95,9 +94,10 @@ $(function() {
 			backdrop : true,
 		});
 		submit_markers();
+		/*
 		sleep(sleep_time/2).then(() => {
 			location.reload();
-		});
+		});*/
 	});
 	
 	/**
