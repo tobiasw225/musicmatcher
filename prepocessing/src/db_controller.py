@@ -110,31 +110,7 @@ class PostGresDb:
             print('Error %s' % e)
             sys.exit(1)
 
-        # funktioniert anders als gedacht.
 
-        # if img_id:
-        #     preprocessing_path = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
-        #     project_path = os.path.abspath(os.path.join(preprocessing_path, os.pardir))
-        #
-        #     abshocr_path = project_path + "/"+hocr_path
-        #     with open(abshocr_path, 'r') as fin:
-        #         hocr = fin.read()
-        #
-        #     sql = """INSERT INTO rel_res_has_hocr (res_id, hocr)
-        #      VALUES (%s, %s)"""
-        #     try:
-        #         img_id = self.insert(sql=sql,
-        #                              args=[img_id, hocr])
-        #         print(img_id)
-        #     except psycopg2.IntegrityError as ie:
-        #         if self.con:
-        #             self.con.rollback()
-        #             pass
-        #     except psycopg2.DatabaseError as e:
-        #         if self.con:
-        #             self.con.rollback()
-        #         print('Error %s' % e)
-        #         sys.exit(1)
 
     def assign_default_group(self, u_id):
         sql_insert = """INSERT INTO rel_user_in_group (u_id, g_id)
@@ -159,6 +135,14 @@ class PostGresDb:
         except psycopg2.IntegrityError:
             pass
 
+    def insert_tag(self, tag: str):
+        sql_insert = """INSERT INTO tbl_tags (tag_name)
+             VALUES (%s)"""
+        try:
+            u_id = self.insert(sql=sql_insert, args=[tag])
+            self.assign_default_group(u_id)
+        except psycopg2.IntegrityError:
+            pass
 
 
 def load_folder_into_db(folder_path):
@@ -222,7 +206,23 @@ def create_db_with_test_data(folder):
     create_db(sql_folder='../res/sql')
     load_folder_into_db(folder)
 
+def load_tags(tag_file: str):
+    """
+
+    :param tag_file:
+    :return:
+    """
+    pg_db = PostGresDb()
+    with open(tag_file, 'r') as fin:
+        for line in fin.readlines():
+            tag = line.strip()
+            if tag:
+                pg_db.insert_tag(tag)
+
+
 
 if __name__ == '__main__':
-    create_db_with_test_data("/home/tobias/mygits/musicmatcher/test_files/bub_gb_ppAPAAAAYAAJ/png")
+
+    load_tags('/home/tobias/mygits/musicmatcher/prepocessing/res/music_words.txt')
+    #create_db_with_test_data("/home/tobias/mygits/musicmatcher/test_files/bub_gb_ppAPAAAAYAAJ/png")
     #load_folder_into_db("/home/tobias/mygits/musicmatcher/test_files/bub_gb_ppAPAAAAYAAJ/png")
