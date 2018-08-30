@@ -53,9 +53,12 @@ $(function() {
 		});
 
 	}
-	if (window.location.href == 'http://localhost:8000/index.php'){
-			load_project_status();
 
+
+
+	if ((window.location.href == 'http://localhost:8000/index.php') || (window.location.href == 'http://localhost:8000/')){
+
+		load_project_status();
 	}
 	
 	

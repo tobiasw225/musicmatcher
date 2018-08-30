@@ -44,13 +44,11 @@ if (!isset($_SESSION['user_name'])){
 			<a href="https://github.com/tobiasw225/musicmatcher">on github</a>
 
     		<div id="tagpiechart" style="width: 900px; height: 500px;"></div>
-    		<div id="ocrpiechart" style="width: 900px; height: 500px;"></div>
 
 
 		</div>
 
 		<?php
-
 		Include ('html_snippets/cc_licence.php');
 		?>
 	</body>

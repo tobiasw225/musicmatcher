@@ -176,7 +176,7 @@ function load_png_from_db($res_id){
 EOF;
 	$res = exec_sql($sql);
 	$row = pg_fetch_row($res);		
-	$img_path = $row[0];
+	$img_path = "http://localhost:8000/$row[0]";
 	$thumb_path = $row[1];
 	echo "key=$res_id src='$img_path'";
 }
@@ -239,7 +239,15 @@ function load_random_hocr_image(){
 	load_hocr_from_db($res_id);
 }
 
+function load_last_or_random(){
 
+	if ($_SESSION['last_res_id'] == 0) {
+		load_random_png_image();
+	} else {
+		
+		load_png_from_db($_SESSION['last_res_id']);
+	}
+}
 
 
 function load_random_png_image() {
@@ -258,7 +266,6 @@ function load_random_pdf_image() {
  * Handle POST-Variables
  --------------------------------------------------------------------------*/
 if (isset($_POST['get_project_status'])){
-
 	load_project_status();
 	exit;
 }
@@ -282,13 +289,16 @@ if (isset($_POST['get_all_tags'])){
  * if res_id is not set | 0 just fetch a random pic
  */
 if (isset($_POST['get_hocr'])){
-
 	if ($_POST['res_id'] == 0) {
 		load_random_hocr_image();
 	} else {
 		load_hocr_from_db($_POST['res_id']);
 	}
 }
+
+
+
+
 
 /**
  * call functions to insert tags + meta information

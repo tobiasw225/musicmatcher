@@ -75,7 +75,7 @@ $(function() {
 			res_id : res_id
 		}).done(function(data, textStatus, jqXHR) {
 		// give the message above some time to load. 
-		sleep(sleep_time).then(() => {
+		sleep(sleep_time/2).then(() => {
 			window.location = "http://localhost:8000/php/text_correction.php";
 		});
 			

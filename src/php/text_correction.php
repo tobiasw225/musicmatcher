@@ -5,6 +5,7 @@ if (!isset($_SESSION['user_name'])){
 	$_SESSION['user_id'] = 2;
 	$_SESSION['user_points'] = 0;
 }
+include ('db_funcs.php');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -141,7 +142,8 @@ if (!isset($_SESSION['user_name'])){
 
 <div id="image_header">
     <div id="image_header_tag">
-        <img id="image_element" src="../Input_files/0001.bin.png" alt="wochenblat_image">
+       <!-- <img id="image_element" src="../Input_files/0001.bin.png" alt="wochenblat_image">-->
+        <img id="image_element" alt="wochenblatt_image" <?php load_last_or_random(); ?>>
 
     </div>
 

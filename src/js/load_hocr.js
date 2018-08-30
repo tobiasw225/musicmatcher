@@ -1,8 +1,9 @@
 $(function() {
 
-	function get_rand_hocr(res_id) {
-		// post request -> will be with 
-		
+	function get_hocr() {
+		// since image is loaded first, just take it's key
+		var res_id = $("#image_element").attr('key');
+		console.log(res_id); 
 		
 		$.post("http://localhost:8000/php/db_funcs.php", {
 			get_hocr : 1,
@@ -12,16 +13,17 @@ $(function() {
 		}).fail(function(jqXHR, textStatus, errorThrown) {
 			alert(errorThrown);
 		});
-
 	}
+
+	
 	function load_hocr(url){
 		$("#sidebar").load(url, function () {
-        	alert("Load was performed.");
+        	//alert("Load was performed.");
     	});
 	}
-	var res_id = 0;
-	get_rand_hocr(res_id);
-	
+
+	get_hocr();
+
 
 });
 
