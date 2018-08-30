@@ -57,6 +57,9 @@
 #myselectedtags span.tags {
 	color: green;
 }
+#res_has_tags {
+	padding: 1em;
+}
 
 /**
  * 	checkboxes

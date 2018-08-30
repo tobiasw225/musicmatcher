@@ -99,7 +99,20 @@ EOF;
 }
 
 
+function load_associated_tags($res_id) {
+	/**
+	 * for simplicity directly insert into spans. 
+	 */
+		$sql = "SELECT t.tag_name, COUNT(t.tag_name) FROM rel_res_has_tags rht, tbl_tags t WHERE t.tag_id=rht.tag_id AND rht.res_id=$res_id GROUP BY t.tag_name";
 
+	$res = exec_sql($sql);
+	$tags_string = "";
+	while ($row = pg_fetch_row($res)) {
+		$tag = strtolower($row[0]);
+		$tags_string .= "<span class='tags' title='$row[1]'>$tag</span>";
+	}
+	return $tags_string; 
+}
 
 function insert_tag_into_db($tag){
 	// return
@@ -240,11 +253,9 @@ function load_random_hocr_image(){
 }
 
 function load_last_or_random(){
-
 	if ($_SESSION['last_res_id'] == 0) {
 		load_random_png_image();
 	} else {
-		
 		load_png_from_db($_SESSION['last_res_id']);
 	}
 }
@@ -283,6 +294,11 @@ if (isset($_POST['init_image'])){
 
 if (isset($_POST['get_all_tags'])){
 	echo load_tags();
+}
+
+
+if (isset($_POST['get_associated_tags'])){
+	echo load_associated_tags($_POST['res_id']);
 }
 
 /**

@@ -104,6 +104,23 @@ $(function() {
 	 * tag-input
 	 */
 
+	function get_associated_tags () {
+		var res_id = $("#image_element").attr('key');
+		$.post("http://localhost:8000/php/db_funcs.php", {
+			get_associated_tags : 1,
+			res_id: res_id
+		}).done(function(data, textStatus, jqXHR) {
+			if (data.length) {
+				$("#res_has_tags").html();
+				$("#res_has_tags").html("Diese Begriffe wurden bis jetzt damit verbunden:<br />"+data);
+			}
+		}).fail(function(jqXHR, textStatus, errorThrown) {
+			alert(errorThrown);
+		});
+	}
+	
+	get_associated_tags();
+
 	function init_selectize_tag_search() {
 		$.post("http://localhost:8000/php/db_funcs.php", {
 			get_all_tags : 1

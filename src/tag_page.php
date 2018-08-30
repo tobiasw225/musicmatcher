@@ -75,6 +75,11 @@ if (!isset($_SESSION['user_name'])) {
 
 					<br />
 					<div id="myselectedtags"></div>
+					
+					<div id="res_has_tags">Bisher wurden noch keine Begriffe damit verbunden. Fang einfach an!
+
+					</div>
+					
 
 					<div class="col mybuttons" >
 						<button class="btn btn-default" id="reset-marker-btn" class="tooltip" title="">
