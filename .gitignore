@@ -2,7 +2,7 @@
 docker/backend/*
 test_files/*
 src/out/*
-src/res/*
+#src/res/*
 
 .idea/*
 .idea/workspace.xml
