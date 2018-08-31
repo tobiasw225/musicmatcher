@@ -44,16 +44,33 @@ if (!isset($_SESSION['user_name'])) {
 		include ('html_snippets/user_info.php');
 		?>
 
-		<div class="container" style="margin-top: 10px">
+		<div class="container" style="margin-top: 10px" id="tag_correction_container">
 
 			<div class="row">
 
-				<div class="col-xs-12 col-md-6" class="tooltip" title=""  >
+				<div class="col-xs-12 col-md-6">
 
+
+					<div class="control-group">
+						<label for="select-tags" title="Sobald du anfängst Wörter zu schreiben, werden Tags geladen!">Tags:</label>
+						<select id="select-tags" placeholder="Beginne, Tags einzugeben..."></select>
+					</div>
+
+					<br />
+					
+
+					<div id="myselectedtags"></div>
+					<div id="res_has_tags" >
+						Bisher wurden noch keine Tags damit verbunden. Fang einfach an!
+					</div>
+					
 					<div class="custom-control form-control-lg custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="title_check">
-						<label class="custom-control-label" for="title_check">Titelseite oder ein Einband?</label>
+						<label class="custom-control-label" for="title_check">
+							Titelseite oder ein Einband?
+						</label>
 					</div>
+
 
 					<div class="slidecontainer">
 						<label  for="sm_count">Wie viele Notenabschnitte siehst du?</label>
@@ -63,34 +80,21 @@ if (!isset($_SESSION['user_name'])) {
 
 					<div class="slidecontainer">
 						<label  for="ad_count">Wie viele Werbeanzeigen siehst du?</label>
-						<input type="range" min="0" max="10" value="0" class="slider" id="ad_count">
+						<input type="range" min="0" max="10" value="0" class="slider" id="ad_count" >
 						<span id="ad_count_display">0</span>
 					</div>
 					<br />
 
-					<div class="control-group">
-						<label for="select-tags">Tags:</label>
-						<select id="select-tags" placeholder="Beginne, Tags einzugeben..."></select>
-					</div>
-
-					<br />
-					<div id="myselectedtags"></div>
-					
-					<div id="res_has_tags">Bisher wurden noch keine Begriffe damit verbunden. Fang einfach an!
-
-					</div>
-					
-
 					<div class="col mybuttons" >
-						<button class="btn btn-default" id="reset-marker-btn" class="tooltip" title="">
+						<button class="btn btn-default" id="reset-marker-btn" class="tooltip" title="alles doof?" >
 							Zurücksetzen
 						</button>
 
-						<button class="btn btn-default" id="stay_on_marker_page_btn" class="tooltip" title="">
+						<button class="btn btn-default" id="stay_on_marker_page_btn" class="tooltip" title="Noch so eine Seite!">
 							Mit Tagging weitermachen
 						</button>
 
-						<button class="btn btn-default" id="continue_with_ocr_btn" class="tooltip" title="">
+						<button class="btn btn-default" id="continue_with_ocr_btn" class="tooltip" title="Lust auf was Anderes?">
 							Weiter mit OCR
 						</button>
 

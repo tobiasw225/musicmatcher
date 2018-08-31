@@ -223,6 +223,8 @@ def load_tags(tag_file: str):
 
 if __name__ == '__main__':
 
-    load_tags('/home/tobias/mygits/musicmatcher/prepocessing/res/music_words.txt')
+    #load_tags('/home/tobias/mygits/musicmatcher/prepocessing/res/music_words.txt')
+    load_tags('/home/tobias/mygits/musicmatcher/prepocessing/res/tags.txt')
+
     #create_db_with_test_data("/home/tobias/mygits/musicmatcher/test_files/bub_gb_ppAPAAAAYAAJ/png")
     #load_folder_into_db("/home/tobias/mygits/musicmatcher/test_files/bub_gb_ppAPAAAAYAAJ/png")

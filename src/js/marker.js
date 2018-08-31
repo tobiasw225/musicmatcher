@@ -90,14 +90,14 @@ $(function() {
 	$('#stay_on_marker_page_btn').click(function() {
 		
 		bootbox.alert({
-			message : "Vielen Dank. Die Daten werden eingefügt und du kannst einfach beim nächsten Bild weitermachen.",
+			message : "Vielen Dank! Du kannst einfach beim nächsten Bild weitermachen.",
 			backdrop : true,
 		});
 		submit_markers();
-		/*
+		
 		sleep(sleep_time/2).then(() => {
 			location.reload();
-		});*/
+		});
 	});
 	
 	/**
