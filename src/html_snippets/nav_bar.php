@@ -1,6 +1,6 @@
 
-	<nav class="navbar navbar-inverse navbar-expand-lg 	navbar-dark   fixed-top">
-      <div class="container">
+	<nav class="navbar navbar-inverse navbar-expand-lg 	navbar-dark fixed-top">
+      <div class="container" id="my_navbar">
         <a class="navbar-brand" href="http://localhost:8000/index.php">music matcher</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">

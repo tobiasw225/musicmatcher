@@ -1,10 +1,11 @@
-<?php 
+<?php
 session_start();
-if (!isset($_SESSION['user_name'])){
-	$_SESSION['user_name'] = 'guest';
-	$_SESSION['user_id'] = 2;
-	$_SESSION['user_points'] = 0;
+if (!isset($_SESSION['user_name'])) {
+    $_SESSION['user_name'] = 'guest';
+    $_SESSION['user_id'] = 2;
+    $_SESSION['user_points'] = 0;
 }
+include('db_funcs.php');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -13,34 +14,32 @@ if (!isset($_SESSION['user_name'])){
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Text correction</title>
     <style type="text/css">
-       /* body {
-            margin: 0;
-       }*/
+        /* body {
+             margin: 0;
+        }*/
 
         #sidebar, #image_header, #image_header_tag {
             position: absolute;
         }
 
-		
         #image_header {
             padding: 10px;
         }
 
+        /*
+         #header {
+             z-index: 4;
+             height: 80px;
+             background: lightslategray;
+             border-bottom: 2px solid #7B5427;
+         }
 
-       /*
-        #header {
-            z-index: 4;
-            height: 80px;
-            background: lightslategray;
-            border-bottom: 2px solid #7B5427;
-        }
-
-        #header h1 {
-            z-index: 4
-            padding: 20px;
-            margin: 0;
-        }
-*/
+         #header h1 {
+             z-index: 4
+             padding: 20px;
+             margin: 0;
+         }
+ */
         #sidebar {
             padding-top: 50px;
             padding-left: 20px;
@@ -68,6 +67,7 @@ if (!isset($_SESSION['user_name'])){
             left: 20px;
             top: -30px;
         }
+
         #button_zoom_in {
             margin-left: 1100px;
             margin-top: 0px;
@@ -108,7 +108,7 @@ if (!isset($_SESSION['user_name'])){
         }
 
         .button:active {
-            z-index: 1	4;
+            z-index: 1 4;
             background-color: #3e8e41;
             box-shadow: 0 5px #666;
             transform: translateY(4px);
@@ -116,16 +116,17 @@ if (!isset($_SESSION['user_name'])){
     </style>
     <script src="../js/vendor/jquery.js"></script>
     <script src="../js/add_image.js"></script>
-	<?php
-		include ('../html_snippets/header.php');
-		?>
+    <script src="../js/load_hocr.js"></script>
+    <?php
+    include('../html_snippets/header.php');
+    ?>
 
 
 </head>
 <body>
-		<?php
-			include ('../html_snippets/nav_bar.php');
-		?>
+<?php
+include('../html_snippets/nav_bar.php');
+?>
 
 
 <div id="sidebar_header">
@@ -140,7 +141,10 @@ if (!isset($_SESSION['user_name'])){
 
 <div id="image_header">
     <div id="image_header_tag">
-        <img id="image_element" src="../Input_files/0001.bin.png" alt="wochenblat_image">
+
+        <!-- <img id="image_element" src="../Input_files/0001.bin.png" alt="wochenblat_image">-->
+        <img id="image_element" alt="wochenblatt_image" <?php load_last_or_random(); ?>>
+
 
     </div>
 
