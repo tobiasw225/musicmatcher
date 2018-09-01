@@ -116,6 +116,7 @@ include('db_funcs.php');
     </style>
     <script src="../js/vendor/jquery.js"></script>
     <script src="../js/add_image.js"></script>
+    <script src="../js/load_hocr.js"></script>
 	<?php
 		include ('../html_snippets/header.php');
 		?>
@@ -140,9 +141,9 @@ include('db_funcs.php');
 
 <div id="image_header">
     <div id="image_header_tag">
-        <img id="image_element" src="../Input_files/0001.bin.png" alt="wochenblat_image">
+        <!-- <img id="image_element" src="../Input_files/0001.bin.png" alt="wochenblat_image"> -->
 
-        <!-- <img id="image_element" src="../Input_files/0001.bin.png" alt="wochenblat_image">-->
+         <!-- <img id="image_element" src="../Input_files/0001.bin.png" alt="wochenblat_image">-->
         <img id="image_element" alt="wochenblatt_image" <?php load_last_or_random(); ?>>
 
 

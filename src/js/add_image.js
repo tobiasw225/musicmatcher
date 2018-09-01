@@ -8,8 +8,6 @@
 
 
 
-
-
 function edit_content() {
     add_attr();
     console.log(document.getElementsByClassName("ocr_line"));
