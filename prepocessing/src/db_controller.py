@@ -88,18 +88,22 @@ class PostGresDb:
         status = 'fresh'
         # not very elegant...
         img_path = "/".join(img_path.split("/")[5:])
+<<<<<<< HEAD
         img_path = 'test_files/'+img_path
         thumbnail_path = img_path.replace('png/', 'thumb/T_')
+=======
+        img_path = 'http://localhost:8000/'+ img_path
+>>>>>>> 5120589dd6c9314e5057a35ba05117a2d0062872
         pdf_path = img_path.replace('png', 'pdf')
         hocr_path = img_path.replace('png', 'hocr')
 
         sql = """INSERT INTO tbl_res (res_added_date, res_status, res_pdf_path, res_img_path,
-        res_img_thumb_path, res_hocr_path)
-         VALUES (%s, %s, %s, %s, %s, %s) RETURNING res_id"""
+         res_hocr_path)
+         VALUES (%s, %s, %s, %s, %s) RETURNING res_id"""
         img_id = None
         try:
             img_id = self.insert(sql=sql,
-                                 args=[now, status, pdf_path, img_path, thumbnail_path, hocr_path])
+                                 args=[now, status, pdf_path, img_path, hocr_path])
             print(img_id)
         except psycopg2.IntegrityError as ie:
             if self.con:
@@ -111,31 +115,7 @@ class PostGresDb:
             print('Error %s' % e)
             sys.exit(1)
 
-        # funktioniert anders als gedacht.
 
-        # if img_id:
-        #     preprocessing_path = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
-        #     project_path = os.path.abspath(os.path.join(preprocessing_path, os.pardir))
-        #
-        #     abshocr_path = project_path + "/"+hocr_path
-        #     with open(abshocr_path, 'r') as fin:
-        #         hocr = fin.read()
-        #
-        #     sql = """INSERT INTO rel_res_has_hocr (res_id, hocr)
-        #      VALUES (%s, %s)"""
-        #     try:
-        #         img_id = self.insert(sql=sql,
-        #                              args=[img_id, hocr])
-        #         print(img_id)
-        #     except psycopg2.IntegrityError as ie:
-        #         if self.con:
-        #             self.con.rollback()
-        #             pass
-        #     except psycopg2.DatabaseError as e:
-        #         if self.con:
-        #             self.con.rollback()
-        #         print('Error %s' % e)
-        #         sys.exit(1)
 
     def assign_default_group(self, u_id):
         sql_insert = """INSERT INTO rel_user_in_group (u_id, g_id)
@@ -160,6 +140,14 @@ class PostGresDb:
         except psycopg2.IntegrityError:
             pass
 
+    def insert_tag(self, tag: str):
+        sql_insert = """INSERT INTO tbl_tags (tag_name)
+             VALUES (%s)"""
+        try:
+            u_id = self.insert(sql=sql_insert, args=[tag])
+            self.assign_default_group(u_id)
+        except psycopg2.IntegrityError:
+            pass
 
 
 def load_folder_into_db(folder_path):
@@ -223,7 +211,29 @@ def create_db_with_test_data(folder):
     create_db(sql_folder='../res/sql')
     load_folder_into_db(folder)
 
+def load_tags(tag_file: str):
+    """
+
+    :param tag_file:
+    :return:
+    """
+    pg_db = PostGresDb()
+    with open(tag_file, 'r') as fin:
+        for line in fin.readlines():
+            tag = line.strip()
+            if tag:
+                pg_db.insert_tag(tag)
+
+
 
 if __name__ == '__main__':
+<<<<<<< HEAD
     create_db_with_test_data("/home/pasha/musicmatcher/test_files/bub_gb_ppAPAAAAYAAJ/png")
+=======
+
+    #load_tags('/home/tobias/mygits/musicmatcher/prepocessing/res/music_words.txt')
+    load_tags('/home/tobias/mygits/musicmatcher/prepocessing/res/tags.txt')
+
+    #create_db_with_test_data("/home/tobias/mygits/musicmatcher/test_files/bub_gb_ppAPAAAAYAAJ/png")
+>>>>>>> 5120589dd6c9314e5057a35ba05117a2d0062872
     #load_folder_into_db("/home/tobias/mygits/musicmatcher/test_files/bub_gb_ppAPAAAAYAAJ/png")

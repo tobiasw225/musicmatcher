@@ -1,10 +1,14 @@
-$(function () {
+/*$(function () {
     $("#sidebar").load("http://127.0.0.1:8000/Input_files/test_html/ersch.html", function () {
         alert("Load was performed.");
     });
 
 
-});
+});*/
+
+
+
+
 
 function edit_content() {
     add_attr();
