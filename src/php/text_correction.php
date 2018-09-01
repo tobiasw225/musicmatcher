@@ -124,8 +124,10 @@ if (!isset($_SESSION['user_name'])){
 </head>
 <body>
 		<?php
-			include ('../html_snippets/nav_bar.php');
-		?>
+        	include ('../html_snippets/nav_bar.php');
+		    include ('db_funcs.php'); 
+        ?>
+       
 
 
 <div id="sidebar_header">
@@ -140,7 +142,10 @@ if (!isset($_SESSION['user_name'])){
 
 <div id="image_header">
     <div id="image_header_tag">
-        <img id="image_element" src="../Input_files/0001.bin.png" alt="wochenblat_image">
+        <!--<img id="image_element" src="../Input_files/0001.bin.png" alt="wochenblat_image"> -->
+         <img id="image_element" <?php
+                  load_random_png_image();
+                    ?>>
 
     </div>
 

@@ -13,7 +13,7 @@ $ocr_bonus = 20;
 -------------------------------------------------------------------------- */
 
 // change this according to settings
-$conn_string = "host=172.19.0.2 port=5432 dbname=musicmatcher user=postgres password=cs2018";
+$conn_string = "host=172.18.0.2 port=5432 dbname=musicmatcher user=postgres password=cs2018";
 
 /**--------------------------------------------------------------------------
  * Helper functions
@@ -179,9 +179,9 @@ function load_png_from_db($res_id){
 EOF;
 	$res = exec_sql($sql);
 	$row = pg_fetch_row($res);		
-	$img_path = $row[0];
+	$img_path = "http://localhost:8000/" . $row[0];
 	$thumb_path = $row[1];
-	echo "key=$res_id src='$thumb_path' xoriginal='$img_path' ";
+	echo "key=$res_id src='$img_path'";
 }
 
 function load_pdf_from_db($res_id){

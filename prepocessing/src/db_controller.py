@@ -7,7 +7,7 @@ import sys
 from datetime import datetime
 import os.path
 import glob
-conn_string = "host=172.19.0.2 port=5432 dbname=musicmatcher user=postgres password=cs2018"
+conn_string = "host=172.18.0.2 port=5432 dbname=musicmatcher user=postgres password=cs2018"
 
 import base64
 import re
@@ -88,6 +88,7 @@ class PostGresDb:
         status = 'fresh'
         # not very elegant...
         img_path = "/".join(img_path.split("/")[5:])
+        img_path = 'test_files/'+img_path
         thumbnail_path = img_path.replace('png/', 'thumb/T_')
         pdf_path = img_path.replace('png', 'pdf')
         hocr_path = img_path.replace('png', 'hocr')
@@ -152,7 +153,7 @@ class PostGresDb:
         :return:
         """
         sql_insert = """INSERT INTO tbl_users (u_name, u_psw)
-             VALUES (%s, %s) RETURN u_id"""
+             VALUES (%s, %s) RETURNING u_id"""
         try:
             u_id = self.insert(sql=sql_insert, args=[user, psw])
             self.assign_default_group(u_id)
@@ -224,5 +225,5 @@ def create_db_with_test_data(folder):
 
 
 if __name__ == '__main__':
-    create_db_with_test_data("/home/tobias/mygits/musicmatcher/test_files/bub_gb_ppAPAAAAYAAJ/png")
+    create_db_with_test_data("/home/pasha/musicmatcher/test_files/bub_gb_ppAPAAAAYAAJ/png")
     #load_folder_into_db("/home/tobias/mygits/musicmatcher/test_files/bub_gb_ppAPAAAAYAAJ/png")
