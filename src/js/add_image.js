@@ -6,6 +6,14 @@
 
 });*/
 
+function save_content() {
+    console.log("Zaschli!!!!!!!!!!");
+    var a = document.body.appendChild(document.createElement("a"));
+    a.download = "export.html";
+    a.href = "data:text/html," + document.getElementById("sidebar").innerHTML;
+    a.click();
+}
+
 
 
 function edit_content() {
