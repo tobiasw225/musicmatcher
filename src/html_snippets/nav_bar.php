@@ -20,10 +20,11 @@
               ">ocr correction</a>
             </li>
 
-
-          </ul>
-          
+          </ul>          
               <ul class="nav navbar-nav navbar-right">
+              	<?php
+          		include ('html_snippets/user_info.php');
+				?>
       			<li><a href="http://localhost:8000/php/login.php"><span class="glyphicon glyphicon-user"></span> Sign Up | 
       			<span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       			<li><a href="http://localhost:8000/php/logout.php">

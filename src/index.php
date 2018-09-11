@@ -20,7 +20,6 @@ if (!isset($_SESSION['user_name'])) {
 
 		<?php
 		include ('html_snippets/nav_bar.php');
-		include ('html_snippets/user_info.php');
 		?>
 
 		<div id="introduction" class="container" style="margin-top: 10px">
@@ -65,7 +64,7 @@ if (!isset($_SESSION['user_name'])) {
 			oder <span class="mark_term"><a href="http://localhost:8000/php/text_correction.php">ocr correction</a></span>. Du musst dich dafür nicht registrieren!
 			 Viel mehr Spaß macht
 			es aber, wenn wir als Community zusammen arbeiten. Um dich zu registrieren oder 
-			einzuloggen, <span class="mark_term"><a href="http://localhost:8000/php/login.php">hier</a></span>!
+			einzuloggen, klicke einfach <span class="mark_term"><a href="http://localhost:8000/php/login.php">hier</a></span>!
 			</p>
 
 			
