@@ -189,11 +189,7 @@ function load_png_from_db($res_id){
 EOF;
 	$res = exec_sql($sql);
 	$row = pg_fetch_row($res);		
-<<<<<<< HEAD
-	$img_path = "http://localhost:8000/" . $row[0];
-=======
 	$img_path = "http://localhost:8000/$row[0]";
->>>>>>> 5120589dd6c9314e5057a35ba05117a2d0062872
 	$thumb_path = $row[1];
 	echo "key=$res_id src='$img_path'";
 }
