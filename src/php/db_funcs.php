@@ -13,7 +13,7 @@ $ocr_bonus = 20;
 -------------------------------------------------------------------------- */
 
 // change this according to settings
-$conn_string = "host=172.18.0.2 port=5432 dbname=musicmatcher user=postgres password=cs2018";
+$conn_string = "host=172.19.0.2 port=5432 dbname=musicmatcher user=postgres password=cs2018";
 
 /**--------------------------------------------------------------------------
  * Helper functions

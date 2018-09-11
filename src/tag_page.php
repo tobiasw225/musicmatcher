@@ -41,7 +41,6 @@ if (!isset($_SESSION['user_name'])) {
 
 		<?php
 		include ('html_snippets/nav_bar.php');
-		include ('html_snippets/user_info.php');
 		?>
 
 		<div class="container" style="margin-top: 10px" id="tag_correction_container">

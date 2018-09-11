@@ -3,7 +3,6 @@ $(function() {
 	function get_hocr() {
 		// since image is loaded first, just take it's key
 		var res_id = $("#image_element").attr('key');
-		console.log(res_id); 
 		
 		$.post("http://localhost:8000/php/db_funcs.php", {
 			get_hocr : 1,

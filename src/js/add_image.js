@@ -13,9 +13,6 @@ function save_content() {
     a.download = "export.html";
     a.href = "data:text/html," + document.getElementById("sidebar").innerHTML;
     a.click();
-
-
-
 }
 
 

@@ -13,10 +13,12 @@ include ('db_funcs.php');
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Text correction</title>
+       <link rel="stylesheet" type="text/css" href="../css/pavel_zoom.css">
+   
+
     <script src="../js/vendor/jquery.js"></script>
     <script src="../js/add_image.js"></script>
     <script src="../js/load_hocr.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/pavel_zoom.css">
     <?php
     include('../html_snippets/header.php');
     ?>
@@ -42,9 +44,7 @@ include('../html_snippets/nav_bar.php');
 
 <div id="image_header">
     <div id="image_header_tag">
-        <!-- <img id="image_element" src="../Input_files/0001.bin.png" alt="wochenblat_image"> -->
 
-        <!-- <img id="image_element" src="../Input_files/0001.bin.png" alt="wochenblat_image">-->
         <img id="image_element" alt="wochenblatt_image" <?php load_last_or_random(); ?>>
 
 
