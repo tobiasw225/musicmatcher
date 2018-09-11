@@ -149,16 +149,17 @@ span[id$="display"] {
 #introduction, #tag_correction_container {
 	font-size: large;
 }
+
 .mark_term {
 	font-weight: bold;
 	/*background: yellow;*/
 	color: black;
 	padding: .1em;
 	  text-shadow: 
-    -3px 0px 3px yellow,
-     3px 0px 3px yellow,
-     6px 0px 6px yellow,
-    -6px 0px 6px yellow;
+    -3px 0px 3px orange,
+     3px 0px 3px orange,
+     6px 0px 6px orange,
+    -6px 0px 6px orange;
 }
 #tutorial_video {
 	padding-bottom: 1em;
