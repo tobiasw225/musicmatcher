@@ -19,6 +19,7 @@ $(function() {
 		$("#sidebar").load(url, function () {
         	//alert("Load was performed.");
     	});
+    	$("#sidebar").attr('href',url);
 	}
 
 	get_hocr();

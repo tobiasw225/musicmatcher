@@ -35,7 +35,7 @@ include('../html_snippets/nav_bar.php');
 
     <div id="sidebar"></div>
     <button onclick="edit_content()" id="edit_content" class="button">Edit Text</button>
-    <button onclick="save_content()" id="save_content" class="button">Save Text</button>
+    <button onclick="save_hocr()" id="save_content" class="button">Save Text</button>
 </div>
 
 <button id="button_zoom_in" class="button"> +</button>

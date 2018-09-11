@@ -133,11 +133,6 @@ function insert_tag_into_db($tag){
 	return $new_id;
 }
 
-function update_has_sm($has_sm, $res_id){
-	// not tested
-	$sql = "UPDATE tbl_resources SET res_has_sheet_music = $has_sm WHERE res_id='$res_id';";
-	exec_sql($sql);
-}
 
 function update_pic_status($edit_status, $res_id){
 	$sql = "UPDATE tbl_res SET res_status ='$edit_status' WHERE res_id=$res_id;";
@@ -272,6 +267,25 @@ function load_random_pdf_image() {
 	
 }
 
+function save_hocr($hocr, $path) {
+	/**
+	 * save the hocr file
+	 */
+	$my_file = $path;
+	$fout = explode("http://localhost:8000/",$my_file);
+	$handle = fopen($fout[1], 'w') or die('Cannot open file:  '.$fout[1]); 
+	fwrite($handle, $hocr);
+	fclose($handle);
+
+}
+
+function save_hocr_status($res_id) {
+	/**
+	 * mark the sheet as being 'touched', meaning it has been visited.
+	 */
+	$sql = "UPDATE tbl_res SET res_status = 'touched' WHERE res_id='$res_id';";
+	exec_sql($sql);
+}
 
 /**--------------------------------------------------------------------------
  * Handle POST-Variables
@@ -312,6 +326,12 @@ if (isset($_POST['get_hocr'])){
 	}
 }
 
+if (isset($_POST['save_hocr'])) {
+	save_hocr_status($_POST['res_id']);
+	save_hocr($_POST['hocr'], $_POST['path']);
+	// load new hocr. this should be done after the hocr has been saved.
+	//load_random_hocr_image();
+}
 
 
 

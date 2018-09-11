@@ -1,10 +1,4 @@
-/*$(function () {
-    $("#sidebar").load("http://127.0.0.1:8000/Input_files/test_html/ersch.html", function () {
-        alert("Load was performed.");
-    });
 
-
-});*/
 
 
 function save_content() {
@@ -13,7 +7,27 @@ function save_content() {
     a.download = "export.html";
     a.href = "data:text/html," + document.getElementById("sidebar").innerHTML;
     a.click();
+    
 }
+
+	function save_hocr() {
+		var res_id = $("#image_element").attr('key');
+		var path = $("#sidebar").attr('href');
+		var hocr = document.getElementById("sidebar").innerHTML;
+		$.post("http://localhost:8000/php/db_funcs.php", {
+			save_hocr : 1,
+			res_id : res_id,
+			hocr: hocr,
+			path: path
+		}).done(function(data, textStatus, jqXHR) {
+			console.log(data);
+			//// load new hocr. this has to be tested. leave it out for now. 
+			//$("#sidebar").load(data, function () {});
+		}).fail(function(jqXHR, textStatus, errorThrown) {
+			alert(errorThrown);
+		});
+	}
+
 
 
 function edit_content() {
