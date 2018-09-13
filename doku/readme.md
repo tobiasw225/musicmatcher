@@ -12,6 +12,6 @@ Median number of words by file (**NZFM**)
 Median number of words by file (**MWB**)
 
 435130 correct -> 51 % correct <br>
-423810 false -> 41 % false<br>
+423810 false -> 49	 % false<br>
 852001 total
 

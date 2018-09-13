@@ -27,12 +27,23 @@ if (!isset($_SESSION['user_name'])) {
 
 		<style type="text/css">
 			#image_element {
-
-				width: 500px;
-				height: 600px;
-				left: -5em;
-				top: -0px;
+				width: 600px;
+				height: 700px;
+				left: -20em;
+				top: -10px;
 			}
+		#button_zoom_in {
+		    margin-left: 35em;
+		    margin-top: -60px;
+		    padding: 5px 10px;
+		}
+		
+		#button_zoom_out {
+		    margin-left: 35em;
+		    margin-top: 10px;
+		    padding: 5px 13px;
+		}
+
 
 		</style>
 	</head>
